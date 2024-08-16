@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    details {
+      padding: 10px;
+      border: 5px solid #f7f7f7;
+      border-radius: 3px;
+    }
+
+    summary::after {
+      content: '+';
+      width: 18px;
+      height: 10px;
+      background-size: cover;
+      margin-left: .75em;
+      transition: 0.2s;
+    }
+
+    summary {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    details {
+      transition: 0.2s background linear;
+    }
+
+    details:hover {
+      background: #dad3b1;
+    }
+
+    details > summary {
+      transition: color 1s;
+    }
+
+    details[open] > summary {
+      color: #d9103e;
+    }
+
+    details .accordion-item-content {
+      opacity: 0;
+    }
+
+    details[open] .accordion-item-content {
+      animation: fadeIn 0.75s linear forwards;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="accordion">
+    <h1>Accordion with Details</h1>
+    <details class="accordion-item">
+      <summary class="accordion-item-header">Header 1</summary>
+      <div class="accordion-item-content">
+        Lorem ipsum, dolor sit amet consectetur adipiscing elit. Et neque, velit
+        quasi quos quia nulla omnis! Similique dolorum, veniam facilis aliquam est
+        fuga aperiam voluptatibus, sapiente atque vitae quia accusamus.
+      </div>
+    </details>
+
+    <details class="accordion-item">
+      <summary class="accordion-item-header">Header 2</summary>
+      <div class="accordion-item-content">
+        Lorem ipsum, dolor sit amet consectetur adipiscing elit. Et neque, velit
+        quasi quos quia nulla omnis! Similique dolorum, veniam facilis aliquam est
+        fuga aperiam voluptatibus, sapiente atque vitae quia accusamus.
+      </div>
+    </details>
+
+    <details class="accordion-item">
+      <summary class="accordion-item-header">Header 3</summary>
+      <div class="accordion-item-content">
+        <p>Lorem ipsum, dolor sit amet consectetur adipiscing elit. Et neque, velit
+          Lorem ipsum, dolor sit amet consectetur adipiscing elit. Et neque, velit
+          quasi quos quia nulla omnis! Similique dolorum, veniam facilis aliquam est
+          fuga aperiam voluptatibus, sapiente atque vitae quia accusamus.
+        </p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipiscing elit. Et neque, velit
+          quasi quos quia nulla omnis! Similique dolorum, veniam facilis aliquam est
+          fuga aperiam voluptatibus, sapiente atque vitae quia accusamus.
+        </p>
+      </div>
+    </details>
+  </section>
+
+  <script>
+    document.querySelectorAll('.accordion-item-header').forEach(header => {
+      header.addEventListener('click', function(event) {
+        // Prevent the default toggle behavior
+        event.preventDefault();
+
+        const currentlyOpenItem = document.querySelector('details[open]');
+
+        // If there's an open item and it's not the one clicked, close it
+        if (currentlyOpenItem && currentlyOpenItem !== this.parentElement) {
+          currentlyOpenItem.removeAttribute('open');
+        }
+
+        // Toggle the open attribute on the clicked item
+        if (this.parentElement.hasAttribute('open')) {
+          this.parentElement.removeAttribute('open');
+        } else {
+          this.parentElement.setAttribute('open', '');
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

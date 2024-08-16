@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Add a border, margin, and padding as desired */
+    .accordion-item {
+      border: 1px solid black;
+      margin: 1em 0;
+      padding: 1em;
+      border-radius: 4px;
+    }
+
+    /* Style the summary to add a plus/minus icon */
+    .accordion-item-header {
+      cursor: pointer;
+      font-weight: bold;
+      position: relative;
+      padding-right: 1.5em; /* Space for the icon */
+    }
+
+    /* Plus sign by default */
+    .accordion-item-header::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      font-size: 1.2em;
+    }
+
+    /* Minus sign when open */
+    details[open] .accordion-item-header::after {
+      content: '-';
+    }
+
+    /* Animate the content when details is opened */
+    details[open] summary ~ * {
+      animation: sweep 0.5s ease-in-out;
+    }
+
+    /* Keyframes for the sweep animation */
+    @keyframes sweep {
+      0% {
+        opacity: 0;
+        transform: translateX(-10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Add left margin inside accordion item to align with header */
+    .accordion-item-content,
+    .accordion-item p {
+      margin-left: 1.5em; /* Adjust as needed */
+    }
+
+    /* Smooth transition for opening and closing the accordion */
+    .accordion-item-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+  <section class="accordion">
+    <h1>Accordion with Details</h1>
+    <details class="accordion-item">
+      <summary class="accordion-item-header">Header 1</summary>
+      <div class="accordion-item-content">
+        Lorem ipsum, dolor sit amet consectetur adipiscing elit. Et neque, velit
+        quasi quos quia nulla omnis! Similique dolorum, veniam facilis aliquam est
+        fuga aperiam voluptatibus, sapiente atque vitae quia accusamus.
+      </div>
+    </details>
+
+    <details class="accordion-item">
+      <summary class="accordion-item-header">Header 2</summary>
+      <div class="accordion-item-content">
+        Lorem ipsum, dolor sit amet consectetur adipiscing elit. Et neque, velit
+        quasi quos quia nulla omnis! Similique dolorum, veniam facilis aliquam est
+        fuga aperiam voluptatibus, sapiente atque vitae quia accusamus.
+      </div>
+    </details>
+
+    <details class="accordion-item">
+      <summary class="accordion-item-header">Header 3</summary>
+      <div class="accordion-item-content">
+        <p>Lorem ipsum, dolor sit amet consectetur adipiscing elit. Et neque, velit
+        Lorem ipsum, dolor sit amet consectetur adipiscing elit. Et neque, velit
+        quasi quos quia nulla omnis! Similique dolorum, veniam facilis aliquam est
+        fuga aperiam voluptatibus, sapiente atque vitae quia accusamus.
+        </p>
+        <p>
+        Lorem ipsum, dolor sit amet consectetur adipiscing elit. Et neque, velit
+        quasi quos quia nulla omnis! Similique dolorum, veniam facilis aliquam est
+        fuga aperiam voluptatibus, sapiente atque vitae quia accusamus.
+        </p>
+      </div>
+    </details>
+  </section>
+
+
+  <script>
+    document.querySelectorAll('details').forEach((accordionItem) => {
+      const summary = accordionItem.querySelector('summary');
+      const content = accordionItem.querySelector('.accordion-item-content');
+
+      summary.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the default behavior to control open/close manually
+
+        const currentlyOpen = document.querySelector('details[open]');
+
+        if (currentlyOpen && currentlyOpen !== accordionItem) {
+          currentlyOpen.removeAttribute('open');
+
+          const openContent = currentlyOpen.querySelector('.accordion-item-content');
+          openContent.style.maxHeight = openContent.scrollHeight + 'px';
+          requestAnimationFrame(() => {
+            openContent.style.maxHeight = '0';
+          });
+
+          currentlyOpen.addEventListener('transitionend', () => {
+            accordionItem.setAttribute('open', '');
+            content.style.maxHeight = content.scrollHeight + 'px';
+          }, { once: true });
+        } else if (!accordionItem.hasAttribute('open')) {
+          accordionItem.setAttribute('open', '');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        } else {
+          accordionItem.removeAttribute('open');
+          content.style.maxHeight = '0';
+        }
+      });
+    });
+
+
+
+  </script>
+
+</body>
+
+</html>
