@@ -6,6 +6,12 @@
 
   <!-- local stylesheet -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="aagu_styles.css">
+
+  <!-- aagu stylesheets -->
+  <!-- <link href="https://aagu.org/CSS_AAGU/global-AAGU.css" rel="stylesheet" type="text/css">
+  <link href="https://aagu.org/CSS_AAGU/home1-query.css" rel="stylesheet" type="text/css">
+  <link href="https://aagu.org/CSS_AAGU/home-nav.css" rel="stylesheet" type="text/css"> -->
 
   <!-- google fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,900">
@@ -18,27 +24,70 @@
 </head>
 
 <body>
-
-  <h1>Autism All Grown Up</h1>
-  <p>Autism is all grown up now, and it isn’t always pretty. The phrase “All Grown Up” captures the bittersweet
-    realization that often occurs when one encounters an individual they knew as a child, only to find that their
-    preconceived notions no longer fit the adult standing before them.</p>
-
+  <header class="banner">
+    <div class="header-image-container">
+      <div class="logo-space">
+        <img src="https://aagu.org/images_AAGU/aagu_logo_300.png" class="image-fluid" alt="AAGU logo" />
+      </div>
+      <div class="aagu-name">
+        <img src="https://aagu.org/images_AAGU/RoadsideTreesStudy.png" class="image-fluid"
+          alt="watercolor detail of Oregon trees by Alexandria Levin" />
+      </div>
+    </div>
+    <p id="header-tagline">Nonprofit helping autistic adults find what they need in Oregon through community,
+      networking, and information</p>
+  </header>
   <section class="accordion">
     <details class="accordion-item">
       <summary class="accordion-item-header">
+        Many autistic adults in Oregon are invisible, marginalized, and struggling. We can fix this.
+        <img class="accordion-summary-thumbnail" src="https://loremflickr.com/150/100/cat?random=1" alt="thumbnail" />
+      </summary>
+      <div class="accordion-item-content">
+        <div class="accordion-item-text">
+          <h2>Mission</h2>
+          <p>The mission of Autism All Grown Up (AAGU) is to empower autistic adults in Oregon by serving as a nexus
+            that provides accessible information, resources, and services tailored to their unique needs. By bridging
+            gaps in the existing infrastructure, we connect and interconnect the adult autistic community and our
+            supporters, facilitate information exchange, and promote collaboration. This ensures that autistic
+            individuals can access the support and opportunities we need to thrive, enhancing our well-being and
+            independence throughout the state.</p>
+          <h2>What We Do</h2>
+          <ul>
+            <li>Build community through outreach and autism-friendly physical spaces.</li>
+            <li>Identify unmet needs in the community.</li>
+            <li>Find ways to meet those needs.</li>
+          </ul>
+
+          <p>Working from within the community, we listen to autistic voices to identify and document systemic
+            challenges. We then perform root cause analysis, create or propose solutions, and publish the results for
+            the public to use. Our work helps autistic adults in Oregon find and access the services and resources they
+            need, helps others better understand their needs, and creates new resources as needed.</p>
+        </div>
+        <div class="accordion-item-image-container">
+          <img class="accordion-item-image" src="" alt="content image" />
+        </div>
+      </div>
+    </details>
+
+    <details class="accordion-item">
+      <summary class="accordion-item-header">
         Autistic adults represent the vast majority of autistic people but have a tiny fraction of the acknowledgment
-        and support they need.
+        and support.
         <img class="accordion-summary-thumbnail" src="https://loremflickr.com/150/100/cat?random=1" alt="thumbnail" />
       </summary>
       <div class="accordion-item-content">
         <div class="accordion-item-text">
           <p>Because autistic is how you are born, there are actually way more autistic adults than children. Many
             experts
-            believe that massive numbers of adults who have been wondering their entire lives why they have felt out of
-            place and faced so many challenges in life despite their abilities are probably undiagnosed autistic adults.
-            Sadly, experts also think many of these people have ended up on the dark sidelines of society: the ranks of
-            the unemployed, homeless, in the penal system, in the foster system, struggling with addiction, and lost to
+            believe that massive numbers of adults who have been wondering their entire lives why they have felt out
+            of
+            place and faced so many challenges in life despite their abilities are probably undiagnosed autistic
+            adults.
+            Sadly, experts also think many of these people have ended up on the dark sidelines of society: the ranks
+            of
+            the unemployed, homeless, in the penal system, in the foster system, struggling with addiction, and lost
+            to
             suicide.</p>
           <p>[Plot of population: Some description in image caption.]</p>
         </div>
@@ -55,8 +104,10 @@
       </summary>
       <div class="accordion-item-content">
         <div class="accordion-item-text">
-          <p>So little research has acknowledged the lives of adults with autism that we are just starting to learn what
-            successful adult development looks like. Until recently, almost all attention to autism has been focused on
+          <p>So little research has acknowledged the lives of adults with autism that we are just starting to learn
+            what
+            successful adult development looks like. Until recently, almost all attention to autism has been focused
+            on
             children, early intervention, and treatment. Late-identified and never-identified autistic adults face
             unique
             challenges with respect to aging, and most of these “lost generations” have not yet even been identified,
@@ -76,7 +127,8 @@
       </summary>
       <div class="accordion-item-content">
         <div class="accordion-item-text">
-          <p>Aging. Employment. Services. Services cliff. Diagnosis. Talking to doctors. Co-occurring conditions...</p>
+          <p>Aging. Employment. Services. Services cliff. Diagnosis. Talking to doctors. Co-occurring conditions...
+          </p>
         </div>
         <div class="accordion-item-image-container">
           <img class="accordion-item-image" src="" alt="content image" />
@@ -91,15 +143,19 @@
         <img class="accordion-summary-thumbnail" src="https://loremflickr.com/150/100/cat?random=1" alt="thumbnail" />
       </summary>
       <div class="accordion-item-content">
-        <div class="accordion-item-text">
-          <p>Advocacy is working to change our general view of neurodiversity and how we handle it in society, including
-            how to adjust research priorities for autism. This work moves slowly. In the meantime, millions of autistic
+        <div class="accordion-itemctext">
+          <p>Advocacy is working to change our general view of neurodiversity and how we handle it in society,
+            including
+            how to adjust research priorities for autism. This work moves slowly. In the meantime, millions of
+            autistic
             adults are trying to redefine and reclaim their identities, and hopefully overcome some of their past
             struggles.</p>
 
           <p>We want to help these people NOW and have found ways to do so without waiting for the slow machinery of
-            political, scientific, industrial, and cultural change. Our key insight is that the adult autistic community
-            is already primed with untapped resources in the form of talented, creative, and caring people who have the
+            political, scientific, industrial, and cultural change. Our key insight is that the adult autistic
+            community
+            is already primed with untapped resources in the form of talented, creative, and caring people who have
+            the
             exact skills needed.</p>
 
           <p>Past missteps in identifying and characterizing autism have led to numerous misunderstandings and myths.
@@ -146,7 +202,8 @@
           <ul>
             <li>Facilitate connections and collaboration within the adult autistic community</li>
             <li>Identify the unmet needs of autistic adults and report on the causes</li>
-            <li>Provide accurate, accessible content for autistic adults that we will continuously review and update as
+            <li>Provide accurate, accessible content for autistic adults that we will continuously review and update
+              as
               knowledge evolves</li>
             <li>Provide accurate, accessible content about autism and about the autistic community that we will
               continuously review and update as knowledge evolves</li>
@@ -158,10 +215,11 @@
 
           <ul>
             <li>Build partnerships with local organizations by networking and creating alliances.</li>
-            <li>Improve communicat?random=1ion channels to enhance service delivery and information resources by
+            <li>Improve communication channels to enhance service delivery and information resources by
               networking and
               building alliances.</li>
-            <li>Establish The Uncommons–meeting, and coworking spaces for autistic adults.</li>
+            <li>Establish <em>The Uncommons</em>: Physical meeting, and coworking spaces where autistic adults can work
+              and socialize unmasked.</li>
             <li>Create comprehensive and accessible guides on navigating healthcare, employment, and social services
             </li>
             <li>Improve online resources for autistic adults and provide consulting services to others to do the same
@@ -176,8 +234,16 @@
     </details>
   </section>
 
+  <footer>
+    <div id="footer-tagline">
+      <p><em><strong>Autism is all grown up now, and it isn’t always pretty.</strong></em></p>
+      <p>The phrase “All Grown Up” captures
+        the bittersweet realization that often occurs when one encounters an individual they knew as a child, only to
+        find
+        that their preconceived notions no longer fit the adult standing before them.</p>
+    </div>
+  </footer>
   <script src="script.js"></script>
-
 
 </body>
 

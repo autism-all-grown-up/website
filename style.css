@@ -1,10 +1,10 @@
 /* Global styling */
 body {
     font-family: 'Lato', sans-serif;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0.5em;
-    /* Reduced padding */
+    max-width: 1024px;
+    margin: 0 auto 0 20vw;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Accordion styling */
@@ -20,7 +20,7 @@ body {
     /* Reduced padding */
     margin: 1em 0;
     /* Reduced margin */
-    width: 50%;
+    width: 70%;
     min-width: 600px;
     /* Set min-width to 600px */
     transition: width 0.3s ease;
@@ -34,11 +34,11 @@ body {
 
 .accordion-item-header {
     font-family: 'Merriweather', serif;
-    font-size: 1.8vw;
+    font-size: 1.2vw;
     /* Adjusted font size to 18pt */
     font-weight: bold;
     background-color: #f4f4f4;
-    padding: 0.25em;
+    padding: 0.5em;
     /* Reduced padding */
     display: flex;
     align-items: flex-start;
@@ -65,7 +65,7 @@ body {
     content: "\f067";
     /* Plus icon */
     font-weight: 900;
-    margin-right: 0.5em;
+    margin-right: 1em;
     /* Added space between icon and text */
     transition: content 0.3s ease;
     align-self: flex-start;
@@ -82,7 +82,7 @@ body {
     grid-template-columns: 50% 30%;
     /* Grid for content */
     align-items: start;
-    padding: 0.5em;
+    padding: 1em;
     /* Reduced padding */
     background-color: #f9f9f9;
     gap: 20%;
@@ -93,7 +93,7 @@ body {
 
 .accordion-item-text {
     margin: 0;
-    font-size: 1.5vw;
+    font-size: 1.1vw;
 }
 
 .accordion-item-image-container {
@@ -101,7 +101,7 @@ body {
     justify-content: flex-end;
     align-items: flex-start;
     /* Align image with the top */
-    padding-top: 0.5em;
+    padding-top: 1em;
     /* Reduced padding */
 }
 
@@ -113,7 +113,7 @@ body {
 }
 
 .accordion-summary-thumbnail {
-    width: 10vw;
+    width: 6vw;
     height: auto;
     object-fit: cover;
     margin-left: auto;
