@@ -1,39 +1,162 @@
-html {
-  height: 100%;
-  width: 100%;
+/* Global styling */
+body {
+    font-family: 'Lato', sans-serif;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0.5em;
+    /* Reduced padding */
 }
+
+/* Accordion styling */
 .accordion {
-  width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .accordion-item {
-  background-color: #fff;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
+    border: 1px solid black;
+    padding: 0.5em;
+    /* Reduced padding */
+    margin: 1em 0;
+    /* Reduced margin */
+    width: 50%;
+    min-width: 600px;
+    /* Set min-width to 600px */
+    transition: width 0.3s ease;
+    border-radius: 2.5px;
+    /* Slight rounding of corners, cut in half */
 }
 
-.accordion-header {
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.accordion-item[open] {
+    width: 100%;
 }
 
-.accordion-content {
-  display: none;
-  padding: 10px;
+.accordion-item-header {
+    font-family: 'Merriweather', serif;
+    font-size: 1.8vw;
+    /* Adjusted font size to 18pt */
+    font-weight: bold;
+    background-color: #f4f4f4;
+    padding: 0.25em;
+    /* Reduced padding */
+    display: flex;
+    align-items: flex-start;
+    /* Align items to the top */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    line-height: 1.4;
+    border-radius: 2.5px;
+    /* Slight rounding of corners, cut in half */
 }
 
-.icon {
-  font-size: 20px;
-  margin-left: auto;
-  transform: rotate(90deg);
-  transition: all 0.2s ease;
+.accordion-item-header:hover {
+    background-color: #ddd;
 }
 
-.open .icon {
-  transform: rotate(0);
+.accordion-item[open] .accordion-item-header {
+    background-color: #ddd;
+}
+
+/* Font Awesome icons for plus and minus */
+.accordion-item-header::before {
+    font-family: "Font Awesome 5 Free";
+    /* Use Font Awesome for icons */
+    content: "\f067";
+    /* Plus icon */
+    font-weight: 900;
+    margin-right: 0.5em;
+    /* Added space between icon and text */
+    transition: content 0.3s ease;
+    align-self: flex-start;
+    /* Align icon to the top */
+}
+
+.accordion-item[open] .accordion-item-header::before {
+    content: "\f068";
+    /* Minus icon when open */
+}
+
+.accordion-item-content {
+    display: grid;
+    grid-template-columns: 50% 30%;
+    /* Grid for content */
+    align-items: start;
+    padding: 0.5em;
+    /* Reduced padding */
+    background-color: #f9f9f9;
+    gap: 20%;
+    /* Gap set to 20% */
+    border-radius: 0 0 2.5px 2.5px;
+    /* Round corners at the bottom, cut in half */
+}
+
+.accordion-item-text {
+    margin: 0;
+    font-size: 1.5vw;
+}
+
+.accordion-item-image-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    /* Align image with the top */
+    padding-top: 0.5em;
+    /* Reduced padding */
+}
+
+.accordion-item-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 2.5px;
+    /* Round corners of the image, cut in half */
+}
+
+.accordion-summary-thumbnail {
+    width: 10vw;
+    height: auto;
+    object-fit: cover;
+    margin-left: auto;
+    align-self: flex-start;
+    /* Align thumbnail to the top */
+    border-radius: 2.5px;
+    /* Slight rounding of corners for thumbnails, cut in half */
+}
+
+/* Media queries for responsiveness */
+
+/* Eliminate the gap at 1024px and above */
+@media (max-width: 1024px) {
+    .accordion-item-content {
+        grid-template-columns: 50% 50%;
+        /* Eliminate gap by making columns equal width */
+        gap: 0;
+    }
+}
+
+/* Hide the thumbnail when the details element is open */
+.accordion-item:has([open]) .accordion-summary-thumbnail {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .accordion-item {
+        width: 100%;
+    }
+
+    .accordion-item-content {
+        grid-template-columns: 100%;
+        /* Stack the content vertically */
+    }
+
+    .accordion-item-image-container {
+        justify-content: center;
+    }
+
+    .accordion-item-image {
+        width: 100%;
+        margin-top: 1em;
+        max-width: 90vw;
+        /* Use vw units to keep the image within the viewport */
+    }
 }
