@@ -1,16 +1,23 @@
 .banner {
   display: flex;
-  flex-direction: column; /* Keep content vertical within banner */
-  align-items: left; /* Center align all content */
-  text-align: left; /* Center text content */
-  padding-top: 2vw; /* Add padding for spacing */
+  flex-direction: column;
+  /* Keep content vertical within banner */
+  align-items: left;
+  /* Center align all content */
+  text-align: left;
+  /* Center text content */
+  padding-top: 2vw;
+  /* Add padding for spacing */
 }
 
 .header-image-container {
   display: flex;
-  justify-content: left; /* Center images horizontally */
-  gap: 2em; /* Add space between the two images */
-  width: 100%; /* Ensure it spans the full width */
+  justify-content: left;
+  /* Center images horizontally */
+  gap: 2em;
+  /* Add space between the two images */
+  width: 100%;
+  /* Ensure it spans the full width */
 }
 
 .image-fluid {
@@ -20,7 +27,8 @@
 }
 
 #header-tagline {
-  margin-top: 1em; /* Add space above the tagline */
+  margin-top: 1em;
+  /* Add space above the tagline */
   font-family: 'Lato', sans-serif;
   font-size: 1.2vw;
   font-weight: 800;

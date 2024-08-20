@@ -1,7 +1,7 @@
 /* Global styling */
 body {
     font-family: 'Lato', sans-serif;
-    max-width: 1024px;
+    max-width: 1200px;
     margin: 0 auto 0 20vw;
     display: flex;
     flex-direction: column;
