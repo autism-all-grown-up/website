@@ -1,10 +1,12 @@
 /* Global styling */
 body {
     font-family: 'Lato', sans-serif;
+    font-size: 16px;
     max-width: 1200px;
-    margin: 0 auto 0 20vw;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    justify-items: center;
 }
 
 /* Accordion styling */
@@ -12,6 +14,7 @@ body {
     margin: 0;
     padding: 0;
     list-style: none;
+    max-width: 1024px;
 }
 
 .accordion-item {
@@ -20,9 +23,7 @@ body {
     /* Reduced padding */
     margin: 1em 0;
     /* Reduced margin */
-    width: 70%;
-    min-width: 600px;
-    /* Set min-width to 600px */
+    width: 100%;
     transition: width 0.3s ease;
     border-radius: 2.5px;
     /* Slight rounding of corners, cut in half */
@@ -34,7 +35,7 @@ body {
 
 .accordion-item-header {
     font-family: 'Merriweather', serif;
-    font-size: 1.2vw;
+    font-size: 1.2em;
     /* Adjusted font size to 18pt */
     font-weight: bold;
     background-color: #f4f4f4;
@@ -79,13 +80,13 @@ body {
 
 .accordion-item-content {
     display: grid;
-    grid-template-columns: 50% 30%;
+    grid-template-columns: 45% 45%;
     /* Grid for content */
     align-items: start;
     padding: 1em;
     /* Reduced padding */
     background-color: #f9f9f9;
-    gap: 20%;
+    gap: 10%;
     /* Gap set to 20% */
     border-radius: 0 0 2.5px 2.5px;
     /* Round corners at the bottom, cut in half */
@@ -93,7 +94,7 @@ body {
 
 .accordion-item-text {
     margin: 0;
-    font-size: 1.1vw;
+    font-size: 1.1em;
 }
 
 .accordion-item-image-container {
@@ -113,7 +114,7 @@ body {
 }
 
 .accordion-summary-thumbnail {
-    width: 6vw;
+    width: 6em;
     height: auto;
     object-fit: cover;
     margin-left: auto;
@@ -156,7 +157,7 @@ body {
     .accordion-item-image {
         width: 100%;
         margin-top: 1em;
-        max-width: 90vw;
-        /* Use vw units to keep the image within the viewport */
+        max-width: 90em;
+        /* Use em units to keep the image within the viewport */
     }
 }
