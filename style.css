@@ -30,8 +30,18 @@ body {
 }
 
 .accordion-item[open] {
+
     width: 100%;
 }
+.accordion-item:not([open])>summary .accordion-summary-thumbnail {
+    display: inline-block;
+}
+
+/* Style for the image in the summary when details are open */
+.accordion-item[open]>summary .accordion-summary-thumbnail {
+    display: none;
+}
+
 
 .accordion-item-header {
     font-family: 'Merriweather', serif;
