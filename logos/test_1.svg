@@ -1,23 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
-  <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;family=Merriweather+Sans:wght@700&amp;display=swap');
-    </style>
-  </defs>
-  
-  <!-- "autism" -->
-  <text x="10" y="70" font-family="Merriweather" font-size="74" fill="#CF520A">a</text>
-  <text x="65" y="70" font-family="Merriweather Sans" font-size="37" fill="#333333">UTISM</text>
-  
-  <!-- "all" -->
-  <text x="10" y="140" font-family="Merriweather" font-size="51" fill="#CF520A">a</text>
-  <text x="45" y="140" font-family="Merriweather Sans" font-size="37" fill="#333333">LL</text>
-  
-  <!-- "grown" -->
-  <text x="10" y="210" font-family="Merriweather" font-size="51" fill="#CF520A">g</text>
-  <text x="45" y="210" font-family="Merriweather Sans" font-size="37" fill="#333333">ROWN</text>
-  
-  <!-- "up" -->
-  <text x="45" y="280" font-family="Merriweather" font-size="51" fill="#CF520A">u</text>
-  <text x="80" y="280" font-family="Merriweather Sans" font-size="37" fill="#333333">P</text>
-</svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Gravit.io -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 300 300" width="300pt" height="300pt"><defs><clipPath id="_clipPath_Irv8mRP0tXxrnIRXh08Znh5sZjjj18PN"><rect width="300" height="300"/></clipPath></defs><g clip-path="url(#_clipPath_Irv8mRP0tXxrnIRXh08Znh5sZjjj18PN)"><g clip-path="url(#_clipPath_qVZfdxXmBJiKAdCqwMcYYa0P8w1UIGhE)"><text transform="matrix(1,0,0,1,27,71.14)" style="font-family:'Merriweather';font-weight:400;font-size:72px;font-style:normal;font-variant-ligatures:none;fill:[Object GRGBColor];stroke:none;">a</text></g><defs><clipPath id="_clipPath_qVZfdxXmBJiKAdCqwMcYYa0P8w1UIGhE"><rect x="0" y="0" width="43" height="90.504" transform="matrix(1,0,0,1,27,0.292)"/></clipPath></defs><g clip-path="url(#_clipPath_Nwji9QHx3R4NkNNTZb16HG8NEDhOxMdF)"><text transform="matrix(1,0,0,1,65,70)" style="font-family:'Merriweather';font-weight:400;font-size:37px;font-style:normal;font-variant-ligatures:none;fill:[Object GRGBColor];stroke:none;">UTISM</text></g><defs><clipPath id="_clipPath_Nwji9QHx3R4NkNNTZb16HG8NEDhOxMdF"><rect x="0" y="0" width="129" height="46.509" transform="matrix(1,0,0,1,65,33.592)"/></clipPath></defs><g clip-path="url(#_clipPath_XjIJOVi70wKLkoDs48YAJsFUul3uXbWv)"><text transform="matrix(1,0,0,1,36,105.031)" style="font-family:'Merriweather';font-weight:400;font-size:51px;font-style:normal;font-variant-ligatures:none;fill:[Object GRGBColor];stroke:none;">a</text></g><defs><clipPath id="_clipPath_XjIJOVi70wKLkoDs48YAJsFUul3uXbWv"><rect x="0" y="0" width="31" height="64.107" transform="matrix(1,0,0,1,36,54.847)"/></clipPath></defs><g clip-path="url(#_clipPath_BlflT9oav9XoA2BqHmz7hyHCx8thtqj2)"><text transform="matrix(1,0,0,1,65,104.949)" style="font-family:'Merriweather';font-weight:400;font-size:37px;font-style:normal;font-variant-ligatures:none;fill:[Object GRGBColor];stroke:none;">LL</text></g><defs><clipPath id="_clipPath_BlflT9oav9XoA2BqHmz7hyHCx8thtqj2"><rect x="0" y="0" width="49" height="46.509" transform="matrix(1,0,0,1,65,68.541)"/></clipPath></defs><g clip-path="url(#_clipPath_IAEQHj7WtKl7QB1kDseYG0DOUSUhdu28)"><text transform="matrix(1,0,0,1,34,141.98)" style="font-family:'Merriweather';font-weight:400;font-size:51px;font-style:normal;font-variant-ligatures:none;fill:[Object GRGBColor];stroke:none;">g</text></g><defs><clipPath id="_clipPath_IAEQHj7WtKl7QB1kDseYG0DOUSUhdu28"><rect x="0" y="0" width="33" height="64.107" transform="matrix(1,0,0,1,34,91.796)"/></clipPath></defs><g clip-path="url(#_clipPath_38CGk8bkQFbzJmhIjtpV4BuQLYlrekTx)"><text transform="matrix(1,0,0,1,65,139.899)" style="font-family:'Merriweather';font-weight:400;font-size:37px;font-style:normal;font-variant-ligatures:none;fill:[Object GRGBColor];stroke:none;">ROWN</text></g><defs><clipPath id="_clipPath_38CGk8bkQFbzJmhIjtpV4BuQLYlrekTx"><rect x="0" y="0" width="122" height="46.509" transform="matrix(1,0,0,1,65,103.491)"/></clipPath></defs><g clip-path="url(#_clipPath_ifWwmv3IDzpKUP0hlSNm6rbWXpbPoGrE)"><text transform="matrix(1,0,0,1,68,176.034)" style="font-family:'Merriweather';font-weight:400;font-size:51px;font-style:normal;font-variant-ligatures:none;fill:[Object GRGBColor];stroke:none;">u</text></g><defs><clipPath id="_clipPath_ifWwmv3IDzpKUP0hlSNm6rbWXpbPoGrE"><rect x="0" y="0" width="35" height="64.107" transform="matrix(1,0,0,1,68,125.849)"/></clipPath></defs><g clip-path="url(#_clipPath_R6Efe5KXYOjBkyCFi896mr5ZoiWAlY1L)"><text transform="matrix(1,0,0,1,99,176.264)" style="font-family:'Merriweather';font-weight:400;font-size:46px;font-style:normal;font-variant-ligatures:none;fill:[Object GRGBColor];stroke:none;">P</text></g><defs><clipPath id="_clipPath_R6Efe5KXYOjBkyCFi896mr5ZoiWAlY1L"><rect x="0" y="0" width="32" height="57.822" transform="matrix(1,0,0,1,99,131)"/></clipPath></defs></g></svg>
