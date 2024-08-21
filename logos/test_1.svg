@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&amp;family=Merriweather+Sans:wght@700&amp;display=swap');
+    </style>
+  </defs>
+  
+  <!-- "autism" -->
+  <text x="10" y="70" font-family="Merriweather" font-size="74" fill="#CF520A">a</text>
+  <text x="65" y="70" font-family="Merriweather Sans" font-size="37" fill="#333333">UTISM</text>
+  
+  <!-- "all" -->
+  <text x="10" y="140" font-family="Merriweather" font-size="51" fill="#CF520A">a</text>
+  <text x="45" y="140" font-family="Merriweather Sans" font-size="37" fill="#333333">LL</text>
+  
+  <!-- "grown" -->
+  <text x="10" y="210" font-family="Merriweather" font-size="51" fill="#CF520A">g</text>
+  <text x="45" y="210" font-family="Merriweather Sans" font-size="37" fill="#333333">ROWN</text>
+  
+  <!-- "up" -->
+  <text x="45" y="280" font-family="Merriweather" font-size="51" fill="#CF520A">u</text>
+  <text x="80" y="280" font-family="Merriweather Sans" font-size="37" fill="#333333">P</text>
+</svg>
