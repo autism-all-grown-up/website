@@ -1,6 +1,11 @@
 /* Global styling */
 html {
-    margin: 0 auto;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 body {
@@ -8,7 +13,7 @@ body {
     font-size: 16px;
     max-width: 1200px;
     margin: 0 auto; /* Centers the body horizontally */
-    padding: 0 15px; /* Add padding to ensure body content doesn't touch the edges */
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center; /* Centers the accordion within the body */
