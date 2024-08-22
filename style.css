@@ -1,13 +1,17 @@
 /* Global styling */
+html {
+    margin: 0 auto;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centers the body horizontally */
+    padding: 0 15px; /* Add padding to ensure body content doesn't touch the edges */
     display: flex;
     flex-direction: column;
-    justify-items: center;
-    box-sizing: border-box;
+    align-items: center; /* Centers the accordion within the body */
 }
 
 /* Accordion styling */
@@ -16,13 +20,14 @@ body {
     padding: 0;
     list-style: none;
     max-width: 1024px;
+    width: 100%; /* Makes sure the accordion takes full width within its container */
 }
 
 .accordion-item {
     border: 1px solid black;
     padding: 1em;
     margin: 1em 0;
-    width: 100%;
+    width: 100%; /* Ensures accordion items are justified to the left within the accordion */
     transition: width 0.3s ease;
     border-radius: 2.5px;
 }
