@@ -1,12 +1,22 @@
 /* Global styling */
+html {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centers the body horizontally */
+    padding: 0;
     display: flex;
     flex-direction: column;
-    justify-items: center;
+    align-items: center; /* Centers the accordion within the body */
 }
 
 /* Accordion styling */
@@ -15,18 +25,16 @@ body {
     padding: 0;
     list-style: none;
     max-width: 1024px;
+    width: 100%; /* Makes sure the accordion takes full width within its container */
 }
 
 .accordion-item {
     border: 1px solid black;
-    padding: 0.5em;
-    /* Reduced padding */
+    padding: 1em;
     margin: 1em 0;
-    /* Reduced margin */
-    width: 100%;
+    width: 100%; /* Ensures accordion items are justified to the left within the accordion */
     transition: width 0.3s ease;
     border-radius: 2.5px;
-    /* Slight rounding of corners, cut in half */
 }
 
 .accordion-item[open] {
@@ -36,19 +44,15 @@ body {
 .accordion-item-header {
     font-family: 'Merriweather', serif;
     font-size: 1.2em;
-    /* Adjusted font size to 18pt */
     font-weight: bold;
     background-color: #f4f4f4;
     padding: 0.5em;
-    /* Reduced padding */
     display: flex;
     align-items: flex-start;
-    /* Align items to the top */
     cursor: pointer;
     transition: background-color 0.3s ease;
     line-height: 1.4;
     border-radius: 2.5px;
-    /* Slight rounding of corners, cut in half */
 }
 
 .accordion-item-header:hover {
@@ -59,37 +63,26 @@ body {
     background-color: #ddd;
 }
 
-/* Font Awesome icons for plus and minus */
-.accordion-item-header::before {
-    font-family: "Font Awesome 5 Free";
-    /* Use Font Awesome for icons */
-    content: "\f067";
-    /* Plus icon */
-    font-weight: 900;
-    margin-right: 1em;
-    /* Added space between icon and text */
-    transition: content 0.3s ease;
-    align-self: flex-start;
-    /* Align icon to the top */
+/* Show the thumbnail when details are closed */
+.accordion-item:not([open])>summary .accordion-summary-thumbnail {
+    display: inline-block;
 }
 
-.accordion-item[open] .accordion-item-header::before {
-    content: "\f068";
-    /* Minus icon when open */
+/* Hide the thumbnail when details are open */
+.accordion-item[open]>summary .accordion-summary-thumbnail {
+    display: none;
 }
 
+/* Updated grid layout */
 .accordion-item-content {
     display: grid;
-    grid-template-columns: 45% 45%;
-    /* Grid for content */
+    grid-template-columns: 45% 45%; /* Two columns: Text 45%, Image 45% */
     align-items: start;
-    padding: 1em;
-    /* Reduced padding */
+    padding: 0.5em; /* Adjust padding to prevent overflow */
     background-color: #f9f9f9;
-    gap: 10%;
-    /* Gap set to 20% */
-    border-radius: 0 0 2.5px 2.5px;
-    /* Round corners at the bottom, cut in half */
+    gap: 10%; /* 10% gap between the two columns */
+    /* border-radius: 0 0 2.5px 2.5px; */
+    width: 100%;
 }
 
 .accordion-item-text {
@@ -99,18 +92,17 @@ body {
 
 .accordion-item-image-container {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
     align-items: flex-start;
-    /* Align image with the top */
-    padding-top: 1em;
-    /* Reduced padding */
+    width: 100%;
 }
+
 
 .accordion-item-image {
     width: 100%;
+    height: auto;
     object-fit: cover;
-    border-radius: 2.5px;
-    /* Round corners of the image, cut in half */
+    /* border-radius: 2.5px; */
 }
 
 .accordion-summary-thumbnail {
@@ -119,25 +111,15 @@ body {
     object-fit: cover;
     margin-left: auto;
     align-self: flex-start;
-    /* Align thumbnail to the top */
     border-radius: 2.5px;
-    /* Slight rounding of corners for thumbnails, cut in half */
 }
 
 /* Media queries for responsiveness */
-
-/* Eliminate the gap at 1024px and above */
 @media (max-width: 1024px) {
     .accordion-item-content {
-        grid-template-columns: 50% 50%;
-        /* Eliminate gap by making columns equal width */
+        grid-template-columns: 50% 50%; /* Adjust grid for smaller screens */
         gap: 0;
     }
-}
-
-/* Hide the thumbnail when the details element is open */
-.accordion-item:has([open]) .accordion-summary-thumbnail {
-    display: none;
 }
 
 @media (max-width: 768px) {
@@ -146,8 +128,8 @@ body {
     }
 
     .accordion-item-content {
-        grid-template-columns: 100%;
-        /* Stack the content vertically */
+        grid-template-columns: 100%; /* Stack content vertically */
+        gap: 0;
     }
 
     .accordion-item-image-container {
@@ -158,6 +140,5 @@ body {
         width: 100%;
         margin-top: 1em;
         max-width: 90em;
-        /* Use em units to keep the image within the viewport */
     }
 }
