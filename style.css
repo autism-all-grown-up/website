@@ -19,6 +19,27 @@ body {
     align-items: center; /* Centers the accordion within the body */
 }
 
+/* Link styling */
+a {
+    color: blue; /* Set the link color */
+    text-decoration: underline; /* Ensure links are underlined */
+}
+
+a:visited {
+    color: purple; /* Set the color for visited links */
+}
+
+a:hover {
+    color: darkblue; /* Set the color for links when hovered over */
+    text-decoration: underline; /* Keep the underline on hover */
+}
+
+a:focus, a:active {
+    color: darkblue; /* Set the color for active or focused links */
+    outline: none; /* Remove any default outline if present */
+}
+
+
 /* Accordion styling */
 .accordion {
     margin: 0;
