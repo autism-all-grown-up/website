@@ -58,8 +58,26 @@ a:focus, a:active {
     border-radius: 2.5px;
 }
 
+
+
 .accordion-item[open] {
     width: 100%;
+}
+
+
+.accordion-item[open] .accordion-item-header {
+    background-color: #ddd;
+}
+
+
+/* Hide the thumbnail when details are open */
+.accordion-item[open]>summary .accordion-summary-thumbnail {
+    display: none;
+}
+
+/* Show the thumbnail when details are closed */
+.accordion-item:not([open])>summary .accordion-summary-thumbnail {
+    display: inline-block;
 }
 
 .accordion-item-header {
@@ -74,24 +92,23 @@ a:focus, a:active {
     transition: background-color 0.3s ease;
     line-height: 1.4;
     border-radius: 2.5px;
+    position: relative; /* Ensure proper positioning for icons */
+}
+
+.accordion-item-header::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f067"; /* Plus icon */
+    font-weight: 900;
+    margin-right: 0.5em;
+    transition: transform 0.3s ease, content 0.3s ease;
 }
 
 .accordion-item-header:hover {
     background-color: #ddd;
 }
 
-.accordion-item[open] .accordion-item-header {
-    background-color: #ddd;
-}
-
-/* Show the thumbnail when details are closed */
-.accordion-item:not([open])>summary .accordion-summary-thumbnail {
-    display: inline-block;
-}
-
-/* Hide the thumbnail when details are open */
-.accordion-item[open]>summary .accordion-summary-thumbnail {
-    display: none;
+.accordion-item[open] .accordion-item-header::before {
+    content: "\f068"; /* Minus icon */
 }
 
 /* Updated grid layout */
