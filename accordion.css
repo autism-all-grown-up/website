@@ -1,0 +1,99 @@
+/* Accordion styling */
+/* Accordion container */
+.accordion {
+    margin: 0;
+    padding: 0;
+    max-width: 1024px;
+    width: 100%; /* Ensures the accordion takes full width within its container */
+}
+
+/* Accordion items */
+.accordion > details {
+    border: 1px solid black;
+    padding: 1em;
+    margin: 1em 0;
+    width: 100%; /* Ensures accordion items are full width */
+    transition: width 0.3s ease;
+    border-radius: 2.5px;
+}
+
+/* Summary styling */
+.accordion summary {
+    font-family: 'Merriweather', serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #f4f4f4;
+    padding: 0.5em;
+    display: flex;
+    align-items: center; /* Vertically centers items */
+    justify-content: space-between; /* Pushes content to far ends */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    line-height: 1.4;
+    border-radius: 2.5px;
+    position: relative;
+    /* list-style-type: disc; */
+    /* list-style-image: url('images/plus-icon.svg'); */
+}
+
+/* Change icon when accordion is open */
+.accordion > details[open] > summary {
+    list-style-type: square;
+    list-style-image: url('https://placehold.co/150');
+}
+
+/* Hover effect on summary */
+.accordion summary:hover {
+    background-color: #ddd;
+}
+
+/* Ensure thumbnail is pushed to the right */
+.accordion summary .summary-thumbnail {
+    width: 15vw;
+    height: auto;
+    object-fit: cover;
+    margin-left: 20px; /* Space between text and image */
+    border-radius: 2.5px;
+    align-self: flex-start; /* Aligns the thumbnail image to the top of the summary */
+}
+
+/* Hide thumbnail when details are open */
+.accordion > details[open] summary .summary-thumbnail {
+    display: none;
+}
+
+/* Show thumbnail when details are closed */
+.accordion > details:not([open]) summary .summary-thumbnail {
+    display: inline-block;
+}
+
+/* Details content styling */
+.accordion .details-content {
+    display: grid;
+    grid-template-columns: 45% 45%; /* Two columns: Text 45%, Image 45% */
+    align-items: start;
+    padding: 0.5em; /* Adjust padding to prevent overflow */
+    background-color: #f9f9f9;
+    gap: 10%; /* 10% gap between the two columns */
+    width: 100%;
+}
+
+.accordion .details-text {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.accordion .details-figure {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    width: 100%;
+}
+
+.accordion .details-figure img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
