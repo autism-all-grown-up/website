@@ -1,0 +1,89 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  /* Keep content vertical within banner */
+  align-items: left;
+  /* Center align all content */
+  text-align: left;
+  /* Center text content */
+  padding-top: 2vw;
+  /* Add padding for spacing */
+}
+
+.header-image-container {
+  display: flex;
+  justify-content: left;
+  /* Center images horizontally */
+  gap: 2em;
+  /* Add space between the two images */
+  width: 100%;
+  /* Ensure it spans the full width */
+}
+
+.image-fluid {
+  margin: 0;
+  max-width: 100%;
+  height: 10vw;
+}
+
+.gradient-blue-green {
+  background-color: #1a7030;
+  background-image: linear-gradient(to bottom right, #4b5ecd, #1a7030);
+}
+
+.gradient-red-orange {
+  background-color: #893673;
+  background-image: linear-gradient(to bottom right, #893673, #cf520a);
+}
+
+.gradient-box {
+  padding: 5px 10% 15px 10%;
+  border-radius: 5px;
+}
+
+
+#header-tagline {
+  margin-top: 1em;
+  /* Add space above the tagline */
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5vw;
+  font-weight: 800;
+  text-align: center;
+}
+
+footer {
+  color: #fff;
+  background-color: #893673;
+  background-image: linear-gradient(to bottom right, #893673, #cf520a);
+  text-align: center;
+  padding: 10px 3%;
+  margin-top: 10px;
+  width: 100%
+}
+
+.footer-text {
+  font-size: 100%;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+
+footer a:link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+footer a:visited {
+  color: #fff;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: #f5dcce;
+  text-decoration: underline;
+}
+
+footer a:active {
+  color: #f5dcce;
+  text-decoration: underline;
+}

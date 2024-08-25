@@ -5,7 +5,8 @@
     padding: 0;
     list-style: none;
     max-width: 1024px;
-    width: 100%; /* Makes sure the accordion takes full width within its container */
+    width: 100%;
+    /* Makes sure the accordion takes full width within its container */
 }
 
 /* Accordion details */
@@ -13,7 +14,8 @@
     border: 1px solid black;
     padding: 1em;
     margin: 1em 0;
-    width: 100%; /* Ensures accordion items are justified to the left within the accordion */
+    width: 100%;
+    /* Ensures accordion items are justified to the left within the accordion */
     transition: width 0.3s ease;
     border-radius: 2.5px;
 }
@@ -35,13 +37,15 @@
     transition: background-color 0.3s ease;
     line-height: 1.4;
     border-radius: 2.5px;
-    position: relative; /* Ensure proper positioning for icons */
+    position: relative;
+    /* Ensure proper positioning for icons */
 }
 
 /* Marker styling */
 .accordion summary::before {
     font-family: "Font Awesome 5 Free";
-    content: "\f067"; /* Plus icon */
+    content: "\f067";
+    /* Plus icon */
     font-weight: 900;
     margin-right: 0.5em;
     transition: transform 0.3s ease, content 0.3s ease;
@@ -49,7 +53,8 @@
 
 /* Change the marker and background when details are open */
 .accordion details[open] summary::before {
-    content: "\f068"; /* Minus icon */
+    content: "\f068";
+    /* Minus icon */
 }
 
 .accordion details[open] summary {
@@ -61,7 +66,7 @@
 }
 
 /* Accordion summary thumbnail */
-.accordion .summary-thumbnail {
+.accordion summary img {
     width: 10vw;
     height: auto;
     object-fit: cover;
@@ -71,7 +76,7 @@
 }
 
 /* Hide the thumbnail when details are open */
-.accordion details[open] .summary-thumbnail {
+.accordion details[open] summary img {
     visibility: hidden;
     height: 1em;
 }
@@ -79,11 +84,14 @@
 /* Accordion details content */
 .accordion .details-content {
     display: grid;
-    grid-template-columns: 45% 45%; /* Two columns: Text 45%, Image 45% */
+    grid-template-columns: 45% 45%;
+    /* Two columns: Text 45%, Image 45% */
     align-items: start;
-    padding: 0.5em; /* Adjust padding to prevent overflow */
+    padding: 0.5em;
+    /* Adjust padding to prevent overflow */
     background-color: #f9f9f9;
-    gap: 10%; /* 10% gap between the two columns */
+    gap: 10%;
+    /* 10% gap between the two columns */
     width: 100%;
 }
 
@@ -107,4 +115,36 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+}
+
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+    .accordion .details-content {
+        grid-template-columns: 50% 50%;
+        /* Adjust grid for smaller screens */
+        gap: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .accordion .details {
+        width: 100%;
+    }
+
+    .accordion .details-content {
+        grid-template-columns: 100%;
+        /* Stack content vertically */
+        gap: 0;
+    }
+
+    .accordion .details-figure {
+        justify-content: center;
+    }
+
+    .accordion .details-figure img {
+        width: 100%;
+        margin-top: 1em;
+        max-width: 90em;
+    }
 }
