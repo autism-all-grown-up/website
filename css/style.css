@@ -39,8 +39,50 @@ a:focus, a:active {
     outline: none; /* Remove any default outline if present */
 }
 
+/* List tyling */
+ul, ol { 
+    list-style-position: outside;
+    margin: 1em 0;
+    padding-left: 2em;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+li {
+    margin: 0.5em;
+}
+
+/* Headings */
+
+h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 3em;
+    font-weight: 800;
+    color: "#fff";
+    margin: 0.5em 0 0.2em 0;
+}
+
+h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5em;
+    font-weight: 800;
+    color: "#ccc";
+    margin: 0.5em 0 0.2em 0;
+}
+
+h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    font-style: italic;
+    color: "#aaa";
+    margin: 0.5em 0 0.2em 0;
+}
 
 /* Accordion styling */
+/* Accordion container */
 .accordion {
     margin: 0;
     padding: 0;
@@ -49,7 +91,8 @@ a:focus, a:active {
     width: 100%; /* Makes sure the accordion takes full width within its container */
 }
 
-.accordion-item {
+/* Accordion details */
+.accordion details {
     border: 1px solid black;
     padding: 1em;
     margin: 1em 0;
@@ -58,29 +101,12 @@ a:focus, a:active {
     border-radius: 2.5px;
 }
 
-
-
-.accordion-item[open] {
+.accordion details[open] {
     width: 100%;
 }
 
-
-.accordion-item[open] .accordion-item-header {
-    background-color: #ddd;
-}
-
-
-/* Hide the thumbnail when details are open */
-.accordion-item[open]>summary .accordion-summary-thumbnail {
-    display: none;
-}
-
-/* Show the thumbnail when details are closed */
-.accordion-item:not([open])>summary .accordion-summary-thumbnail {
-    display: inline-block;
-}
-
-.accordion-item-header {
+/* Accordion summary */
+.accordion summary {
     font-family: 'Merriweather', serif;
     font-size: 1.2em;
     font-weight: bold;
@@ -95,7 +121,8 @@ a:focus, a:active {
     position: relative; /* Ensure proper positioning for icons */
 }
 
-.accordion-item-header::before {
+/* Marker styling */
+.accordion summary::before {
     font-family: "Font Awesome 5 Free";
     content: "\f067"; /* Plus icon */
     font-weight: 900;
@@ -103,48 +130,22 @@ a:focus, a:active {
     transition: transform 0.3s ease, content 0.3s ease;
 }
 
-.accordion-item-header:hover {
-    background-color: #ddd;
-}
-
-.accordion-item[open] .accordion-item-header::before {
+/* Change the marker and background when details are open */
+.accordion details[open] summary::before {
     content: "\f068"; /* Minus icon */
 }
 
-/* Updated grid layout */
-.accordion-item-content {
-    display: grid;
-    grid-template-columns: 45% 45%; /* Two columns: Text 45%, Image 45% */
-    align-items: start;
-    padding: 0.5em; /* Adjust padding to prevent overflow */
-    background-color: #f9f9f9;
-    gap: 10%; /* 10% gap between the two columns */
-    /* border-radius: 0 0 2.5px 2.5px; */
-    width: 100%;
+.accordion details[open] summary {
+    background-color: #ddd;
 }
 
-.accordion-item-text {
-    margin: 0;
-    font-size: 1.1em;
+.accordion details .summary-text {
+    margin-right: 5vw;
 }
 
-.accordion-item-image-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-}
-
-
-.accordion-item-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    /* border-radius: 2.5px; */
-}
-
-.accordion-summary-thumbnail {
-    width: 6em;
+/* Accordion summary thumbnail */
+.accordion .summary-thumbnail {
+    width: 10vw;
     height: auto;
     object-fit: cover;
     margin-left: auto;
@@ -152,29 +153,71 @@ a:focus, a:active {
     border-radius: 2.5px;
 }
 
+/* Hide the thumbnail when details are open */
+.accordion details[open] .summary-thumbnail {
+    visibility: hidden;
+    height: 1em;
+}
+
+/* Accordion details content */
+.accordion .details-content {
+    display: grid;
+    grid-template-columns: 45% 45%; /* Two columns: Text 45%, Image 45% */
+    align-items: start;
+    padding: 0.5em; /* Adjust padding to prevent overflow */
+    background-color: #f9f9f9;
+    gap: 10%; /* 10% gap between the two columns */
+    width: 100%;
+}
+
+.accordion .details-text {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.accordion .details-text p {
+    margin: 0.5em 0;
+}
+
+.accordion .details-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.accordion .details-figure img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+
+
 /* Media queries for responsiveness */
 @media (max-width: 1024px) {
-    .accordion-item-content {
+    .accordion>details-content {
         grid-template-columns: 50% 50%; /* Adjust grid for smaller screens */
         gap: 0;
     }
 }
 
 @media (max-width: 768px) {
-    .accordion-item {
+    .accordion>details {
         width: 100%;
     }
 
-    .accordion-item-content {
+    .accordion>details-content {
         grid-template-columns: 100%; /* Stack content vertically */
         gap: 0;
     }
 
-    .accordion-item-image-container {
+    .accordion>details-image-container {
         justify-content: center;
     }
 
-    .accordion-item-image {
+    .accordion>details-image {
         width: 100%;
         margin-top: 1em;
         max-width: 90em;
