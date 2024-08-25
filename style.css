@@ -1,0 +1,115 @@
+/* Global styling */
+html {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the body horizontally */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the accordion within the body */
+}
+
+/* Link styling */
+a {
+    color: blue; /* Set the link color */
+    text-decoration: underline; /* Ensure links are underlined */
+}
+
+a:visited {
+    color: purple; /* Set the color for visited links */
+}
+
+a:hover {
+    color: darkblue; /* Set the color for links when hovered over */
+    text-decoration: underline; /* Keep the underline on hover */
+}
+
+a:focus, a:active {
+    color: darkblue; /* Set the color for active or focused links */
+    outline: none; /* Remove any default outline if present */
+}
+
+/* List tyling */
+ul, ol { 
+    list-style-position: outside;
+    margin: 1em 0;
+    padding-left: 2em;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+li {
+    margin: 0.5em;
+}
+
+/* Headings */
+
+h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 3em;
+    font-weight: 800;
+    color: "#fff";
+    margin: 0.5em 0 0.2em 0;
+}
+
+h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5em;
+    font-weight: 800;
+    color: "#ccc";
+    margin: 0.5em 0 0.2em 0;
+}
+
+h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    font-style: italic;
+    color: "#aaa";
+    margin: 0.5em 0 0.2em 0;
+}
+
+
+
+
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+    .accordion>details-content {
+        grid-template-columns: 50% 50%; /* Adjust grid for smaller screens */
+        gap: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .accordion>details {
+        width: 100%;
+    }
+
+    .accordion>details-content {
+        grid-template-columns: 100%; /* Stack content vertically */
+        gap: 0;
+    }
+
+    .accordion>details-image-container {
+        justify-content: center;
+    }
+
+    .accordion>details-image {
+        width: 100%;
+        margin-top: 1em;
+        max-width: 90em;
+    }
+}
