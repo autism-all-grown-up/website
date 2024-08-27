@@ -6,9 +6,9 @@
   <title>AAGU</title>
   <meta name="description" content="Autism All Grown Up: Adult Community Nexus of Oregon">
 
-  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/new_reset.css">
   <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/branding.css">
+  <!-- <link rel="stylesheet" href="css/branding.css"> -->
   <link rel="stylesheet" href="css/accordion.css">
   <link rel="stylesheet" href="css/nav.css">
 
@@ -26,43 +26,24 @@
 
 <body>
 
-  <header class="banner">
-    <div class="header-image-container">
-      <div class="logo-space">
-        <img src="logos/aagu_logo_300.png" class="image-fluid" alt="AAGU logo" />
-      </div>
-      <div class="aagu-name">
-        <img src="images/RoadsideTreesStudy.png" class="image-fluid"
-          alt="watercolor detail of Oregon trees by Alexandria Levin" />
-      </div>
+  <nav class="nav-sticky"></nav>
+
+  <header>
+
+    <div class="header-screen">
+      <img src="images/banner_forest_screen.png" class="image-fluid-banner" alt="AAGU logo and banner" />
     </div>
-    <p id="header-tagline">Nonprofit helping autistic adults find what they need in Oregon through community,
-      networking, and information</p>
+
+    <div class="header-mobile">
+      <img src="images/banner_forest_mobile.png" class="image-fluid-banner" alt="AAGU logo and banner" />
+    </div>
+
+    <p class="header-tagline">Nonprofit helping autistic adults find what they need in Oregon through community,
+      networking,
+      and information</p>
+
   </header>
 
-  <template id="accordion-template" type="x-tmpl-mustache">
-    {{#homepage_accordions}}
-    <details>
-      <summary>
-        <p class="summary-text">{{{summary_text}}}</p>
-        <img src="{{{thumbnail_image}}}" alt="{{{thumbnail_alt_text}}}" />
-      </summary>
-      <div class="details-content">
-        <div class="details-text">
-          {{{main_text}}}
-        </div>
-        <figure class="details-figure">
-          <picture>
-            <img src="{{{main_image}}}" alt="{{{main_image_alt_text}}}" />
-          </picture>
-          <figcaption>
-            {{{fig_caption_text}}}
-          </figcaption>
-        </figure>
-      </div>
-    </details>
-    {{/homepage_accordions}}
-  </template>
 
   <!-- The container where the rendered accordion will be placed -->
   <section class="accordion"></section>
@@ -73,7 +54,6 @@
       encounters an individual they knew as a child, only to find that their preconceived notions no longer fit the
       adult standing before them.</p>
   </section>
-
 
   <footer>
     <div class="text-white-tagline gradient-red-orange"> Autism All Grown Up, ©2024, All Rights Reserved | <a

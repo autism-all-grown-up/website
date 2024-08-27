@@ -1,5 +1,5 @@
 async function readJsonFile(file_path) {
-  // console.log(`file_path: ${file_path}`);
+  // console.log(`readJsonFile file_path: ${file_path}`);
 
   try {
     const response = await fetch(file_path);
@@ -14,27 +14,33 @@ async function readJsonFile(file_path) {
   }
 }
 
-async function readMarkdownFileToHTML(file_path) {
-  // console.log(`file_path: ${file_path}`);
-
+async function readTextFile(file_path) {
+  // console.log(`readTextFile file_path: ${file_path}`);
   try {
-    const response = await fetch(file_path);
+    const response = await fetch(file_path);``
     if (!response.ok) {
       throw new Error(`Failed to fetch ${file_path}: ${response.status} ${response.statusText}`);
     }
-    const markdown = await response.text();
-    // console.log(markdown);
-    const html = marked.parse(markdown);
-    // console.log(html);
-    return html;
+    const text_data = await response.text();
+    return text_data;
   } catch (error) {
-    console.error("Error reading markdown file:", error);
+    console.error("Error reading text file:", error);
     return null;
   }
 }
 
+async function readMarkdownFileToHTML(file_path) {
+  // console.log(`readMarkdownFileToHTML file_path: ${file_path}`);
 
-window.onload = async function () {
+  const markdown = await readTextFile(file_path);
+  // console.log(markdown);
+  const html = marked.parse(markdown);
+  // console.log(html);
+  return html;
+}
+
+const renderAccordion = async () =>  
+{
   const accordion_content_dir = "./content/home/accordion";
   // console.log(`accordion_content_dir: ${accordion_content_dir}`);
   
@@ -42,12 +48,32 @@ window.onload = async function () {
   let accordion_data = await readJsonFile(`${accordion_content_dir}/accordion_config.json`);
   // console.log(`accordion_data:`, accordion_data);
 
+  await Promise.all(accordion_data.map(async (item) => {
+    if (item.content_file){
+      item.main_text = await readMarkdownFileToHTML(`${accordion_content_dir}/${item.content_directory}/${item.content_file}`);
+    }
+    else
+    {
+      item.main_text = "";
+    }
+    if (item.fig_caption_file)
+    {
+      item.fig_caption_text = await readMarkdownFileToHTML(`${accordion_content_dir}/${item.content_directory}/${item.fig_caption_file}`);
+    }
+    else
+    {
+      item.fig_caption_text = "";
+    }
+  }
+));
+  
+
   if (accordion_data) {
     // Await the markdown content
     for (const item of accordion_data) {
       // console.log(`path:${accordion_content_dir}/${item.content_directory}`);
-      item.main_text = await readMarkdownFileToHTML(`${accordion_content_dir}/${item.content_directory}/${item.content_file}`);
-      item.fig_caption_text = await readMarkdownFileToHTML(`${accordion_content_dir}/${item.content_directory}/${item.fig_caption_file}`);
+      // item.main_text = await readMarkdownFileToHTML(`${accordion_content_dir}/${item.content_directory}/${item.content_file}`);
+      // item.fig_caption_text = await readMarkdownFileToHTML(`${accordion_content_dir}/${item.content_directory}/${item.fig_caption_file}`);
       item.thumbnail_image = `images/${item.thumbnail_image}`;
       item.main_image = `images/${item.main_image}`;
     }
@@ -55,14 +81,37 @@ window.onload = async function () {
     // console.dir(`accordion_data: ${JSON.stringify(accordion_data)}`);
 
     // Render the accordion
-    const template = document.querySelector('#accordion-template').innerHTML;
-    // console.log(template);
+    const template = await readTextFile('./templates/accordion.html');
+    // console.log(`accordion template: ${template}`);
 
     const rendered = Mustache.render(template, { homepage_accordions: accordion_data });
     // console.log(rendered);
 
     document.querySelector('.accordion').innerHTML = rendered;
   }
+}
+
+const renderNav = async () => {
+  const nav_content_dir = "./content/nav";
+  
+  // Await the JSON data
+  let nav_data = await readJsonFile(`${nav_content_dir}/nav_config.json`);
+
+  // Await the text data to get the template
+  const template = await readTextFile('./templates/nav.html');
+  // console.log(template);
+
+  // Render the navigation using Mustache
+  const rendered = Mustache.render(template, { nav_list: nav_data });
+  // console.log(rendered);
+
+  document.querySelector('nav').innerHTML = rendered;
+}
+
+
+window.onload = async function () {
+  await renderNav();
+  await renderAccordion();  
 }
 
 
@@ -86,3 +135,5 @@ window.onload = async function () {
 // Convert to html
 // Fill template
 // Move h1 to summary
+
+
