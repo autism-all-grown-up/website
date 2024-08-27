@@ -20,6 +20,8 @@
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js"></script>
 </head>
 
 <body>
@@ -38,272 +40,32 @@
       networking, and information</p>
   </header>
 
-  <section class="accordion">
-
+  <template id="accordion-template" type="x-tmpl-mustache">
+    {{#homepage_accordions}}
     <details>
       <summary>
-        <p class="summary-text">Many autistic adults in Oregon are invisible, marginalized, and struggling. We can fix
-          this.</p>
-        <img src="logos/aagu_logo.png" alt="AAGU Logo" />
+        <p class="summary-text">{{{summary_text}}}</p>
+        <img src="{{{thumbnail_image}}}" alt="{{{thumbnail_alt_text}}}" />
       </summary>
       <div class="details-content">
         <div class="details-text">
-          <h2 class="cinnabar">Mission</h2>
-          <p>The mission of Autism All Grown Up (AAGU) is to empower autistic adults in Oregon by serving as a nexus
-            that provides accessible information, resources, and services tailored to their unique needs. By bridging
-            gaps in the existing infrastructure, we connect and interconnect the adult autistic community and our
-            supporters, facilitate information exchange, and promote collaboration. This ensures that autistic
-            individuals can access the support and opportunities we need to thrive, enhancing our well-being and
-            independence throughout the state.</p>
-          <h2 class="cinnabar">What We Do</h2>
-          <ul>
-            <li>Build community through outreach and autism-friendly physical spaces.</li>
-            <li>Identify unmet needs in the community.</li>
-            <li>Find ways to meet those needs.</li>
-          </ul>
-
-          <p>Working from within the community, we listen to autistic voices to identify and document systemic
-            challenges. We then perform root cause analysis, create or propose solutions, and publish the results for
-            the public to use. Our work helps autistic adults in Oregon find and access the services and resources they
-            need, helps others better understand their needs, and creates new resources as needed.</p>
+          {{{main_text}}}
         </div>
         <figure class="details-figure">
           <picture>
-            <img src="logos/aagu_logo.png" alt="AAGU Logo" />
-          </picture>
-        </figure>
-      </div>
-    </details>
-
-    <details>
-      <summary>
-        <p class="summary-text">Autistic adults represent the vast majority of autistic people but have a tiny fraction
-          of the acknowledgment
-          and support.</p>
-        <img src="images/oregon_adults_autistic_and_or_receiving_idd_services.svg" alt="chart thumbnail" />
-      </summary>
-      <div class="details-content">
-        <div class="details-text">
-          <p>Because autistic is how you are born, there are actually way more autistic adults than children. Many
-            experts believe that massive numbers of adults who have been wondering their entire lives why they have felt
-            out
-            of place and faced so many challenges in life despite their abilities are probably undiagnosed autistic
-            adults. Sadly, experts also think many of these people have ended up on the dark sidelines of society: the
-            ranks
-            of the unemployed, homeless, in the penal system, in the foster system, struggling with addiction, and lost
-            to suicide.</p>
-        </div>
-        <figure class="details-figure">
-          <picture>
-            <img 
-              src="images/oregon_adults_autistic_and_or_receiving_idd_services.svg" 
-              alt="Plot showing numbers of Oregon adults overall as well as those receiving I/DD services and/or autistic." 
-            />
+            <img src="{{{main_image}}}" alt="{{{main_image_alt_text}}}" />
           </picture>
           <figcaption>
-            The Oregon Department of Disability Services (ODDS) reported that the agency was serving 22,984 adults with
-            an
-            intellectual or developmental disability in 2023. A 2021-2022 survey by ODDS and along with the
-            <a href="https://idd.nationalcoreindicators.org/">National Core Indicators</a>] (NCI) project showed that
-            6,435 (28%) of Oregon adults receiving I/DD services had an Autism diagnosis. The US Census estimates that
-            in 2022 there were roughly 3,404,221 adults (18+) in Oregon. A CDC study (2020) estimated that in 2017,
-            2.28% (95% CI [1.83, 2.8]) of Oregon adults are diagnosed as autistic; in numbers: 77,616 (95% CI [62,297,
-            95,318]). (Numbers courtesy of Jon Saito, <a href="https://www.orcommissionasd.org">Oregon Council on Autism
-              Spectrum Disorder</a>)
+            {{{fig_caption_text}}}
           </figcaption>
         </figure>
       </div>
     </details>
+    {{/homepage_accordions}}
+  </template>
 
-    <details>
-      <summary>
-        <p class="summary-text">We are just starting to learn what successful adulthood looks like for autistic people.
-        </p>
-        <img src="images/us_autism_research_funding_by_category_2010-2020.svg" alt="thumbnail" />
-      </summary>
-      <div class="details-content">
-        <div class="details-text">
-          <p>So little research has acknowledged the lives of adults with autism that we are just starting to learn
-            what successful adult development looks like. Until recently, almost all attention to autism has been
-            focused
-            on children, early intervention, and treatment. Late-identified and never-identified autistic adults face
-            unique challenges with respect to aging, and most of these "lost generations" have not yet even been
-            identified,
-            accounted for, or documented.</p>
-        </div>
-        <figure class="details-figure">
-          <picture>
-            <img src="images/us_autism_research_funding_by_category_2010-2020.svg"
-              alt="Plot of autism research funding by category from 2010 to 2020. Data from the IACC." />
-          </picture>
-          <figcaption>Although the number of "Quality of Life" studies has increased in recent years, it still
-            receives a tiny amount of actual funding dollars compared to Biology-oriented studies looking for
-            causes, cures, and treatments. The data for this chart comes from the <a
-              href="https://iacc.hhs.gov/funding/data/" target="_blank">autism research database</a> provided by the
-            <a href="https://iacc.hhs.gov/" target="_blank">Interagency Autism Coordinating Committee</a> (IACC), a
-            United States federal advisory panel within the <a href="https://www.hhs.gov/" target="_blank">Department of
-              Health and Human Services</a> (HHS). It coordinates all efforts within HHS concerning autism spectrum
-            disorder (ASD). We bundled the IACC objectives into a smaller number of categories. We put any program with
-            an objective related to "Biology", "Causes", "Genetic or Environmental Effects", or "Risk factors" into
-            "Biology". We put any
-            program with an objective related to "Lifespan", "Lifespan issues", "Services", or "Services and Supports"
-            into "Quality of Life".
-          </figcaption>
-        </figure>
-      </div>
-    </details>
-
-    <details>
-      <summary>
-        <p class="summary-text">Specific Challenges</p>
-        <img src="images/placeholder_600x400.svg" alt="thumbnail" />
-      </summary>
-      <div class="details-content">
-        <div class="details-text">
-          <p>Autistic adults face a multitude of significant and endemic challenges:</p>
-
-          <ul>
-            <li>
-              <span class="text-bold-left-align text-cinnabar">Work life:</span> Landing and keeping a job is often an
-              uphill battle. Many find themselves unemployed or in roles that don't tap their potential. Hiring
-              processes and workplace environments frequently clash with autistic needs, creating frustrating barriers.
-            </li>
-            <li>
-              <span class="text-bold-left-align text-cinnabar">Health care hurdles:</span> Medical settings can be
-              overwhelming sensory minefields. Many doctors struggle to connect with autistic patients, leading to
-              misunderstandings and subpar care. Getting
-              diagnosed as an adult? It's a long, winding road that can delay access to crucial support.
-            </li>
-            <li>
-              <span class="text-bold-left-align text-cinnabar">Social challenges:</span> Building and maintaining
-              relationships is like navigating a maze without a map. Isolation is common, especially during big life
-              transitions like starting a career or living
-              independently. The â€œservices cliffâ€ at high school graduation is a prime example.
-            </li>
-            <li>
-              <span class="text-bold-left-align text-cinnabar">Mental health struggles:</span> Anxiety, depression, and
-              thoughts of suicide are all too common. Many mental health services miss the mark, leaving autistic adults
-              feeling misunderstood and unsupported.
-            </li>
-            <li>
-              <span class="text-bold-left-align text-cinnabar">Learning and working:</span> Some face learning
-              difficulties that ripple into job prospects. Sensory sensitivities, anxiety, and challenges with
-              independent work can create roadblocks to employment.
-            </li>
-          </ul>
-          <br>
-
-          <p> These issues often snowball, making life tougher across the board. AAGU believes it can help nurture
-            organic
-            changes by facilitating small steps to empower autistic adults to live rich, independent lives: </p>
-          <ul>
-            <li>Create autism-friendly workspaces </li>
-            <li>Train healthcare providers to really get it </li>
-            <li>Build stronger social support networks </li>
-            <li>Develop mental health approaches that actually click with autistic minds </li>
-            <li>Tailor work and education to play to autistic strengths</li>
-          </ul>
-
-          <p>and do this by supporting existing programs through networking, collaboration, and education.</p>
-        </div>
-        <figure class="details-figure">
-          <picture>
-            <img src="images/placeholder_600x400.svg" alt="content image" />
-          </picture>
-        </figure>
-      </div>
-    </details>
-
-    <details>
-      <summary>
-        <p class="summary-text">The autistic community has the talent and ability to create solutions NOW. Actually,
-          Autistic adults are not
-          what you see on TV.</p>
-        <img src="images/autism_spectrum.jpeg" alt="thumbnail" />
-      </summary>
-      <div class="details-content">
-        <div class="accordion-itemctext">
-          <p>Advocacy is working to change our general view of neurodiversity and how we handle it in society,
-            including how to adjust research priorities for autism. This work moves slowly. In the meantime, millions of
-            autistic adults are trying to redefine and reclaim their identities, and hopefully overcome some of their
-            past
-            struggles.</p>
-          <p>We want to help these people NOW and have found ways to do so without waiting for the slow machinery of
-            political, scientific, industrial, and cultural change. Our key insight is that the adult autistic
-            community is already primed with untapped resources in the form of talented, creative, and caring people who
-            have the exact skills needed.</p>
-          <p>Past missteps in identifying and characterizing autism have led to numerous misunderstandings and myths.
-            Counter to these, the vast majority of autistic people:</p>
-          <ul>
-            <li>Are cognitively or intellectually capable</li>
-            <li>Are socially motivated and want relationships and community</li>
-            <li>Are in much greater need of acceptance and understanding vs accommodation</li>
-            <li>Are in the best position to support other autistic people, including those who may be profoundly
-              impacted by autism, associated trauma, or conditions endemic to autistic genotypes.</li>
-          </ul>
-          <p>The growth in leadership by autistic voices in the public arena and academia has firmly established that
-            autistics and other neurodivergent people comprise a distinct group rather than merely a broken form of
-            normal.</p>
-          <p>While we owe a huge debt to the tireless advocacy that parents and other allies have performed over the
-            generations, ultimately, no one understands autistic people like other autistic people. Fact.</p>
-          <p>AAGU was started by autistic people and we thoroughly enjoy working together. By sourcing talent from
-            within the autistic community, we can take one small step towards creating a welcoming environment for other
-            autistic people.</p>
-        </div>
-        <figure class="details-figure">
-          <picture>
-            <img src="images/autism_spectrum.jpeg" alt="content image" />
-          </picture>
-        </figure>
-      </div>
-    </details>
-
-    <details>
-      <summary>
-        <p class="summary-text">Working from within the autistic community, we will focus on four key objectives that
-          are attainable and will
-          directly and immediately improve the lives of Oregon's autistic adults.</p>
-        <img src="images/placeholder_600x400.svg" alt="thumbnail" />
-      </summary>
-      <div class="details-content">
-        <div class="details-text">
-          <h2 id="four-key-objectives" class="cinnabar">Four Key Objectives</h2>
-
-          <ul>
-            <li>Facilitate connections and collaboration within the adult autistic community</li>
-            <li>Identify the unmet needs of autistic adults and report on the causes</li>
-            <li>Provide accurate, accessible content for autistic adults that we will continuously review and update
-              as knowledge evolves</li>
-            <li>Provide accurate, accessible content about autism and about the autistic community that we will
-              continuously review and update as knowledge evolves</li>
-          </ul>
-
-          <h2 id="immediate-impact" class="cinnabar">Immediate Impact</h2>
-
-          <p>We can make an immediate impact by activating and empowering the autistic community in Oregon.</p>
-
-          <ul>
-            <li>Build partnerships with local organizations by networking and creating alliances.</li>
-            <li>Improve communication channels to enhance service delivery and information resources by
-              networking and building alliances.</li>
-            <li>Establish <em>The Uncommons</em>: Physical meeting, and coworking spaces where autistic adults can work
-              and socialize unmasked.</li>
-            <li>Create comprehensive and accessible guides on navigating healthcare, employment, and social services
-            </li>
-            <li>Improve online resources for autistic adults and provide consulting services to others to do the same
-            </li>
-            <li>Participate in data analysis and research to inform policy and advocacy efforts</li>
-          </ul>
-        </div>
-        <figure class="details-figure">
-          <picture>
-            <img src="images/placeholder_600x400.svg" alt="content image" />
-          </picture>
-        </figure>
-      </div>
-    </details>
-
-  </section>
+  <!-- The container where the rendered accordion will be placed -->
+  <section class="accordion"></section>
 
   <section class="footer gradient-blue-green gradient-box">
     <h3 class="white">Autism is all grown up now, and it isn't always pretty.</h3>
@@ -318,7 +80,7 @@
         href="mailto:info@aagu.org" target="_blank">info@aagu.org</a></div>
   </footer>
 
-  <!-- <script src="script.js"></script> -->
+  <script src="js/script.js"></script>
 
 </body>
 

@@ -104,6 +104,10 @@
     margin: 0.5em 0;
 }
 
+.accordion .details-text h2 {
+    color: #df4009;
+}
+
 .accordion .details-figure {
     display: flex;
     flex-direction: column;

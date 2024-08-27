@@ -1,88 +1,88 @@
-/*
-let accordion_images = [
-  {
-    id: "mission",
-    image: {
-      url: "images/placeholder_600x400.svg",
-      alt_text: "AAGU Logo"
-    },
-    thumbnail: {
-      url: "images/placeholder_600x400.svg",
-      alt_text: "AAGU Logo thumbnail"
-    },
-  {
-    id: "lost-generation",
-    image: "images/oregon_adults_autistic_and_or_receiving_idd_services.svg",
-    thumbnail: "images/oregon_adults_autistic_and_or_receiving_idd_services.svg",
-  },
-  {
-    id: "mission",
-    image: "images/us_autism_funding_by_category_2010-2020.svg",
-    thumbnail: "images/us_autism_funding_by_category_2010-2020.svg",
-  },
-  {
-    id: "mission",
-    image: "images/placeholder_600x400.svg",
-    thumbnail: "images/placeholder_600x400.svg",
-  },
-  {
-    id: "mission",
-    image: "images/placeholder_600x400.svg",
-    thumbnail: "images/placeholder_600x400.svg",
-  },
-  {
-    id: "mission",
-    image: "images/placeholder_600x400.svg",
-    thumbnail: "images/placeholder_600x400.svg",
+async function readJsonFile(file_path) {
+  // console.log(`file_path: ${file_path}`);
+
+  try {
+    const response = await fetch(file_path);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ${file_path}: ${response.status} ${response.statusText}`);
+    }
+    const json_data = await response.json();
+    return json_data;
+  } catch (error) {
+    console.error("Error reading JSON file:", error);
+    return null;
   }
-];
-*/
+}
 
-window.onload = function() {
-  // Select all accordion items
-  const accordionItems = document.querySelectorAll(".accordion-item");
+async function readMarkdownFileToHTML(file_path) {
+  // console.log(`file_path: ${file_path}`);
 
-  accordionItems.forEach((item, index) => {
-    // Add event listener to remove thumbnail when details are open
+  try {
+    const response = await fetch(file_path);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ${file_path}: ${response.status} ${response.statusText}`);
+    }
+    const markdown = await response.text();
+    // console.log(markdown);
+    const html = marked.parse(markdown);
+    // console.log(html);
+    return html;
+  } catch (error) {
+    console.error("Error reading markdown file:", error);
+    return null;
+  }
+}
 
-    // Find the thumbnail and main image in the current accordion item
-    const thumbnail = item.querySelector(".accordion-summary-thumbnail");
-    const mainImage = item.querySelector(".accordion-item-image");
 
-    item.addEventListener("toggle", function() {
-      if (item.open) {
-        thumbnail.style.display = "none";
-      } else {
-        thumbnail.style.display = "block";
-      }
-    });
-  });
-};
+window.onload = async function () {
+  const accordion_content_dir = "./content/home/accordion";
+  // console.log(`accordion_content_dir: ${accordion_content_dir}`);
+  
+  // Await the JSON data
+  let accordion_data = await readJsonFile(`${accordion_content_dir}/accordion_config.json`);
+  // console.log(`accordion_data:`, accordion_data);
 
-// window.onload = function() {
-//   // Select all accordion items
-//   // const accordionItems = document.querySelectorAll(".accordion-item");
+  if (accordion_data) {
+    // Await the markdown content
+    for (const item of accordion_data) {
+      // console.log(`path:${accordion_content_dir}/${item.content_directory}`);
+      item.main_text = await readMarkdownFileToHTML(`${accordion_content_dir}/${item.content_directory}/${item.content_file}`);
+      item.fig_caption_text = await readMarkdownFileToHTML(`${accordion_content_dir}/${item.content_directory}/${item.fig_caption_file}`);
+      item.thumbnail_image = `images/${item.thumbnail_image}`;
+      item.main_image = `images/${item.main_image}`;
+    }
 
-//   accordion_images.forEach((item, index) => {
-//     console.log(`$item: ${item}`);
+    // console.dir(`accordion_data: ${JSON.stringify(accordion_data)}`);
 
-//     accordion_item = document.querySelector(`#${item.id}`);
+    // Render the accordion
+    const template = document.querySelector('#accordion-template').innerHTML;
+    // console.log(template);
 
-// // Find the thumbnail and main image in the current accordion item
-// const thumbnail = accordion_item.querySelector(".accordion-summary-thumbnail");
-// const mainImage = accordion_item.querySelector(".accordion-item-image");
+    const rendered = Mustache.render(template, { homepage_accordions: accordion_data });
+    // console.log(rendered);
 
-//     // Set the src attribute for both images using the same random seed
-//     thumbnail.src = item.image;
-//     mainImage.src = item.thumbnail;
+    document.querySelector('.accordion').innerHTML = rendered;
+  }
+}
 
-//     // Add event listener to remove thumbnail when details are open
-//     accordion_item.addEventListener("toggle", function() {
-//       if (item.open) {
-//         thumbnail.style.display = "none";
-//       } else {
-//         thumbnail.style.display = "block";
-//       }
-//     });
-//   });
-// };
+
+
+// Call the function to load content
+// loadAccordionContent();
+
+// load accordion_config.json
+
+// "content_directory": "mission",
+// "thumbnail_image": "aagu_logo_150.png",
+// "thumbnail_alt_text": "AAGU Logo Thumbnail",
+// "main_image": "aagu_logo_600.png",
+// "main_image_alt_text": "AAGU Logo",
+// "content_file": "mission.md",
+// "fig_caption_file": "aagu_logo_caption.md"
+
+// get filename for text
+// Convert text to html
+// get filename for caption
+// Convert to html
+// Fill template
+// Move h1 to summary

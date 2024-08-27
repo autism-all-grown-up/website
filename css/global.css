@@ -87,6 +87,14 @@ li {
 }
 
 /* Headings */
+.accordion figure figcaption h1 {
+    font-family: 'Merriweather', 'Georgia', sans-serif;
+    font-size: 120%;
+    font-weight: 900;
+    margin: 12px 0 8px 0;
+    color: #df4009;
+}
+
 h2 {
     font-family: 'Merriweather', 'Georgia', sans-serif;
     font-size: 140%;
@@ -127,5 +135,10 @@ h3.white {
 }
 
 .text-cinnabar {
+    color: #df4009;
+}
+
+/* Colors */
+.cinnabar {
     color: #df4009;
 }
