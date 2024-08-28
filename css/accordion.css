@@ -12,7 +12,7 @@
 /* Accordion details */
 .accordion details {
     border: 1px solid black;
-    padding: 1em;
+    padding: 0.5em;
     margin: 1em 0;
     width: 100%;
     /* Ensures accordion items are justified to the left within the accordion */
@@ -22,6 +22,7 @@
 
 .accordion details[open] {
     width: 100%;
+    padding: 0.5em;
 }
 
 /* Accordion summary */
@@ -30,7 +31,7 @@
     font-size: 1.2em;
     font-weight: bold;
     background-color: #f4f4f4;
-    padding: 0.5em;
+    padding: 1em;
     display: flex;
     align-items: flex-start;
     cursor: pointer;

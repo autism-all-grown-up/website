@@ -87,7 +87,7 @@ const renderAccordion = async () =>
     const rendered = Mustache.render(template, { homepage_accordions: accordion_data });
     // console.log(rendered);
 
-    document.querySelector('.accordion').innerHTML = rendered;
+    document.querySelector('main').innerHTML = rendered;
   }
 }
 
