@@ -22,9 +22,9 @@
     {
         "content_directory": "challenges",
         "summary_text": "Autistic adults face a multitude of significant and endemic challenges.",
-        "thumbnail_image": "gorkon.png",
+        "thumbnail_image": "gorkon_800.png",
         "thumbnail_alt_text": "AAGU Logo Thumbnail",
-        "main_image": "gorkon.png",
+        "main_image": "gorkon_800.png",
         "main_image_alt_text": "Dr. Bones McCoy trying to safe Klingon General Gorkon in the Star Treck movie _The Undiscovered Country_.",
         "content_file": "challenges.md",
         "fig_caption_file": "gorkon_caption.md"
