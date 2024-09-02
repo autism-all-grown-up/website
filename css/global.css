@@ -1,25 +1,4 @@
 /* Global styling */
-/*
-html {
-    width: 100vw;
-    margin: 0;
-    padding: 0 2vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-body {
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-*/
 
 html {
     width: 98vw;
@@ -28,11 +7,12 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* font-size: 16px; */
 }
 
 body {
     font-family: 'Lato', sans-serif;
-    font-size: 16px;
+    /* font-size: 16px; */
     max-width: 1200px;
     margin: 0 auto; /* Centers the body horizontally */
     padding: 0;
@@ -40,53 +20,56 @@ body {
     flex-direction: column;
     align-items: center; /* Centers the accordion within the body */
 }
+p {
+  margin-bottom: 15px; /* between paragraphs */
+  }
 
-
-/* text link styling */
-a:link {
-    color: purple;
-    text-decoration: underline;
+.header-tagline {
+  margin-top: 1em;
+  /* Add space above the tagline */
+  font-family: 'Lato', sans-serif;
+  font-size: 175%;
+  font-weight: 700;
+  padding: 0 5%;
+  line-height: 35px;
+  color: #1a705b;
+  text-align: center;
 }
 
-a:visited {
-    color: purple;
-    text-decoration: underline;
+.image-fluid {
+  margin: 0;
+  max-width: 100%;
+  height: 10vw;
+}
+.image-fluid-banner {
+  margin: 0;
+  max-width: 100%;
 }
 
-a:hover {
-    color: darkblue;
-    text-decoration: underline;
+.gradient-blue-green {
+  background-color: #1a7030;
+  background-image: linear-gradient(to bottom right, #4b5ecd, #1a7030);
+}
+.gradient-red-orange {
+  background-color: #893673;
+  background-image: linear-gradient(to bottom right, #893673, #cf520a);
+}
+.gradient-box {
+  padding: 5px 10% 15px 10%;
+  border-radius: 5px;
+}
+.outline {
+	border: 1px solid #000;
+	padding: 10px 20px;
+	font-size: 125%;
 }
 
-a:active {
-    color: darkblue;
-    text-decoration: underline;
+/* Spacing */
+.moremargintop20 {
+	margin-top: 20px;
 }
 
-a:focus {
-    color: darkblue;
-    outline: none;
-    /* Remove any default outline if present */
-}
-
-
-/* List tyling */
-ul,
-ol {
-    list-style-position: outside;
-    margin: 1em 0;
-    padding-left: 2em;
-}
-
-ul {
-    list-style-type: disc;
-}
-
-li {
-    margin: 0.5em;
-}
-
-/* Headings */
+/* Text styling including h2, etc. */
 h2 {
     font-family: 'Merriweather', 'Georgia', sans-serif;
     font-size: 140%;
@@ -128,4 +111,116 @@ h3.white {
 
 .text-cinnabar {
     color: #df4009;
+}
+.text-italic {
+	font-style: italic;
+}
+.text-italic-bold {
+	font-style: italic;
+	font-weight: bold;
+}
+
+/* List tyling */
+ul,
+ol {
+    list-style-position: outside;
+    margin: 1em 0;
+    padding-left: 2em;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+li {
+    margin: 0.5em;
+}
+
+/* Figcaption styling */
+figcaption {
+  font-family: "Lato", sans-serif;
+  font-size: 0.8em;
+}
+
+figcaption a:link {
+    color: purple;
+    text-decoration: underline;
+}
+
+figcaption a:visited {
+    color: purple;
+    text-decoration: underline;
+}
+
+figcaption a:hover {
+    color: darkblue;
+    text-decoration: underline;
+}
+
+figcaption a:active {
+    color: darkblue;
+    text-decoration: underline;
+}
+
+figcaption a:focus {
+    color: darkblue;
+    outline: none;
+    /* Remove any default outline if present */
+}
+
+
+/* Footer styling */
+footer {
+	color: #fff;
+	background-color: #893673;
+    background-image: linear-gradient(to bottom right, #893673, #cf520a);
+	text-align: center;
+	padding: 10px 3%;
+	margin-top: 10px;
+	width: 100%;
+}
+.footer-text {
+	font-size: 100%;
+	font-weight: 700;
+	color: #fff;
+	text-align: center;
+}
+footer a:link {
+	color: #fff;
+	text-decoration: underline;
+}
+footer a:visited {
+	color: #fff;
+	text-decoration: underline;
+}
+footer a:hover {
+	color: #f5dcce;
+	text-decoration: underline;
+}
+footer a:active {
+	color: #f5dcce;
+	text-decoration: underline;
+}
+
+/* Media queries go here for now â€“ home page only */
+
+@media screen and (max-width: 750px) {
+.header-mobile {
+	display: block;
+	max-width: 100%;
+}
+.header-screen {
+	display: none;
+}
+}
+	
+@media screen and (min-width: 751px) {
+.header-mobile {
+	display: none;
+}
+.header-screen {
+	display: block;
+	max-width: 100%;
+	margin-top: 15px;
+}
 }

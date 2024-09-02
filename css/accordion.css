@@ -1,107 +1,128 @@
 /* Accordion styling */
 /* Accordion container */
 .accordion {
-    margin: 0;
+    margin: 2rem 0;
     padding: 0;
     list-style: none;
-    max-width: 1024px;
+    max-width: 900px;
     width: 100%;
+    /* border: 1px solid red; */
     /* Makes sure the accordion takes full width within its container */
 }
 
 /* Accordion details */
 .accordion details {
-    border: 1px solid black;
-    padding: 1em;
-    margin: 1em 0;
+    /* border: 1px solid black; */
+    /* border: 1px dotted green; */
+    /* padding: 1rem; */
+    margin: 0rem 0 0 0;
     width: 100%;
+    /* background-color: #ddd; */
     /* Ensures accordion items are justified to the left within the accordion */
     transition: width 0.3s ease;
-    border-radius: 2.5px;
+    border-radius: 0.3rem;
+    scroll-margin-top: 6rem;
+}
+
+.accordion details:not([open]):hover {
+    background-color: #999;
 }
 
 .accordion details[open] {
     width: 100%;
+    /* padding: 0.5rem; */
 }
 
 /* Accordion summary */
 .accordion summary {
+    /* border: 1px dashed orange; */
     font-family: 'Merriweather', serif;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-weight: bold;
-    background-color: #f4f4f4;
-    padding: 0.5em;
+    /* background-color: #bfa8b9; */
+    padding: 1rem 1.5rem;
     display: flex;
     align-items: flex-start;
     cursor: pointer;
     transition: background-color 0.3s ease;
     line-height: 1.4;
-    border-radius: 2.5px;
-    position: relative;
+    border-radius: 0.3rem;
+    /* position: relative; */
     /* Ensure proper positioning for icons */
 }
 
+
 /* Marker styling */
 .accordion summary::before {
-    font-family: "Font Awesome 5 Free";
-    content: "\f067";
-    /* Plus icon */
+    /* font-family: "Font Awesome 5 Free"; */
+    /* content: "\f067"; */
+    content: "+";
+    font-size: 3rem;
     font-weight: 900;
-    margin-right: 0.5em;
+    margin-right: 1rem;
     transition: transform 0.3s ease, content 0.3s ease;
+}
+
+.accordion details[open] summary {
+    background-color: #999;
+    border-radius: 0.3rem 0.3rem 0 0;
+}
+
+.accordion details[open] summary:hover {
+    background-color: #ddd;
 }
 
 /* Change the marker and background when details are open */
 .accordion details[open] summary::before {
-    content: "\f068";
-    /* Minus icon */
-}
-
-.accordion details[open] summary {
-    background-color: #ddd;
+    /* content: "\f068"; */
+    content: "-";
 }
 
 .accordion details .summary-text {
-    margin-right: 5vw;
+    margin-right: 1rem;
 }
 
 /* Accordion summary thumbnail */
 .accordion summary img {
-    width: 10vw;
+    width: 164px;
     height: auto;
     object-fit: cover;
     margin-left: auto;
     align-self: flex-start;
-    border-radius: 2.5px;
+    /* border-radius: 0.2rem; */
+    /* padding: 1px; */
+    border: 1px solid black;
 }
+
 
 /* Hide the thumbnail when details are open */
 .accordion details[open] summary img {
     visibility: hidden;
-    height: 1em;
+    height: 1rem;
 }
 
 /* Accordion details content */
 .accordion .details-content {
     display: grid;
     grid-template-columns: 45% 45%;
-    /* Two columns: Text 45%, Image 45% */
-    align-items: start;
-    padding: 0.5em;
-    /* Adjust padding to prevent overflow */
+    align-items: center;
+    padding: 1rem;
     background-color: #f9f9f9;
     gap: 10%;
-    /* 10% gap between the two columns */
     width: 100%;
 }
 
 .accordion .details-text {
     margin: 0;
-    font-size: 1.1em;
+    font-size: 1.1rem;
 }
 
 .accordion .details-text p {
-    margin: 0.5em 0;
+    margin: 0.5rem 0;
+}
+
+.accordion .details-text h2 {
+    color: #df4009;
 }
 
 .accordion .details-figure {
@@ -144,7 +165,7 @@
 
     .accordion .details-figure img {
         width: 100%;
-        margin-top: 1em;
-        max-width: 90em;
+        margin-top: 1rem;
+        max-width: 90rem;
     }
 }

@@ -1,0 +1,9 @@
+<div id="menudiv" class="fluid">
+    <label for="drop" class="toggle">MENU</label>
+    <input type="checkbox" id="drop" />
+    <ul class="menu">
+        {{#nav_list}}
+        <li><a href="{{page_url}}">{{page_name}}</a></li>
+        {{/nav_list}}
+    </ul>
+</div>
