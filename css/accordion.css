@@ -4,7 +4,7 @@
     margin: 2rem 0;
     padding: 0;
     list-style: none;
-    max-width: 1024px;
+    max-width: 900px;
     width: 100%;
     /* border: 1px solid red; */
     /* Makes sure the accordion takes full width within its container */
@@ -15,12 +15,13 @@
     /* border: 1px solid black; */
     /* border: 1px dotted green; */
     /* padding: 1rem; */
-    margin: 0.5rem 0;
+    margin: 0rem 0 0 0;
     width: 100%;
     /* background-color: #ddd; */
     /* Ensures accordion items are justified to the left within the accordion */
     transition: width 0.3s ease;
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
+    scroll-margin-top: 6rem;
 }
 
 .accordion details:not([open]):hover {
@@ -36,7 +37,7 @@
 .accordion summary {
     /* border: 1px dashed orange; */
     font-family: 'Merriweather', serif;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
     /* background-color: #bfa8b9; */
     padding: 1rem 1.5rem;
@@ -50,11 +51,6 @@
     /* Ensure proper positioning for icons */
 }
 
-.accordion summary img {
-    padding: 0.2rem;
-    border-radius: 0.3rem;
-    background-color: #999;
-}
 
 /* Marker styling */
 .accordion summary::before {
@@ -63,7 +59,7 @@
     content: "+";
     font-size: 3rem;
     font-weight: 900;
-    margin-right: 1.5rem;
+    margin-right: 1rem;
     transition: transform 0.3s ease, content 0.3s ease;
 }
 
@@ -83,18 +79,21 @@
 }
 
 .accordion details .summary-text {
-    margin-right: 5vw;
+    margin-right: 1rem;
 }
 
 /* Accordion summary thumbnail */
 .accordion summary img {
-    width: 10vw;
+    width: 164px;
     height: auto;
     object-fit: cover;
     margin-left: auto;
     align-self: flex-start;
-    border-radius: 0.2rem;
+    /* border-radius: 0.2rem; */
+    /* padding: 1px; */
+    border: 1px solid black;
 }
+
 
 /* Hide the thumbnail when details are open */
 .accordion details[open] summary img {

@@ -112,6 +112,12 @@ const renderNav = async () => {
 window.onload = async function () {
   await renderNav();
   await renderAccordion();  
+  document.querySelectorAll('.accordion details').forEach((detail) => {
+    detail.addEventListener('click', function() {
+        this.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
 }
 
 
