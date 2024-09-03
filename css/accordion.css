@@ -141,7 +141,7 @@
     }
 
     .accordion summary img {
-        width: 40%;
+        width: 100%;
         grid-column: 1; /* Move the image to the top */
         grid-row: 1; 
         margin: 1rem auto 1.5rem auto; /* Center image */
@@ -158,7 +158,7 @@
         align-self: center; /* Center text */
         margin: 0; /* Tighten space below the text */
         font-size: 1rem;    
-        padding: 0 3rem;
+        padding: 0;
     }
 
     .accordion summary::before {
