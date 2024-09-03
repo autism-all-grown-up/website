@@ -104,27 +104,77 @@ const renderNav = async () => {
   document.querySelector('nav').innerHTML = rendered;
 }
 
+function attachLightboxListeners(event) {
+  console.log("lightbox trigger clicked");
+
+  const lightbox = document.querySelector('.lightbox');
+  const lightboxImg = document.querySelector('#lightbox-img');
+  const lightboxCaption = document.querySelector('#lightbox-caption');
+  const imgSrc = this.querySelector('img').src;
+  const captionText = this.querySelector('figcaption').textContent;
+
+  lightboxImg.src = imgSrc; // Set the lightbox image source
+  lightboxCaption.textContent = captionText; // Set the lightbox caption
+  lightbox.classList.add('open'); // Show the lightbox
+
+  // Close the lightbox when clicking on the lightbox itself (outside the image)
+  lightbox.addEventListener('click', function () {
+    console.log("Lightbox clicked, closing...");
+    lightbox.classList.remove('open'); // Close the lightbox
+  }, { once: true }); // Use { once: true } to ensure the listener is removed after one click
+}
+
+
+function setScrollBehavior() {
+  document.querySelectorAll('.accordion details').forEach((detail) => {
+    detail.addEventListener('toggle', function () {
+      if (this.open) {
+        setTimeout(() => {
+          this.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest'
+          });
+        }, 100); // Adjust the delay as needed
+      }
+    });
+  });
+}
+
+/**
+ * Adds an event listener to a parent element that handles events for dynamically generated child elements.
+ * 
+ * @param {Element} parentSelector - The parent element selector where the event listener will be attached.
+ * @param {string} eventType - The type of event to listen for (e.g., 'click', 'mouseover').
+ * @param {string} childSelector - The selector for the child elements that should trigger the event.
+ * @param {Function} callback - The function to run when the event is triggered.
+ */
+function delegateEvent(parentSelector, eventType, childSelector, callback) {
+  const parentElement = document.querySelector(parentSelector);
+
+  if (parentElement) {
+    parentElement.addEventListener(eventType, function (event) {
+      // Check if the event target matches the child selector or is a descendant of it
+      const targetElement = event.target.closest(childSelector);
+      if (targetElement && parentElement.contains(targetElement)) {
+        callback.call(targetElement, event);
+      }
+    });
+  }
+}
+
+
 
 window.onload = async function () {
   await renderNav();
   await renderAccordion();
-  
-  document.querySelectorAll('.accordion details').forEach((detail) => {
-    detail.addEventListener('toggle', function () {
-        if (this.open) {
-            setTimeout(() => {
-                this.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start', 
-                    inline: 'nearest' 
-                });
-            }, 100); // Adjust the delay as needed
-        }
-    });
-});
+  console.log("Accordion rendering complete");
 
+  // Attach lightbox event using delegateEvent
+  delegateEvent('.accordion', 'click', '.lightbox-trigger', attachLightboxListeners);
 
 }
+
 
 
 

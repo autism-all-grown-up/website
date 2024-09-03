@@ -50,7 +50,7 @@
     content: "+";
     font-size: 2.5rem; /* Slightly reduce marker size for better balance */
     font-weight: 900;
-    margin-right: 0.3rem; /* Reduce space between marker and text */
+    margin-right: 1rem; /* Reduce space between marker and text */
     transition: transform 0.5s ease, content 0.5s ease;
     grid-column: 1; /* Places the marker in the first column */
     align-self: center; /* Center marker vertically */
