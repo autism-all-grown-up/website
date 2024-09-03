@@ -142,10 +142,12 @@
 
     .accordion summary img {
         width: 100%;
+        max-width: 164px;
         grid-column: 1; /* Move the image to the top */
         grid-row: 1; 
         margin: 1rem auto 1.5rem auto; /* Center image */
         justify-self: center;
+        border: none;
     }
 
     .accordion details[open] summary img {
@@ -157,8 +159,8 @@
         grid-row: 2;
         align-self: center; /* Center text */
         margin: 0; /* Tighten space below the text */
-        font-size: 1rem;    
-        padding: 0;
+        font-size: 1.2rem;    
+        padding: 0 2rem;
     }
 
     .accordion summary::before {
@@ -201,5 +203,12 @@
     .accordion .details-figure img {
         width: 100%;
         justify-self: center; /* Center the image within the figure */
+    }
+}
+
+@media (max-width: 480px) {
+    .accordion .summary-text {
+        font-size: 0.9rem;    
+        padding: 0;
     }
 }
