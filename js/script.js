@@ -108,13 +108,21 @@ const renderNav = async () => {
 window.onload = async function () {
   await renderNav();
   await renderAccordion();
+  
   document.querySelectorAll('.accordion details').forEach((detail) => {
     detail.addEventListener('toggle', function () {
-      if (this.open) {
-        this.scrollIntoView({ behavior: 'smooth' });
-      }
+        if (this.open) {
+            setTimeout(() => {
+                this.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start', 
+                    inline: 'nearest' 
+                });
+            }, 100); // Adjust the delay as needed
+        }
     });
-  });
+});
+
 
 }
 
