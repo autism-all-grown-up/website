@@ -28,7 +28,6 @@
     background-color: #999;
 }
 
-
 /* Accordion summary */
 .accordion summary {
     font-family: 'Merriweather', serif;
@@ -36,22 +35,22 @@
     font-weight: bold;
     padding: 1rem 1.5rem;
     display: grid;
-    grid-template-columns: auto 1fr auto; /* Adjusted grid to move marker and image */
-    align-items: center; /* Center items vertically */
+    grid-template-columns: auto 1fr auto; /* Default layout with marker, text, and image */
+    align-items: center; /* Align items vertically */
     cursor: pointer;
     transition: background-color 0.5s ease;
     line-height: 1.4;
-    border-radius: 0.3rem;
+    /* border-radius: 0.3rem; */
     padding-left: 1rem; /* Add padding to allow for background color change */
-    column-gap: 0.5rem; /* Fine-tune the spacing between grid columns */
+    column-gap: 0.3rem; /* Tighten up the spacing between grid columns */
 }
 
 /* Marker styling */
 .accordion summary::before {
     content: "+";
-    font-size: 3rem;
+    font-size: 2.5rem; /* Slightly reduce marker size for better balance */
     font-weight: 900;
-    margin-right: 0.5rem; /* Adjust space between marker and text */
+    margin-right: 0.3rem; /* Reduce space between marker and text */
     transition: transform 0.5s ease, content 0.5s ease;
     grid-column: 1; /* Places the marker in the first column */
     align-self: center; /* Center marker vertically */
@@ -69,7 +68,7 @@
     width: 164px;
     height: auto;
     object-fit: cover;
-    margin-left: 1rem; /* Adjust space between text and image */
+    margin-left: 0.5rem; /* Tighten space between text and image */
     border: 1px solid black;
     grid-column: 3; /* Places the image in the third column */
     align-self: center; /* Center image vertically */
@@ -118,35 +117,89 @@
 }
 
 .accordion .details-figure {
-    display: grid;
+    display: block;
     width: 100%;
-}
-
-.accordion .details-figure img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
 }
 
 /* Media queries for responsiveness */
-@media (max-width: 1024px) {
-    .accordion .details-content {
-    }
-}
-
-@media (max-width: 768px) {
-    .accordion details {
+@media (max-width: 800px) {
+    html, body {
         width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .accordion {
+        padding: 0 1rem;
+    }
+
+    .accordion summary {
+        grid-template-columns: 1fr; /* Stack elements vertically */
+        grid-template-rows: auto auto auto; /* Define rows for each item */
+        text-align: center; /* Center align text */
+        padding: 1rem;
+    }
+
+    .accordion summary img {
+        width: 25%;
+        grid-column: 1; /* Move the image to the top */
+        grid-row: 1; 
+        margin: 1rem auto 1.5rem auto; /* Center image */
+        justify-self: center;
+    }
+
+    .accordion details[open] summary img {
+        display: none;
+    }
+
+    .accordion .summary-text {
+        grid-column: 1; /* Move text below the image */
+        grid-row: 2;
+        align-self: center; /* Center text */
+        margin: 0; /* Tighten space below the text */
+        font-size: 1.2rem;    
+        padding: 0 3rem;
+    }
+
+    .accordion summary::before {
+        grid-column: 1; /* Move the marker to the bottom */
+        grid-row: 3;
+        align-self: center; /* Center marker */
+        font-size: 2rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .accordion details {
+        display: grid;
+        width: 100%;
+        border: 0.1rem solid black;
+        margin: 2rem 0;
+        border-radius: 0.15rem;
     }
 
     .accordion .details-content {
-        grid-template-columns: 100%; /* Stack content vertically */
+        display: grid;
+        grid-template-columns: 1fr; /* Stack elements vertically */
+        grid-template-rows: auto auto; /* Define rows for each item */
         gap: 0;
+    }
+
+    .accordion .details-figure {
+        grid-column: 1;
+        grid-row: 1; /* Move the figure above the text */
+        width: 75%; /* Set figure to 75% width */
+        margin: 0 auto 1rem auto; /* Center the figure horizontally with a bottom margin */
+        text-align: left; /* Align caption text to the left */
+    }
+
+    .accordion .details-text {
+        grid-column: 1;
+        grid-row: 2; /* Move text below the figure */
     }
 
     .accordion .details-figure img {
         width: 100%;
-        margin-top: 1rem;
-        max-width: 90rem;
+        justify-self: center; /* Center the image within the figure */
     }
 }
