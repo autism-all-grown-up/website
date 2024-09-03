@@ -17,7 +17,7 @@ async function readJsonFile(file_path) {
 async function readTextFile(file_path) {
   // console.log(`readTextFile file_path: ${file_path}`);
   try {
-    const response = await fetch(file_path);``
+    const response = await fetch(file_path); ``
     if (!response.ok) {
       throw new Error(`Failed to fetch ${file_path}: ${response.status} ${response.statusText}`);
     }
@@ -39,34 +39,30 @@ async function readMarkdownFileToHTML(file_path) {
   return html;
 }
 
-const renderAccordion = async () =>  
-{
+const renderAccordion = async () => {
   const accordion_content_dir = "./content/home/accordion";
   // console.log(`accordion_content_dir: ${accordion_content_dir}`);
-  
+
   // Await the JSON data
   let accordion_data = await readJsonFile(`${accordion_content_dir}/accordion_config.json`);
   // console.log(`accordion_data:`, accordion_data);
 
   await Promise.all(accordion_data.map(async (item) => {
-    if (item.content_file){
+    if (item.content_file) {
       item.main_text = await readMarkdownFileToHTML(`${accordion_content_dir}/${item.content_directory}/${item.content_file}`);
     }
-    else
-    {
+    else {
       item.main_text = "";
     }
-    if (item.fig_caption_file)
-    {
+    if (item.fig_caption_file) {
       item.fig_caption_text = await readMarkdownFileToHTML(`${accordion_content_dir}/${item.content_directory}/${item.fig_caption_file}`);
     }
-    else
-    {
+    else {
       item.fig_caption_text = "";
     }
   }
-));
-  
+  ));
+
 
   if (accordion_data) {
     // Await the markdown content
@@ -93,7 +89,7 @@ const renderAccordion = async () =>
 
 const renderNav = async () => {
   const nav_content_dir = "./content/nav";
-  
+
   // Await the JSON data
   let nav_data = await readJsonFile(`${nav_content_dir}/nav_config.json`);
 
@@ -111,12 +107,14 @@ const renderNav = async () => {
 
 window.onload = async function () {
   await renderNav();
-  await renderAccordion();  
+  await renderAccordion();
   document.querySelectorAll('.accordion details').forEach((detail) => {
-    detail.addEventListener('click', function() {
+    detail.addEventListener('toggle', function () {
+      if (this.open) {
         this.scrollIntoView({ behavior: 'smooth' });
+      }
     });
-});
+  });
 
 }
 
