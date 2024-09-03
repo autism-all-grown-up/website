@@ -172,6 +172,7 @@ window.onload = async function () {
 
   // Attach lightbox event using delegateEvent
   delegateEvent('.accordion', 'click', '.lightbox-trigger', attachLightboxListeners);
+  delegateEvent('.accordion', 'click', 'summary', setScrollBehavior)
 
 }
 
