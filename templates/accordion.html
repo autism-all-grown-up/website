@@ -1,6 +1,6 @@
 <!-- The container where the rendered accordion will be placed -->
 <section class="accordion">
-    {{#homepage_accordions}}
+    {{#data}}
     <details>
         <summary>
             <p class="summary-text">{{{summary_text}}}</p>
@@ -15,10 +15,10 @@
                     <img src="{{{main_image}}}" alt="{{{main_image_alt_text}}}" />
                 </picture>
                 <figcaption>
-                    {{{fig_caption_text}}}
+                    {{{fig_caption}}}
                 </figcaption>
             </figure>
         </div>
     </details>
-    {{/homepage_accordions}}
+    {{/data}}
 </section>

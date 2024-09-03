@@ -39,82 +39,90 @@ async function readMarkdownFileToHTML(file_path) {
   return html;
 }
 
-const renderAccordion = async () => {
-  const accordion_content_dir = "./content/home/accordion";
-  // console.log(`accordion_content_dir: ${accordion_content_dir}`);
+const renderTemplate = async (
+  template,
+  content_subdirectory = null,
+  config_data_file = "config.js",
+  renderCustom = null
+) => {
 
-  // Await the JSON data
-  let accordion_data = await readJsonFile(`${accordion_content_dir}/accordion_config.json`);
-  // console.log(`accordion_data:`, accordion_data);
+  console.log({ template, content_subdirectory, config_data_file, renderCustom });
 
-  await Promise.all(accordion_data.map(async (item) => {
-    if (item.content_file) {
-      item.main_text = await readMarkdownFileToHTML(`${accordion_content_dir}/${item.content_directory}/${item.content_file}`);
-    }
-    else {
-      item.main_text = "";
-    }
-    if (item.fig_caption_file) {
-      item.fig_caption_text = await readMarkdownFileToHTML(`${accordion_content_dir}/${item.content_directory}/${item.fig_caption_file}`);
-    }
-    else {
-      item.fig_caption_text = "";
-    }
+  if (renderCustom) {
+    // Hand off render to custom function
+    renderCustom(template, content_subdirectory, config_data_file);
+    return;
   }
-  ));
 
+  let content_directory = "";
 
-  if (accordion_data) {
-    // Await the markdown content
-    for (const item of accordion_data) {
-      // console.log(`path:${accordion_content_dir}/${item.content_directory}`);
-      // item.main_text = await readMarkdownFileToHTML(`${accordion_content_dir}/${item.content_directory}/${item.content_file}`);
-      // item.fig_caption_text = await readMarkdownFileToHTML(`${accordion_content_dir}/${item.content_directory}/${item.fig_caption_file}`);
-      item.thumbnail_image = `images/${item.thumbnail_image}`;
-      item.main_image = `images/${item.main_image}`;
-    }
+  if (content_subdirectory) {
+    content_directory = `./content/${content_subdirectory}`;
 
-    // console.dir(`accordion_data: ${JSON.stringify(accordion_data)}`);
-
-    // Render the accordion
-    const template = await readTextFile('./templates/accordion.html');
-    // console.log(`accordion template: ${template}`);
-
-    const rendered = Mustache.render(template, { homepage_accordions: accordion_data });
-    // console.log(rendered);
-
-    document.querySelector('main').innerHTML = rendered;
   }
+  else {
+    content_directory = `./content/${template}`;
+  }
+
+  console.log({content_directory});
+
+  // Load the JSON config data
+  let config = await readJsonFile(`${content_directory}/config.json`);
+
+  // make sure config has a `target` and `template`
+
+  if (config.data) {
+    // Loop through the items in config.data and process
+    // any source files those items have.
+
+    await Promise.all(config.data.map(async (item_data) => {
+      // Process source files
+
+      if (item_data.source_data) {
+
+        item_data.source_data.map(async (source_item) => {
+          console.log({ source_item });
+
+          // read the source 
+          const filename = `${content_directory}/${source_item.source}`;
+          console.log({ filename });
+          const markdown = await readTextFile(filename);
+
+          // convert to html
+          const html = marked.parse(markdown);
+
+          // assign the html to the name specified as a property of config.data
+          // which is a parent of `source_data`
+          // console.log(`content name: ${source_item.content_name}`);
+          item_data[source_item.content_name] = html;
+        });
+
+      }
+
+    }));
+  }
+
+  // Render the template
+  const template_html = await readTextFile(`./templates/${config.template}`);
+  const rendered = Mustache.render(template_html, { "data": config.data });
+
+  document.querySelector(config.target).innerHTML = rendered;
+
 }
 
-const renderNav = async () => {
-  const nav_content_dir = "./content/nav";
 
-  // Await the JSON data
-  let nav_data = await readJsonFile(`${nav_content_dir}/nav_config.json`);
-
-  // Await the text data to get the template
-  const template = await readTextFile('./templates/nav.html');
-  // console.log(template);
-
-  // Render the navigation using Mustache
-  const rendered = Mustache.render(template, { nav_list: nav_data });
-  // console.log(rendered);
-
-  document.querySelector('nav').innerHTML = rendered;
-}
 
 function attachLightboxListeners(event) {
   console.log("lightbox trigger clicked");
 
   const lightbox = document.querySelector('.lightbox');
-  const lightboxImg = document.querySelector('#lightbox-img');
-  const lightboxCaption = document.querySelector('#lightbox-caption');
-  const imgSrc = this.querySelector('img').src;
-  const captionText = this.querySelector('figcaption').textContent;
+  const lightbox_img = document.querySelector('#lightbox-img');
+  const lightbox_caption = document.querySelector('#lightbox-caption');
+  const img_src = this.querySelector('img').src;
+  const caption_text = this.querySelector('figcaption').textContent;
 
-  lightboxImg.src = imgSrc; // Set the lightbox image source
-  lightboxCaption.textContent = captionText; // Set the lightbox caption
+  lightbox_img.src = img_src; // Set the lightbox image source
+  lightbox_caption.textContent = caption_text; // Set the lightbox caption
   lightbox.classList.add('open'); // Show the lightbox
 
   // Close the lightbox when clicking on the lightbox itself (outside the image)
@@ -144,30 +152,29 @@ function setScrollBehavior() {
 /**
  * Adds an event listener to a parent element that handles events for dynamically generated child elements.
  * 
- * @param {Element} parentSelector - The parent element selector where the event listener will be attached.
- * @param {string} eventType - The type of event to listen for (e.g., 'click', 'mouseover').
- * @param {string} childSelector - The selector for the child elements that should trigger the event.
+ * @param {Element} parent_selector - The parent element selector where the event listener will be attached.
+ * @param {string} event_type - The type of event to listen for (e.g., 'click', 'mouseover').
+ * @param {string} child_selector - The selector for the child elements that should trigger the event.
  * @param {Function} callback - The function to run when the event is triggered.
  */
-function delegateEvent(parentSelector, eventType, childSelector, callback) {
-  const parentElement = document.querySelector(parentSelector);
+function delegateEvent(parent_selector, event_type, child_selector, callback) {
+  const parent_element = document.querySelector(parent_selector);
 
-  if (parentElement) {
-    parentElement.addEventListener(eventType, function (event) {
+  if (parent_element) {
+    parent_element.addEventListener(event_type, function (event) {
       // Check if the event target matches the child selector or is a descendant of it
-      const targetElement = event.target.closest(childSelector);
-      if (targetElement && parentElement.contains(targetElement)) {
-        callback.call(targetElement, event);
+      const target_element = event.target.closest(child_selector);
+      if (target_element && parent_element.contains(target_element)) {
+        callback.call(target_element, event);
       }
     });
   }
 }
 
 
-
 window.onload = async function () {
-  await renderNav();
-  await renderAccordion();
+  await renderTemplate("accordion", "home/accordion");
+  await renderTemplate("nav");
   console.log("Accordion rendering complete");
 
   // Attach lightbox event using delegateEvent
@@ -175,8 +182,6 @@ window.onload = async function () {
   delegateEvent('.accordion', 'click', 'summary', setScrollBehavior)
 
 }
-
-
 
 
 // Call the function to load content
