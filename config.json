@@ -1,0 +1,29 @@
+{
+    "render": [
+        {
+            "template": "nav",
+            "dir": "nav"
+        },
+        {
+            "template": "accordion",
+            "dir": "home/accordion"
+        }
+    ],
+    "plugins": [
+        {
+            "path": "lightbox",
+            "event": "click",
+            "parent": ".accordion",
+            "target": ".lightbox-trigger",
+            "callback": "attachLightboxListeners"
+        },
+        {
+            "path": "accordion_scroll",
+            "event": "click",
+            "parent": ".accordion",
+            "target": "summary",
+            "callback": "setScrollBehavior"
+        }
+        
+    ]
+}
