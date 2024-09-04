@@ -15,7 +15,6 @@
     overflow: hidden;
     transition: max-width 0.5s ease;
     border-radius: 0.3rem;
-    scroll-margin-top: 6rem;
 }
 
 .accordion details[open] {
@@ -43,6 +42,10 @@
     /* border-radius: 0.3rem; */
     padding-left: 1rem; /* Add padding to allow for background color change */
     column-gap: 0.3rem; /* Tighten up the spacing between grid columns */
+}
+
+.accordion summary {
+    scroll-margin-top: 5rem;  /* Adjust this value as needed */
 }
 
 /* Marker styling */
