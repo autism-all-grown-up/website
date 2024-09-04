@@ -2,54 +2,82 @@
     "target": "main",
     "template": "accordion.html",
     "data": [
-    {
-        "summary_text": "Many autistic adults in Oregon are invisible, marginalized, and struggling. We can fix this.",
-        "thumbnail_image": "images/thumbnails/oregon_adults_autistic_and_or_receiving_idd_services_thumbnail.png",
-        "thumbnail_alt_text": "Population chart thumbnail",
-        "main_image": "images/oregon_adults_autistic_and_or_receiving_idd_services.png",
-        "main_image_alt_text": "Chart showing population of adults in oregon receiving I/DD services and/or autistic.",
-        "source_data": [
-            {"content_name": "main_text", "source": "mission.md"},
-            {"content_name": "fig_caption", "source": "population_plot_caption.md"}
-        ]
-    },
-    {
-        "summary_text": "Autism is Lifelong. Support and Research Haven’t Been. We are just starting to learn what successful adulthood looks like for autistic people.",
-        "thumbnail_image": "images/thumbnails/autism_research_funding_2010-2020_thumbnail.png",
-        "thumbnail_alt_text": "some text",
-        "main_image": "images/us_autism_funding_by_category_2010-2020.png",
-        "main_image_alt_text": "Plot of autism research funding by category from 2010 to 2020. Data from the IACC.",
-        "source_data": [
-            {"content_name": "main_text", "source": "invisible_majority.md"},
-            {"content_name": "fig_caption", "source": "research_funding_figure_caption.md"}
-        ]
-    },
-    {
-        "summary_text": "Autistic adults face a multitude of significant and endemic challenges.",
-        "thumbnail_image": "images/thumbnails/gorkon_164x92.png",
-        "thumbnail_alt_text": "Thumbnail: Dr. Bones McCoy trying to safe Klingon General Gorkon in the Star Treck movie _The Undiscovered Country_",
-        "main_image": "images/gorkon_800.png",
-        "main_image_alt_text": "Dr. Bones McCoy trying to safe Klingon General Gorkon in the Star Treck movie _The Undiscovered Country_.",
-        "source_data": [
-            {"content_name": "main_text", "source": "challenges.md"},
-            {"content_name": "fig_caption", "source": "gorkon_caption.md"}
-        ]
-    },
-    {
-        "summary_text": "The autistic community has the talent and ability to create solutions NOW. “Actually Autistic” adults are not what you see on TV.",
-        "thumbnail_image": "images/thumbnails/autism_spectrum_thumbnail.png",
-        "thumbnail_alt_text": "Autism Spectrum thumbnail",
-        "main_image": "images/autism_spectrum.jpeg",
-        "main_image_alt_text": "autism_spectrum.jpeg",
-        "source_data": [{"content_name": "main_text", "source": "actually_autistic.md"}]
-    },
-    {
-        "summary_text": "Working from within the autistic community, we will focus on four attainable objectives that will directly and immediately improve the lives of Oregon's autistic adults.",
-        "thumbnail_image": "images/thumbnails/watercolor_path_thumbnail.jpg",
-        "thumbnail_alt_text": "thumbnail: pathway watercolor by Alexandria Levin",
-        "main_image": "images/watercolor_path.jpg",
-        "main_image_alt_text": "pathway watercolor by Alexandria Levin",
-        "source_data": [{"content_name": "main_text", "source": "impact.md"}]
-    }
-]
+        {
+            "summary_text": "Autism is all grown up now, and it isn't always pretty.<br/>Autistic adults face a multitude of significant, endemic challenges.",
+            "thumbnail_image": "images/thumbnails/gorkon_164x92.png",
+            "thumbnail_alt_text": "Thumbnail: Dr. Bones McCoy trying to safe Klingon General Gorkon in the Star Trek movie _The Undiscovered Country_",
+            "main_image": "images/gorkon_800.png",
+            "main_image_alt_text": "Dr. Bones McCoy trying to safe Klingon General Gorkon in the Star Trek movie _The Undiscovered Country_.",
+            "source_data": [
+                {
+                    "content_name": "main_text",
+                    "source": "challenges.md"
+                },
+                {
+                    "content_name": "fig_caption",
+                    "source": "gorkon_caption.md"
+                }
+            ]
+        },
+        {
+            "summary_text": "Many autistic adults in Oregon are invisible, marginalized, and struggling. We can fix this.",
+            "thumbnail_image": "images/thumbnails/oregon_adults_autistic_and_or_receiving_idd_services_thumbnail.png",
+            "thumbnail_alt_text": "Population chart thumbnail",
+            "main_image": "images/oregon_adults_autistic_and_or_receiving_idd_services.png",
+            "main_image_alt_text": "Chart showing population of adults in oregon receiving I/DD services and/or autistic.",
+            "source_data": [
+                {
+                    "content_name": "main_text",
+                    "source": "mission.md"
+                },
+                {
+                    "content_name": "fig_caption",
+                    "source": "population_plot_caption.md"
+                }
+            ]
+        },
+        {
+            "summary_text": "Autism is lifelong. Support and research haven't been. We are just starting to learn what successful adulthood looks like for autistic people.",
+            "thumbnail_image": "images/thumbnails/autism_research_funding_2010-2020_thumbnail.png",
+            "thumbnail_alt_text": "some text",
+            "main_image": "images/us_autism_funding_by_category_2010-2020.png",
+            "main_image_alt_text": "Plot of autism research funding by category from 2010 to 2020. Data from the IACC.",
+            "source_data": [
+                {
+                    "content_name": "main_text",
+                    "source": "invisible_majority.md"
+                },
+                {
+                    "content_name": "fig_caption",
+                    "source": "research_funding_figure_caption.md"
+                }
+            ]
+        },
+        {
+            "summary_text": "The autistic community has the talent and ability to create solutions NOW. “Actually Autistic” adults are not what you see on TV.",
+            "thumbnail_image": "images/thumbnails/autism_spectrum_thumbnail.png",
+            "thumbnail_alt_text": "Autism Spectrum thumbnail",
+            "main_image": "images/autism_spectrum.jpeg",
+            "main_image_alt_text": "autism_spectrum.jpeg",
+            "source_data": [
+                {
+                    "content_name": "main_text",
+                    "source": "actually_autistic.md"
+                }
+            ]
+        },
+        {
+            "summary_text": "Working from within, we can make an immediate impact by activating and empowering the autistic community in Oregon to focus on attainable objectives.",
+            "thumbnail_image": "images/thumbnails/watercolor_path_thumbnail.jpg",
+            "thumbnail_alt_text": "thumbnail: pathway watercolor by Alexandria Levin",
+            "main_image": "images/watercolor_path.jpg",
+            "main_image_alt_text": "pathway watercolor by Alexandria Levin",
+            "source_data": [
+                {
+                    "content_name": "main_text",
+                    "source": "impact.md"
+                }
+            ]
+        }
+    ]
 }

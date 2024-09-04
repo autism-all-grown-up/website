@@ -86,15 +86,20 @@ h2.cinnabar {
     color: #df4009;
 }
 
-h3.white {
+h3 {
     font-family: 'Merriweather', 'Georgia', sans-serif;
     font-size: 130%;
     font-weight: 700;
     font-style: italic;
-    color: #fff;
-    text-align: center;
+    color: black;
     margin: 12px 0 8px 0;
 }
+
+h3.white {
+    color: #fff;
+    text-align: center;
+}
+
 
 .text-white-tagline {
     color: #fff;

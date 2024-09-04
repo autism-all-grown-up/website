@@ -12,7 +12,7 @@ vast majority of autistic people:
 
 - Are cognitively or intellectually capable
 - Are socially motivated and want relationships and community
-- Are in much greater need of acceptance and understanding vs accommodation
+- Are in much greater need of _acceptance and understanding_ than accommodation
 - Are in the best position to support other autistic people, including those who may be profoundly impacted by autism,
   associated trauma, or conditions endemic to autistic genotypes.
 

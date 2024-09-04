@@ -14,8 +14,12 @@ export default function attachLightboxListeners(event, targetElement) {
     lightbox.classList.add('open'); // Show the lightbox
 
     // Close the lightbox when clicking on the lightbox itself (outside the image)
-    lightbox.addEventListener('click', function () {
-        // console.log("Lightbox clicked, closing...");
-        lightbox.classList.remove('open'); // Close the lightbox
-    }, { once: true }); // Use { once: true } to ensure the listener is removed after one click
+    lightbox.addEventListener(
+        'click',
+        function () {
+            // console.log("Lightbox clicked, closing...");
+            lightbox.classList.remove('open'); // Close the lightbox
+        },
+        { once: true }
+    ); // Use { once: true } to ensure the listener is removed after one click
 }

@@ -1,4 +1,4 @@
-## A Partial List
+## A Partial List  
 - **Work/Life:** Landing and keeping a job is often an uphill battle. Many find themselves unemployed or in roles that 
   don't tap their potential. Hiring processes and workplace environments frequently clash with autistic needs, creating 
   frustrating barriers.
@@ -15,13 +15,9 @@
 
 These issues often snowball, making life tougher across the board.
 
-## Tap into the Nexus
-
-AAGU believes it can help nurture organic changes by facilitating small steps to empower autistic adults to live rich, 
-independent lives by supporting existing programs through networking, collaboration, and education.
-
-- Create autism-friendly workspaces
-- Train healthcare providers to really get it
-- Build stronger peer-support social support networks
-- Promote mental health approaches that actually click with autistic minds
-- Tailor work and education to play to autistic strengths
+## Solutions
+- Autism-friendly social and work spaces
+- Healthcare providers to really get it
+- Stronger peer-support social support networks
+- Mental and physical health approaches that actually click with autistic minds and bodies
+- Work and education tailored to play to autistic strengths

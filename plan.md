@@ -70,8 +70,10 @@ Process:
       }
 ```
 
+
    2. Runs actions
    3. Updates history and url
+
 
 ```js
 updateSlot(url, slot_id, template, data, action) {
