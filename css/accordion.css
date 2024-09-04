@@ -32,15 +32,13 @@
     font-family: 'Merriweather', serif;
     font-size: 1.2rem;
     font-weight: bold;
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     display: grid;
     grid-template-columns: auto 1fr auto; /* Default layout with marker, text, and image */
     align-items: center; /* Align items vertically */
     cursor: pointer;
     transition: background-color 0.5s ease;
     line-height: 1.4;
-    /* border-radius: 0.3rem; */
-    padding-left: 1rem; /* Add padding to allow for background color change */
     column-gap: 0.3rem; /* Tighten up the spacing between grid columns */
 }
 
@@ -213,5 +211,9 @@
     .accordion .summary-text {
         font-size: 0.9rem;    
         padding: 0;
+    }
+
+    .accordion .details-text {
+        font-size: 1rem;
     }
 }
