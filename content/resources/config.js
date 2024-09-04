@@ -1,5 +1,5 @@
 {
-    "target": "main",
+    "slot": "main",
     "template": "accordion",
     "data": [
         {

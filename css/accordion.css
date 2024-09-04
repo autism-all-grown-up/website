@@ -43,7 +43,7 @@
 }
 
 .accordion summary {
-    scroll-margin-top: 5rem;  /* Adjust this value as needed */
+    scroll-margin-top: 0rem;  /* Adjust this value as needed */
 }
 
 /* Marker styling */

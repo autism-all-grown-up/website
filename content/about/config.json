@@ -1,45 +1,22 @@
-{
-    "target": "main",
-    "template": "accordion",
-    "data": [
-        {
-            "summary_text": "Who are we?",
-            "thumbnail_image": "images/placeholder_600x400.svg",
-            "thumbnail_alt_text": "",
-            "main_image": "images/placeholder_600x400.svg",
-            "main_image_alt_text": "",
-            "source_data": [
-                {
-                    "content_name": "main_text",
-                    "source": "who_we_are.md"
-                }
-            ]
-        },
-        {
-            "summary_text": "How did we form AAGU and way?",
-            "thumbnail_image": "images/placeholder_600x400.svg",
-            "thumbnail_alt_text": "",
-            "main_image": "images/placeholder_600x400.svg",
-            "main_image_alt_text": "",
-            "source_data": [
-                {
-                    "content_name": "main_text",
-                    "source": "aagu_history.md"
-                }
-            ]
-        },
-        {
-            "summary_text": "Plans for growth and funding",
-            "thumbnail_image": "images/placeholder_600x400.svg",
-            "thumbnail_alt_text": "",
-            "main_image": "images/placeholder_600x400.svg",
-            "main_image_alt_text": "",
-            "source_data": [
-                {
-                    "content_name": "main_text",
-                    "source": "growth_and_funding.md"
-                }
-            ]
-        }
-    ]
-}
+
+[
+    {
+        "slot": "main",
+        "template": "accordion.html",
+        "data": [
+            {
+                "info_heading": "About Us",
+                "info_subheading": "New section to come &mdash; Fall 2024", 
+                "info_items": [
+                    "About AAGU as a whole",
+                    "Mission Statement",
+                    "History",
+                    "Why we saw the need for an organization like AAGU",
+                    "Staff / Team / Us"
+                ],
+                "main_image": "images_AAGU/mounthood_watercolor.jpg",
+                "main_image_alt_text": "watercolor of Mount Hood by Alexandria Levin"
+            }
+        ]
+    }
+]

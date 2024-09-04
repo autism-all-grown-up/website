@@ -1,3 +1,64 @@
+function isLocal(href) {
+  console.log(`isLocal: ${href}`);
+
+  // Get the referrer (the URL of the previous page)
+  var referrer = document.referrer;
+
+  // Check if the referrer is empty or from a search engine (indicative of organic visit)
+  if (!referrer || referrer === "") {
+    console.log("This is likely a direct or organic visit.");
+
+    return false;
+  } else {
+    // Parse the referrer to get its domain
+    var referrerDomain = (new URL(referrer)).hostname;
+    var currentDomain = window.location.hostname;
+
+    // Check if the visit is from the same domain
+    if (referrerDomain === currentDomain) {
+      console.log("This is an internal visit (from another page on the same website).");
+      return true;
+    } else {
+      console.log("This is likely a referral from another site.");
+      return false;
+    }
+  }
+}
+
+async function getPath(href) {
+  // const url = 'https://example.com/path/to/page?query=123#section';
+
+  // // Split the URL at the first single slash after the domain
+  // const everythingAfterDomain = url.split('/').slice(3).join('/');
+  // console.log(everythingAfterDomain);
+
+  const url_object = new URL(currentUrl);
+  // console.log({url_object});
+
+}
+
+
+async function renderPage(path) {
+  // console.log(`renderPage: ${path}`);
+
+  const config = await fetchFile(`${path}/config.json`, 'json');
+  // console.log("Configuration loaded:", config);
+
+  config.map(async slot_config => {
+    // console.log({slot_config});
+
+    // Render all templates listed in the config file
+    await renderslot(slot_config, path);
+    if (slot_config.plugins) {
+      let plugins = slot_config.plugins;
+      // console.log({plugins});
+      await loadPlugins(plugins);
+    }
+
+  });
+
+}
+
 // Fetch utilities
 // Function to fetch either text or JSON files from the server.
 // - file_path: Path to the file being fetched
@@ -30,16 +91,20 @@ async function convertMarkdownToHtml(file_path) {
 // - template: Name of the template file to be rendered
 // - subdir: Optional subdirectory where the content is stored
 // Fetches the corresponding config file for the template, loads any markdown content, and renders the template.
-async function renderTemplate(template, subdir = '') {
-  const contentDir = `./content/${subdir || template}`;
-  const config = await fetchFile(`${contentDir}/config.json`, 'json');
-  if (!config || !document.querySelector(`#${config.target}`)) {
-    console.error('Configuration error or target element missing:', config);
+async function renderslot({ slot, template, data, action }, dir) {
+
+  // console.log({slot, template, data, action});
+  // console.log({dir});
+
+  const contentDir = `${dir}`;
+
+  if (!slot || !document.querySelector(`#${slot}`)) {
+    console.error('Configuration error or slot element missing:', { slot, template, data, action, dir });
     return;
   }
 
   // Loop through the data in the config file and load markdown if necessary
-  const promises = config.data.map(async item => {
+  const promises = data.map(async item => {
     if (item.source_data) {
       await Promise.all(item.source_data.map(async source => {
         item[source.content_name] = await convertMarkdownToHtml(`${contentDir}/${source.source}`);
@@ -48,8 +113,8 @@ async function renderTemplate(template, subdir = '') {
   });
 
   await Promise.all(promises);
-  const templateHtml = await fetchFile(`./templates/${config.template}`);
-  document.querySelector(`#${config.target}`).innerHTML = Mustache.render(templateHtml, { data: config.data });
+  const templateHtml = await fetchFile(`./templates/${template}`);
+  document.querySelector(`#${slot}`).innerHTML = Mustache.render(templateHtml, { data: data });
 }
 
 // Event delegation function
@@ -61,7 +126,7 @@ async function renderTemplate(template, subdir = '') {
 function delegateEvent(parentSelector, eventType, childSelector, callback) {
   const parent = document.querySelector(parentSelector);
   if (parent) {
-    parent.addEventListener(eventType, function(event) {
+    parent.addEventListener(eventType, function (event) {
       const targetElement = event.target.closest(childSelector);
       if (targetElement) {
         callback(event, targetElement);  // Call the callback function, passing the event and target element
@@ -75,7 +140,9 @@ function delegateEvent(parentSelector, eventType, childSelector, callback) {
 // - pluginConfigs: Array of plugin configurations (each specifying path, event, parent, target, and callback)
 // Loads the plugin, attaches the event listener using delegateEvent, and logs the plugin loaded.
 async function loadPlugins(pluginConfigs) {
-  for (const {path, event, parent, target, callback} of pluginConfigs) {
+  console.log({pluginConfigs});
+
+  for (const { path, event, parent, target, callback } of pluginConfigs) {
     try {
       const module = await import(`../plugins/${path}.js`);
       if (module && module.default) {
@@ -89,21 +156,33 @@ async function loadPlugins(pluginConfigs) {
   }
 }
 
+// Get the current page URL
+let currentUrl = window.location.href;
+console.log({ currentUrl });
+
+// const url_object = new URL(currentUrl);
+// console.log({url_object});
+
+let path = currentUrl.split('/').slice(4).join('/');
+// console.log({path});
+
+let is_local = isLocal(currentUrl);
+// console.log({is_local});
+
 // Initialization on window load
 // This function waits for the DOM to be fully loaded and then renders the templates and loads the plugins based on the config file.
 window.addEventListener('DOMContentLoaded', async () => {
-  const config = await fetchFile('./config.json', 'json');
-  console.log("Configuration loaded:", config);
 
-  // Render all templates listed in the config file
-  if (config.render) {
-    for (const item of config.render) {
-      await renderTemplate(item.template, item.dir);
-    }
+  if (!is_local) {
+    console.log('local request: rendering default');
+    renderPage('content/default');
   }
 
-  // Load all plugins listed in the config file
-  if (config.plugins) {
-    await loadPlugins(config.plugins);
+  if (path == "") {
+    path = "home";
   }
+
+  renderPage(`content/${path}`);
+
+
 });

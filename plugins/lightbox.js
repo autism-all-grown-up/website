@@ -1,4 +1,6 @@
 export default function attachLightboxListeners(event, targetElement) {
+    console.log({targetElement});
+    
     console.log("Lightbox trigger clicked");
 
     const lightbox = document.querySelector('.lightbox');

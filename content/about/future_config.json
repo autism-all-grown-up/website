@@ -1,6 +1,6 @@
 {
     "slot": "main",
-    "template": "accordion",
+    "template": "accordion.html",
     "data": [
         {
             "summary_text": "Who are we?",
@@ -43,3 +43,4 @@
         }
     ]
 }
+
