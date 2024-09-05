@@ -1,4 +1,4 @@
-# Heading
+# Other community stuff
 A paragraph of text.
 
 A list:

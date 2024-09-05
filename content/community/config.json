@@ -4,7 +4,7 @@
         "template": "accordion.html",
         "data": [
             {
-                "summary_text": "Who are we?",
+                "summary_text": "Something about community",
                 "thumbnail_image": "images/mounthood_watercolor.jpg",
                 "thumbnail_alt_text": "",
                 "main_image": "images/mounthood_watercolor.jpg",
@@ -17,7 +17,7 @@
                 ]
             },
             {
-                "summary_text": "How did we form AAGU and way?",
+                "summary_text": "Other stuff about community",
                 "thumbnail_image": "images/four_trees_community.jpg",
                 "thumbnail_alt_text": "",
                 "main_image": "images/four_trees_community.jpg",
