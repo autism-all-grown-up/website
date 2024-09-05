@@ -1,5 +1,14 @@
+const relativePath = (base_path, full_path) => {
+
+  const escaped_base_path = base_path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+  return full_path
+          .replace(new RegExp('^' + escaped_base_path), '')
+          .replace(/\/$/, ''); // strip any trailing '/'
+}
+
 function isLocal(href) {
-  console.log(`isLocal: ${href}`);
+  // console.log(`isLocal: ${href}`);
 
   // Get the referrer (the URL of the previous page)
   var referrer = document.referrer;
@@ -41,14 +50,17 @@ async function getPath(href) {
 async function renderPage(path) {
   // console.log(`renderPage: ${path}`);
 
-  const config = await fetchFile(`${path}/config.json`, 'json');
+  const content_dir = `content/${path}`;
+
+  const config = await fetchFile(`${content_dir}/config.json`, 'json');
   // console.log("Configuration loaded:", config);
 
   config.map(async slot_config => {
     // console.log({slot_config});
 
     // Render all templates listed in the config file
-    await renderslot(slot_config, path);
+    await renderSlot(slot_config, content_dir);
+
     if (slot_config.plugins) {
       let plugins = slot_config.plugins;
       // console.log({plugins});
@@ -91,12 +103,14 @@ async function convertMarkdownToHtml(file_path) {
 // - template: Name of the template file to be rendered
 // - subdir: Optional subdirectory where the content is stored
 // Fetches the corresponding config file for the template, loads any markdown content, and renders the template.
-async function renderslot({ slot, template, data, action }, dir) {
+async function renderSlot({ slot, template, data, action }, dir) {
 
   // console.log({slot, template, data, action});
   // console.log({dir});
 
-  const contentDir = `${dir}`;
+  // const contentDir = `content/${dir}`;
+  // console.log({contentDir});
+
 
   if (!slot || !document.querySelector(`#${slot}`)) {
     console.error('Configuration error or slot element missing:', { slot, template, data, action, dir });
@@ -107,13 +121,17 @@ async function renderslot({ slot, template, data, action }, dir) {
   const promises = data.map(async item => {
     if (item.source_data) {
       await Promise.all(item.source_data.map(async source => {
-        item[source.content_name] = await convertMarkdownToHtml(`${contentDir}/${source.source}`);
+        item[source.content_name] = await convertMarkdownToHtml(`${dir}/${source.source}`);
       }));
     }
   });
 
   await Promise.all(promises);
   const templateHtml = await fetchFile(`./templates/${template}`);
+  if (data.length == 1){
+    data = data[0];
+  }
+  // console.log(JSON.stringify(data, null, 2));
   document.querySelector(`#${slot}`).innerHTML = Mustache.render(templateHtml, { data: data });
 }
 
@@ -140,7 +158,7 @@ function delegateEvent(parentSelector, eventType, childSelector, callback) {
 // - pluginConfigs: Array of plugin configurations (each specifying path, event, parent, target, and callback)
 // Loads the plugin, attaches the event listener using delegateEvent, and logs the plugin loaded.
 async function loadPlugins(pluginConfigs) {
-  console.log({pluginConfigs});
+  // console.log({pluginConfigs});
 
   for (const { path, event, parent, target, callback } of pluginConfigs) {
     try {
@@ -160,29 +178,26 @@ async function loadPlugins(pluginConfigs) {
 let currentUrl = window.location.href;
 console.log({ currentUrl });
 
-// const url_object = new URL(currentUrl);
-// console.log({url_object});
-
-let path = currentUrl.split('/').slice(4).join('/');
+// let path = currentUrl.split('/').slice(4).join('/');
 // console.log({path});
 
 let is_local = isLocal(currentUrl);
-// console.log({is_local});
+console.log({is_local});
+
+let page = window.location.search.replace(/^\?/, '');
+// let page = window.location.href.split('/').slice(-1).replace(/^\?/, '');
+console.log({page});
 
 // Initialization on window load
 // This function waits for the DOM to be fully loaded and then renders the templates and loads the plugins based on the config file.
 window.addEventListener('DOMContentLoaded', async () => {
 
-  if (!is_local) {
-    console.log('local request: rendering default');
-    renderPage('content/default');
-  }
+  // if (!is_local) {
+  //   console.log('local request: rendering default');
+  //   await renderPage('default');
+  // }
 
-  if (path == "") {
-    path = "home";
-  }
-
-  renderPage(`content/${path}`);
-
+  await renderPage('default');
+  await renderPage(page || "home");
 
 });

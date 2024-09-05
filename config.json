@@ -1,29 +1,4 @@
 {
-    "render": [
-        {
-            "template": "nav",
-            "dir": "nav"
-        },
-        {
-            "template": "accordion",
-            "dir": "home/accordion"
-        }
-    ],
-    "plugins": [
-        {
-            "path": "lightbox",
-            "event": "click",
-            "parent": ".accordion",
-            "slot": ".lightbox-trigger",
-            "callback": "attachLightboxListeners"
-        },
-        {
-            "path": "accordion_scroll",
-            "event": "click",
-            "parent": ".accordion",
-            "slot": "summary",
-            "callback": "setScrollBehavior"
-        }
-        
-    ]
+    "use_cached": false,
+    "base_url": "localhost/aagu_website_accordions/"
 }

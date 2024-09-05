@@ -3,7 +3,7 @@
     <input type="checkbox" id="drop" />
     <ul class="menu">
         {{#data}}
-        <li><a href="{{page_url}}">{{page_name}}</a></li>
+        <li><a class="dynamic-link" href="?{{page_url}}">{{page_name}}</a></li>
         {{/data}}
     </ul>
 </div>

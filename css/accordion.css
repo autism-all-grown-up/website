@@ -4,7 +4,7 @@
     padding: 0;
     list-style: none;
     max-width: 1200px;
-    width: 100%;
+    min-width: 900px;
 }
 
 /* Accordion details */
@@ -132,6 +132,8 @@
 
     .accordion {
         padding: 0 1rem;
+        max-width: 100vw;
+        min-width: 100vw;
     }
 
     .accordion summary {

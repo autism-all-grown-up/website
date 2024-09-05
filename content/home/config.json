@@ -96,7 +96,6 @@
                 "target": "summary",
                 "callback": "setScrollBehavior"
             }
-            
         ]
     }
 ]

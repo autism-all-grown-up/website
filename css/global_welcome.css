@@ -1,0 +1,100 @@
+body,td,th {
+	font-family: "Lato", "Lucida Grande", Tahoma, Sans-Serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 22px;
+	color: #000;
+	background-color: #fff;
+}
+
+.container {
+	padding: 0 10px;
+}
+.aagu-name {
+	text-align: center;
+	margin-bottom: 0;
+}
+
+.text-white {
+	color: #fff;
+}
+.text-bold {
+	font-weight: 600;
+}
+.text-bold-125 {
+	font-weight: 600;
+	font-size: 125%;
+	line-height: 30px;
+}
+
+
+H1 {
+	font-family: "Merriweather", Georgia, serif;
+	font-size: 250%;
+	color: #000;
+	margin: 10px 0 15px 0;
+	font-weight: 700;
+	line-height: 40px;
+}
+
+H1.teal {
+	font-family: "Merriweather", Georgia, serif;
+	font-size: 200%;
+	color: #1a705b;
+	margin: 10px 0 0 0;
+	font-weight: 700;
+	line-height: 40px;
+}
+.image-fluid {
+	margin: 0px auto -4px auto;
+	max-width: 100%;
+}
+.image-fluid-banner {
+  margin: 0;
+  max-width: 100%;
+}
+.outline {
+	border: 1px solid #000;
+	padding: 10px 20px;
+	font-size: 125%;
+}
+.lessmarginbottom20 {
+	margin-bottom: -20px;
+}
+.lessmargintop20 {
+	margin-top: -20px;
+}
+.lessmargintop35 {
+	margin-top: -35px;
+}
+
+.footer {
+	grid-column: 1 / -1;
+	color: #fff;
+	background-color: #1a705b;
+    background-image: linear-gradient(to bottom right, #4b5ecd, #1a705b);
+	text-align: left;
+	padding: 10px 3%;
+}
+.footer-text {
+	font-size: 90%;
+	font-weight: 700;
+	text-align: center;
+}
+
+.footer a:link {
+	color: #fff;
+	text-decoration: underline;
+}
+.footer a:visited {
+	color: #fff;
+	text-decoration: underline;
+}
+.footer a:hover {
+	color: #d1e2de;
+	text-decoration: underline;
+}
+.footer a:active {
+	color: #d1e2de;
+	text-decoration: underline;
+}
