@@ -1,9 +1,11 @@
-<div id="menudiv" class="fluid">
-    <label for="drop" class="toggle">MENU</label>
-    <input type="checkbox" id="drop" />
-    <ul class="menu">
-        {{#data}}
-        <li><a class="dynamic-link" href="?{{page_url}}">{{page_name}}</a></li>
-        {{/data}}
-    </ul>
-</div>
+<nav>
+    <div id="menudiv" class="fluid">
+        <label for="drop" class="toggle">MENU</label>
+        <input type="checkbox" id="drop" />
+        <ul class="menu">
+            {{#data}}
+            <li><a class="dynamic-link" href="?{{page_url}}">{{page_name}}</a></li>
+            {{/data}}
+        </ul>
+    </div>
+</nav>

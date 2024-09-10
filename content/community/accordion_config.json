@@ -1,0 +1,64 @@
+[
+    {
+        "slot": "main",
+        "template": "accordion.html",
+        "data": [
+            {
+                "summary_text": "Something about community",
+                "thumbnail_image": "images/mounthood_watercolor.jpg",
+                "thumbnail_alt_text": "",
+                "main_image": "images/mounthood_watercolor.jpg",
+                "main_image_alt_text": "",
+                "source_data": [
+                    {
+                        "content_name": "main_text",
+                        "source": "who_we_are.md"
+                    }
+                ]
+            },
+            {
+                "summary_text": "Other stuff about community",
+                "thumbnail_image": "images/four_trees_community.jpg",
+                "thumbnail_alt_text": "",
+                "main_image": "images/four_trees_community.jpg",
+                "main_image_alt_text": "",
+                "source_data": [
+                    {
+                        "content_name": "main_text",
+                        "source": "aagu_history.md"
+                    }
+                ]
+            },
+            {
+                "summary_text": "Plans for growth and funding",
+                "thumbnail_image": "images/yellowtree_watercolor.jpg",
+                "thumbnail_alt_text": "",
+                "main_image": "images/yellowtree_watercolor.jpg",
+                "main_image_alt_text": "",
+                "source_data": [
+                    {
+                        "content_name": "main_text",
+                        "source": "growth_and_funding.md"
+                    }
+                ]
+            }
+        ],
+        "plugins": [
+            {
+                "path": "lightbox",
+                "event": "click",
+                "parent": ".accordion",
+                "target": ".lightbox-trigger",
+                "callback": "attachLightboxListeners"
+            },
+            {
+                "path": "accordion_scroll",
+                "event": "click",
+                "parent": ".accordion",
+                "target": "summary",
+                "callback": "setScrollBehavior"
+            }
+            
+        ]
+    }
+]
