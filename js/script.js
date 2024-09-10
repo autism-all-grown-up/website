@@ -105,11 +105,11 @@ async function convertMarkdownToHtml(file_path) {
 // Fetches the corresponding config file for the template, loads any markdown content, and renders the template.
 async function renderSlot({ slot, template, data, action }, dir) {
 
-  console.log({slot, template, data, action});
-  console.log({dir});
+  // console.log({slot, template, data, action});
+  // console.log({dir});
 
-  const contentDir = `content/${dir}`;
-  console.log({contentDir});
+  // const contentDir = `content/${dir}`;
+  // console.log({contentDir});
 
 
   if (!slot || !document.querySelector(`#${slot}`)) {
@@ -131,7 +131,7 @@ async function renderSlot({ slot, template, data, action }, dir) {
   if (data.length == 1){
     data = data[0];
   }
-  console.log(JSON.stringify(data, null, 2));
+  // console.log(JSON.stringify(data, null, 2));
   document.querySelector(`#${slot}`).innerHTML = Mustache.render(templateHtml, { data: data });
 }
 
@@ -169,24 +169,24 @@ async function loadPlugins(pluginConfigs) {
         console.log(`Plugin loaded: ${path} with event: ${event}`);
       }
     } catch (error) {
-      console.error(`Error loading plugin ${path}:`, error);
+      // console.error(`Error loading plugin ${path}:`, error);
     }
   }
 }
 
 // Get the current page URL
-let currentUrl = window.location.href;
-console.log({ currentUrl });
+// let currentUrl = window.location.href;
+// console.log({ currentUrl });
 
 // let path = currentUrl.split('/').slice(4).join('/');
 // console.log({path});
 
 let is_local = isLocal(currentUrl);
-console.log({is_local});
+// console.log({is_local});
 
 let page = window.location.search.replace(/^\?/, '');
 // let page = window.location.href.split('/').slice(-1).replace(/^\?/, '');
-console.log({page});
+// console.log({page});
 
 // Initialization on window load
 // This function waits for the DOM to be fully loaded and then renders the templates and loads the plugins based on the config file.
