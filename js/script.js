@@ -105,11 +105,11 @@ async function convertMarkdownToHtml(file_path) {
 // Fetches the corresponding config file for the template, loads any markdown content, and renders the template.
 async function renderSlot({ slot, template, data, action }, dir) {
 
-  // console.log({slot, template, data, action});
-  // console.log({dir});
+  console.log({slot, template, data, action});
+  console.log({dir});
 
-  // const contentDir = `content/${dir}`;
-  // console.log({contentDir});
+  const contentDir = `content/${dir}`;
+  console.log({contentDir});
 
 
   if (!slot || !document.querySelector(`#${slot}`)) {
@@ -131,7 +131,7 @@ async function renderSlot({ slot, template, data, action }, dir) {
   if (data.length == 1){
     data = data[0];
   }
-  // console.log(JSON.stringify(data, null, 2));
+  console.log(JSON.stringify(data, null, 2));
   document.querySelector(`#${slot}`).innerHTML = Mustache.render(templateHtml, { data: data });
 }
 

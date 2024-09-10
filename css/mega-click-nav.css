@@ -1,0 +1,118 @@
+.menu-container {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-btn {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+.menu-btn span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 6px auto;
+    background-color: #333;
+    transition: 0.4s;
+}
+
+.menu-btn:hover span {
+    opacity: 0.7;
+}
+
+.mega-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-toggle:checked~.mega-menu {
+    display: grid;
+}
+
+/* Centering in mobile version */
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    margin: 15px;
+    padding: 15px;
+    overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.3s;
+    justify-self: center; /* Ensure the card itself is centered in the grid */
+}
+
+.card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 10vw;
+    height: 10vw;
+    object-fit: cover;
+    background-color: #f0f0f0;
+}
+
+.card-content {
+    padding: 10px;
+    text-align: center;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card p {
+    font-size: 0.8em;
+    line-height: 1.4;
+}
+
+.card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (max-width: 1024px) {
+    .mega-menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card img {
+        width: 15vw;
+        height: 15vw;
+        object-fit: cover;
+        background-color: #f0f0f0;
+    }
+}
+
+@media (max-width: 680px) {
+    .mega-menu {
+        grid-template-columns: 1fr;
+        justify-items: center; /* This ensures cards are centered in a single-column grid */
+    }
+
+    .card img {
+        width: 30vw;
+        height: 30vw;
+        object-fit: cover;
+        background-color: #f0f0f0;
+    }
+}
