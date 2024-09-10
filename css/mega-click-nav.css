@@ -1,3 +1,4 @@
+
 .menu-container {
     position: sticky;
     top: 0;
@@ -10,17 +11,17 @@
 
 .menu-btn {
     display: block;
-    width: 40px;
-    height: 40px;
-    margin: 10px auto;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0.5rem auto;
     cursor: pointer;
 }
 
 .menu-btn span {
     display: block;
-    width: 30px;
-    height: 3px;
-    margin: 6px auto;
+    width: 2rem;
+    height: 0.2rem;
+    margin: 0.4rem auto;
     background-color: #333;
     transition: 0.4s;
 }
@@ -31,13 +32,13 @@
 
 .mega-menu {
     position: absolute;
-    top: 60px;
+    top: 4rem;
     left: 0;
     right: 0;
     display: none;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    padding: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -46,24 +47,22 @@
     display: grid;
 }
 
-/* Centering in mobile version */
+/* Simplified grid for cards */
 .card {
-    display: flex;
-    flex-direction: column;
-    background-color: #f9f9f9;
-    border-radius: 4px;
-    margin: 15px;
-    padding: 15px;
-    overflow: hidden;
-    transition: box-shadow 0.3s, transform 0.3s;
-    justify-self: center;
-    align-items: center; /* Ensure the content in the card is centered */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    justify-items: center;
     text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    padding: 1rem;
+    transition: box-shadow 0.3s, transform 0.3s;
 }
 
 .card:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
+    transform: translateY(-0.3rem);
 }
 
 .card img {
@@ -71,11 +70,14 @@
     height: 10vw;
     object-fit: cover;
     background-color: #f0f0f0;
-    margin-bottom: 10px; /* Add space between the image and text */
+    margin-bottom: 0.5rem;
+    /* justify-self: center; */
 }
 
 .card-content {
-    padding: 10px;
+    display: grid;
+    padding: 1rem;
+    justify-items: center;
 }
 
 .card h3 {
@@ -83,7 +85,7 @@
 }
 
 .card p {
-    font-size: 0.8em;
+    font-size: 0.8rem;
     line-height: 1.4;
 }
 
