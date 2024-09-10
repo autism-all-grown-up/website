@@ -175,18 +175,18 @@ async function loadPlugins(pluginConfigs) {
 }
 
 // Get the current page URL
-// let currentUrl = window.location.href;
-// console.log({ currentUrl });
+let currentUrl = window.location.href;
+console.log({ currentUrl });
 
 // let path = currentUrl.split('/').slice(4).join('/');
 // console.log({path});
 
 let is_local = isLocal(currentUrl);
-// console.log({is_local});
+console.log({is_local});
 
 let page = window.location.search.replace(/^\?/, '');
 // let page = window.location.href.split('/').slice(-1).replace(/^\?/, '');
-// console.log({page});
+console.log({page});
 
 // Initialization on window load
 // This function waits for the DOM to be fully loaded and then renders the templates and loads the plugins based on the config file.
