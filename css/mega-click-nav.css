@@ -56,7 +56,9 @@
     padding: 15px;
     overflow: hidden;
     transition: box-shadow 0.3s, transform 0.3s;
-    justify-self: center; /* Ensure the card itself is centered in the grid */
+    justify-self: center;
+    align-items: center; /* Ensure the content in the card is centered */
+    text-align: center;
 }
 
 .card:hover {
@@ -69,11 +71,11 @@
     height: 10vw;
     object-fit: cover;
     background-color: #f0f0f0;
+    margin-bottom: 10px; /* Add space between the image and text */
 }
 
 .card-content {
     padding: 10px;
-    text-align: center;
 }
 
 .card h3 {
@@ -98,21 +100,17 @@
     .card img {
         width: 15vw;
         height: 15vw;
-        object-fit: cover;
-        background-color: #f0f0f0;
     }
 }
 
 @media (max-width: 680px) {
     .mega-menu {
         grid-template-columns: 1fr;
-        justify-items: center; /* This ensures cards are centered in a single-column grid */
+        justify-items: center;
     }
 
     .card img {
         width: 30vw;
         height: 30vw;
-        object-fit: cover;
-        background-color: #f0f0f0;
     }
 }
