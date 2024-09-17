@@ -53,10 +53,10 @@ async function renderPage(path) {
   const content_dir = `content/${path}`;
 
   const config = await fetchFile(`${content_dir}/config.json`, 'json');
-  console.log("Configuration loaded:", config);
+  // console.log("Configuration loaded:", config);
 
   config.map(async slot_config => {
-    console.log({slot_config});
+    // console.log({slot_config});
 
     // Render all templates listed in the config file
     await renderSlot(slot_config, content_dir);
@@ -108,7 +108,7 @@ async function renderSlot({ slot, template, data, action }, dir) {
   // console.log({slot, template, data, action});
   // console.log({dir});
 
-  // const contentDir = `content/${dir}`;
+  const contentDir = `content/${dir}`;
   // console.log({contentDir});
 
 
