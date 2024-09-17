@@ -1,49 +1,74 @@
-@media screen and (max-width: 750px) {
+/* CSS */
+
     .info-page {
-        max-width: 750px;
-        margin: 0 10px;
-        display: block;
-        grid-row-gap: 30px;
-
-        .watercolor {
-            max-width: 100%;
-            text-align: center;
-            margin: 0 5%;
-        }
-    }
-
-    .main-content {
-        max-width: 100%;
-        margin: 0 5% 20px 5%;
-    }
-
-}
-
-
-@media screen and (min-width: 751px) {
-    .info-page {
-        max-width: 1200px;
-        margin: 0 10px;
         display: grid;
-        grid-column-gap: 10px;
-        grid-row-gap: 20px;
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: auto;
+        grid-template-columns: 2fr 1fr;
+        /* 5:1 ratio */
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "title   image"
+            "content image";
+        align-items: start;
+        /* Align items at the start vertically */
     }
 
-    .main-content {
-        grid-column: 1 / 5;
-        grid-row: 3 / 4;
-        text-align: left;
-        margin: 0 0 0 25px;
+    .info-page>.main-content {
+        grid-area: content;
+        margin: 2rem 1rem;
+    }
 
-        .watercolor {
-            grid-column: 5 / -1;
-            grid-row: 3 / 4;
-            text-align: left;
-            max-width: 100%;
-            margin: 20px 20px 0 0;
-        }
+    .info-page>.main-content>h1 {
+        grid-area: title;
+        margin: 0;
+        /* Reset default margin */
+    }
+
+    .info-page>.watercolor {
+        margin: 2rem 1rem;
+        padding: 0.5rem 0;
+        grid-area: image;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* Align content to the left */
+    }
+
+    .watercolor img {
+        width: 100%;
+        /* Make the image full width of its container */
+        height: auto;
+    }
+
+    .outline-box {
+        margin: 2rem 0 0 0;
+        border: 1px solid black; /* 1px border */
+        padding: 10px;           /* Ensure some padding inside */
+        box-sizing: border-box;
+        width: 100%;             /* Force full width */
+        overflow: hidden;        /* Prevent content overflow from breaking the layout */
+    }
+
+
+@media (max-width: 750px) {
+    .info-page {
+        grid-template-columns: 1fr;
+        /* Single column */
+        grid-template-areas:
+            "title"
+            "content"
+            "image";
+        /* Image goes below content */
+    }
+
+    .watercolor {
+        justify-content: center;
+        /* Center image in full-width layout */
+    }
+
+    .watercolor img {
+        max-width: 100%;
+        /* Ensure image remains full width */
+        height: auto;
     }
 
 }

@@ -107,3 +107,14 @@ updateSlot(url, slot_id, template, data, action) {
 4. Update with content rendered on client
 
 
+X:Y == 5:1
+```
+| .info-page                              |
+ <-------------X----------> <-------Y---->
+| .main-content            | .watercolor  |
+| h1 here                  | image top    |
+| +----------------------+ | aligned to   |
+| | .outline-box         | | h1           |
+| +----------------------+ |              |
+
+```

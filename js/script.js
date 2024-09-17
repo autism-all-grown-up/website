@@ -53,10 +53,10 @@ async function renderPage(path) {
   const content_dir = `content/${path}`;
 
   const config = await fetchFile(`${content_dir}/config.json`, 'json');
-  // console.log("Configuration loaded:", config);
+  console.log("Configuration loaded:", config);
 
   config.map(async slot_config => {
-    // console.log({slot_config});
+    console.log({slot_config});
 
     // Render all templates listed in the config file
     await renderSlot(slot_config, content_dir);
@@ -191,6 +191,7 @@ console.log({page});
 // Initialization on window load
 // This function waits for the DOM to be fully loaded and then renders the templates and loads the plugins based on the config file.
 window.addEventListener('DOMContentLoaded', async () => {
+  console.log("DOMContentLoaded");
 
   // if (!is_local) {
   //   console.log('local request: rendering default');
