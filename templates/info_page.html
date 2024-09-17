@@ -1,21 +1,21 @@
+<section class="info-page">
+    <div class="main-content">
+        <section>
+            <h1 class="teal">Community</h1>
+            <div class="outline-box">
+                <p class="text-bold-125">{{data.section_title}}</p>
+                <ul>
+                    {{#data.info_items}}
+                    <li>{{{.}}}</li>
+                    {{/data.info_items}}
+                </ul>
+            </div>
+        </section>
+    </div>
 
-<div class="box-two outline">
-    <section>
-        <h1 class="teal">{{{data.info_heading}}}</h1>
-        <p class="text-bold-125">{{{data.info_subheading}}}</p>
-        <ul>
-            {{#data.info_items}}
-            <li>{{{.}}}</li>
-            {{/data.info_items}}
-        </ul>
-    </section>
-</div>
-
-<div class="watercolor">
-    <figure>
-        <img class="image-fluid" 
-            src="{{data.main_image}}" 
-            alt="{{data.main_image_alt_text}}" 
-        />
-    </figure>
-</div>
+    <div class="watercolor">
+        <figure>
+            <img class="image-fluid" src="{{data.main_image}}" alt="{{data.main_image_alt_text}}" />
+        </figure>
+    </div>
+</section>

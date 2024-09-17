@@ -5,16 +5,14 @@
         "data": [
             {
                 "info_heading": "Contact Form",
-                "info_subheading": "This will have a contact form", 
+                "info_subheading": "This will have a contact form",
                 "info_items": [
-                    "Place for name",
-                    "Favorite color",
-                    "Pets",
-                    "What you had last night for dinner",
-                    "Movie quote"
+                    "Form coming soon for this page.",
+                    "Meanwhile, email us at: info@aagu.org.",
+                    "Eventually there will be a phone number, maybe."
                 ],
-                "main_image": "images/mounthood_watercolor.jpg",
-                "main_image_alt_text": "watercolor of Mount Hood by Alexandria Levin"
+                "main_image": "images/yellowtree_watercolor.jpg",
+                "main_image_alt_text": "watercolor of a yellow sideways tree by Alexandria Levin"
             }
         ]
     }

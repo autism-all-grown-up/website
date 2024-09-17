@@ -97,5 +97,10 @@
                 "callback": "setScrollBehavior"
             }
         ]
+    },
+    {
+        "slot": "tagline",
+        "template": "tagline.html",
+        "data": []
     }
 ]

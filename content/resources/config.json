@@ -1,4 +1,3 @@
-
 [
     {
         "slot": "main",
@@ -6,16 +5,20 @@
         "data": [
             {
                 "info_heading": "Resources",
-                "info_subheading": "New section to come &mdash; Fall 2024", 
+                "info_subheading": "New section to come &mdash; Fall 2024",
                 "info_items": [
-                    "About AAGU as a whole",
-                    "Mission Statement",
-                    "History",
-                    "Why we saw the need for an organization like AAGU",
-                    "Staff / Team / Us"
+                    "Oregon resources: links and info for autistic adults",
+                    "National resources: links and info for autistic adults",
+                    "Recommended books and other media",
+                    "Diagnoses: the how, what, why, and where of gaining a diagnosis",
+                    "Listings of autistic-owned small businesses in Oregon",
+                    "About Developmental Disability services",
+                    "Stories of coming out as autistic to friends, family, and co-workers",
+                    "List of common co-occurring conditions with definitions",
+                    "Informational PDFs to read, share, and print-out"
                 ],
-                "main_image": "images/yellowtree_watercolor.jpg",
-                "main_image_alt_text": "watercolor of Mount Hood by Alexandria Levin"
+                "main_image": "images/pathway_resources.jpg",
+                "main_image_alt_text": "watercolor of a forest pathway by Alexandria Levin"
             }
         ]
     }

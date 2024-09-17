@@ -5,16 +5,17 @@
         "data": [
             {
                 "info_heading": "Community",
-                "info_subheading": "New section to come &mdash; Fall 2024", 
+                "info_subheading": "New section to come &mdash; Fall 2024",
                 "info_items": [
-                    "About AAGU as a whole",
-                    "Mission Statement",
-                    "History",
-                    "Why we saw the need for an organization like AAGU",
-                    "Staff / Team / Us"
+                    "The Uncommons and Autistic Clubhouse",
+                    "Events",
+                    "Community voices and stories",
+                    "Creative works from Oregon's autistic adults: art, poetry, videos, and more",
+                    "Listings of autistic-owned small businesses in Oregon",
+                    "And more"
                 ],
                 "main_image": "images/four_trees_community.jpg",
-                "main_image_alt_text": "watercolor of Mount Hood by Alexandria Levin"
+                "main_image_alt_text": "watercolor of autumn trees by Alexandria Levin"
             }
         ]
     }
