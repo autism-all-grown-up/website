@@ -1,3 +1,5 @@
+## Only a small fraction of autistic adults in Oregon are able to receive I/DD services
+
 The Oregon Department of Disability Services (ODDS) reported that the agency was serving 22,984 adults with
 an intellectual or developmental disability in 2023. A 2021-2022 survey by ODDS and along with the
 [National Core Indicators](https://idd.nationalcoreindicators.org/") (NCI) project showed that

@@ -1,19 +1,18 @@
 /* Global styling */
 
 html {
-    /* width: 98vw; */
+    width: 98vw;
     margin: 0;
     padding: 0 2%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* font-size: 16px; */
-    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Lato', sans-serif;
-    /* font-size: 16px; */
+    font-family: "Lato", "Lucida Grande", Tahoma, Sans-Serif;
+    font-size: 16px;
+	line-height: 22px;
     max-width: 1200px;
     margin: 0 auto; /* Centers the body horizontally */
     padding: 0;
@@ -40,7 +39,6 @@ p {
 .image-fluid {
   margin: 0;
   max-width: 100%;
-  height: 10vw;
 }
 .image-fluid-banner {
   margin: 0;
@@ -66,11 +64,35 @@ p {
 }
 
 /* Spacing */
+
 .moremargintop20 {
 	margin-top: 20px;
 }
+.marginbottom20{
+	margin-bottom: 20px;
+}
+.accordion-img-margin {
+	margin: 15px 5% 0 0;
+}
 
 /* Text styling including h2, etc. */
+H1 {
+	font-family: "Merriweather", Georgia, serif;
+	font-size: 250%;
+	color: #000;
+	margin: 10px 0 15px 0;
+	font-weight: 700;
+	line-height: 40px;
+}
+
+H1.teal {
+	font-family: "Merriweather", Georgia, serif;
+	font-size: 200%;
+	color: #1a705b;
+	margin: 10px 0 0 0;
+	font-weight: 700;
+	line-height: 40px;
+}
 h2 {
     font-family: 'Merriweather', 'Georgia', sans-serif;
     font-size: 140%;
@@ -82,24 +104,34 @@ h2.cinnabar {
     font-family: 'Merriweather', 'Georgia', sans-serif;
     font-size: 140%;
     font-weight: 900;
+	line-height: 30px;
     margin: 12px 0 8px 0;
     color: #df4009;
 }
+h2.cinnabar-margin-top {
+    font-family: 'Merriweather', 'Georgia', sans-serif;
+    font-size: 140%;
+    font-weight: 900;
+	line-height: 30px;
+    margin: 20px 0 8px 0;
+    color: #df4009;
+}
 
-h3 {
+h3.white {
     font-family: 'Merriweather', 'Georgia', sans-serif;
     font-size: 130%;
     font-weight: 700;
     font-style: italic;
-    color: black;
-    margin: 12px 0 8px 0;
-}
-
-h3.white {
     color: #fff;
     text-align: center;
+    margin: 12px 0 8px 0;
 }
-
+h5 {
+    font-family: 'Lato', sans-serif;
+    font-size: 115%;
+    font-weight: 700;
+    margin: 12px 0 8px 0;
+}
 
 .text-white-tagline {
     color: #fff;
@@ -125,6 +157,11 @@ h3.white {
 	font-style: italic;
 	font-weight: bold;
 }
+.text-bold-125 {
+	font-weight: 600;
+	font-size: 125%;
+	line-height: 30px;
+}
 
 /* List tyling */
 ul,
@@ -142,10 +179,21 @@ li {
     margin: 0.5em;
 }
 
+
+
 /* Figcaption styling */
 figcaption {
   font-family: "Lato", sans-serif;
-  font-size: 0.8em;
+  font-size: 80%;
+  line-height: 20px;
+}
+
+.captiontitle {
+  font-family: "Lato", sans-serif;
+  font-size: 125%;
+  font-weight: 700;
+  line-height: 20px;
+  margin: 5px 0 1px 0;
 }
 
 figcaption a:link {
@@ -178,8 +226,7 @@ figcaption a:focus {
 /* Footer styling */
 footer {
 	color: #fff;
-	background-color: #893673;
-    background-image: linear-gradient(to bottom right, #893673, #cf520a);
+	background-color: #cf520a;
 	text-align: center;
 	padding: 10px 3%;
 	margin-top: 10px;
@@ -208,7 +255,7 @@ footer a:active {
 	text-decoration: underline;
 }
 
-/* Media queries go here for now â€“ home page only */
+/* Media queries go here for now – home page only */
 
 @media screen and (max-width: 750px) {
 .header-mobile {
@@ -227,6 +274,18 @@ footer a:active {
 .header-screen {
 	display: block;
 	max-width: 100%;
-	/* margin-top: 15px; */
+	margin-top: 15px;
+}
+.main-content {
+	grid-column: 1 / 4;
+	grid-row: 3 / 4;
+	text-align: left;
+	margin: 0 0 0 25px;
+}
+.watercolor{
+	grid-column: 4 / -1;
+	grid-row: 3 / 4;
+	text-align: left;
+	max-width: 100%;
 }
 }

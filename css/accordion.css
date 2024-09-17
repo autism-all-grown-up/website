@@ -97,7 +97,7 @@
 .accordion .details-content {
     display: grid;
     grid-template-columns: 45% 45%; /* Two columns: Text 45%, Image 45% */
-    align-items: center;
+    align-content: start;
     padding: 1rem;
     background-color: #f9f9f9;
     gap: 10%;

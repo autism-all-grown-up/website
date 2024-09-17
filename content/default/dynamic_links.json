@@ -1,0 +1,7 @@
+{
+    "path": "dynamic_links",
+    "event": "click",
+    "parent": "#nav-container",
+    "target": "a",
+    "callback": "handleDynamicLinks"
+}

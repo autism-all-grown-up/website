@@ -1,3 +1,4 @@
+## Research to prevent or cure autism dominates research funding at the cost of improving quality of life
 Although the number of "Quality of Life" studies has increased in recent years, it still receives a tiny 
 amount of actual funding dollars compared to Biology-oriented studies looking for causes, cures, and 
 treatments. The data for this chart comes from the [autism research database](https://iacc.hhs.gov/funding/data/) 

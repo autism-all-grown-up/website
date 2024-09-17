@@ -21,9 +21,9 @@
         },
         {
             "summary_text": "Many autistic adults in Oregon are invisible, marginalized, and struggling. We can fix this.",
-            "thumbnail_image": "images/thumbnails/oregon_adults_autistic_and_or_receiving_idd_services_thumbnail.png",
+            "thumbnail_image": "images/thumbnails/oregon_adult_population_breakdown_164x92.png",
             "thumbnail_alt_text": "Population chart thumbnail",
-            "main_image": "images/oregon_adults_autistic_and_or_receiving_idd_services.png",
+            "main_image": "images/oregon_adult_population_breakdown_1200x600.png",
             "main_image_alt_text": "Chart showing population of adults in oregon receiving I/DD services and/or autistic.",
             "source_data": [
                 {
@@ -38,9 +38,9 @@
         },
         {
             "summary_text": "Autism is lifelong. Support and research haven't been. We are just starting to learn what successful adulthood looks like for autistic people.",
-            "thumbnail_image": "images/thumbnails/autism_research_funding_2010-2020_thumbnail.png",
+            "thumbnail_image": "images/thumbnails/iacc_autism_research_funding_by_category_2008-2020_164x92.png",
             "thumbnail_alt_text": "some text",
-            "main_image": "images/us_autism_funding_by_category_2010-2020.png",
+            "main_image": "images/iacc_autism_research_funding_by_category_2008-2020_1200x750.png",
             "main_image_alt_text": "Plot of autism research funding by category from 2010 to 2020. Data from the IACC.",
             "source_data": [
                 {

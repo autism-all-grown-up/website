@@ -9,10 +9,10 @@ export default function attachLightboxListeners(event, targetElement) {
     const img = targetElement.querySelector('img');
     const img_src = img ? img.src : '';
     const caption = targetElement.querySelector('figcaption');
-    const caption_text = caption ? caption.textContent : '';
+    const caption_text = caption ? caption.innerHTML : '';
 
     lightbox_img.src = img_src; // Set the lightbox image source
-    lightbox_caption.textContent = caption_text; // Set the lightbox caption
+    lightbox_caption.innerHTML = caption_text; // Set the lightbox caption
     lightbox.classList.add('open'); // Show the lightbox
 
     // Close the lightbox when clicking on the lightbox itself (outside the image)
@@ -25,3 +25,48 @@ export default function attachLightboxListeners(event, targetElement) {
         { once: true }
     ); // Use { once: true } to ensure the listener is removed after one click
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const lightbox = document.querySelector('.lightbox');
+    const lightbox_img = document.querySelector('#lightbox-img');
+    const lightbox_caption = document.querySelector('#lightbox-caption');
+
+    const figures = document.querySelectorAll('.details-figure');
+
+    figures.forEach(figure => {
+        figure.addEventListener('click', (e) => {
+            const img = figure.querySelector('img');
+            const img_src = img ? img.src : '';
+            const caption = figure.querySelector('figcaption');
+            const caption_text = caption ? caption.innerHTML : '';
+
+            lightbox_img.src = img_src;
+            lightbox_caption.innerHTML = caption_text;
+
+            // Show the lightbox
+            lightbox.classList.add('open');
+
+            // Attempt to enter fullscreen mode
+            if (lightbox.requestFullscreen) {
+                lightbox.requestFullscreen();
+            } else if (lightbox.webkitRequestFullscreen) { /* Safari */
+                lightbox.webkitRequestFullscreen();
+            } else if (lightbox.msRequestFullscreen) { /* IE11 */
+                lightbox.msRequestFullscreen();
+            }
+        });
+    });
+
+    // Close the lightbox and exit fullscreen mode
+    lightbox.addEventListener('click', function () {
+        lightbox.classList.remove('open');
+
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else if (document.webkitFullscreenElement) { /* Safari */
+            document.webkitExitFullscreen();
+        } else if (document.msFullscreenElement) { /* IE11 */
+            document.msExitFullscreen();
+        }
+    });
+});
