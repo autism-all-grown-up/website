@@ -1,6 +1,6 @@
 /* Lightbox styles */
 .lightbox {
-    display: none;
+    display: none; /* Hidden by default */
     position: fixed;
     z-index: 1000;
     top: 0;
@@ -8,46 +8,76 @@
     width: 100vw; /* Full viewport width */
     height: 100vh; /* Full viewport height */
     background-color: rgba(0, 0, 0, 0.8); 
-    justify-content: center;
-    align-items: center;
     padding: 1rem;
 }
 
-.lightbox figure {
-    max-width: 90%;
-    text-align: center;
-    color: white;
+/* Styles when the lightbox is open */
+.lightbox.open {
+    display: grid; /* Show the lightbox when active */
+    justify-items: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+    grid-template-columns: 1fr; /* Single column layout */
 }
 
-.lightbox img {
-    max-width: 100%;
-    max-height: 80vh;
+/* Figure and image styling only when lightbox is open */
+.lightbox.open figure {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column inside figure */
+    justify-items: center; /* Center the figure */
+    max-width: 90%; /* Restrict max-width of figure to 90% */
+    text-align: center;
+    color: white;
+    gap: 1rem; /* Space between image and caption */
+}
+
+.lightbox.open img {
+    max-width: 100%; /* Full width of the container */
+    max-height: 90vh; /* Ensure the image fits within the viewport height */
+    height: auto;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     margin-bottom: 1rem;
 }
 
-.lightbox.open {
-    display: grid; /* Show the lightbox when active */
+/* Figcaption styling */
+.lightbox.open figcaption {
+    max-width: 800px; /* Center the figcaption container */
+    text-align: left; /* Left-align text within the container */
+    margin: 1rem auto 0 auto;
 }
 
-#lightbox-caption h2 {
-    font-size: 1.8rem;
+/* Caption title styling */
+.lightbox.open #lightbox-caption h2 {
+    font-size: 2rem;
+    line-height: 3rem;
 }
 
-#lightbox-caption p {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    /* color: green; */
+/* Caption text styling */
+.lightbox.open #lightbox-caption p {
+    font-size: 1.33rem;
+    line-height: 2rem;
+    max-width: 800px; /* Center the text container */
+    margin: 0 auto; /* Ensure it is centered within its container */
+    text-align: left; /* Left-align the text */
 }
 
-/* Media queries for responsiveness */
+/* Adjustments for figcaption text */
+.lightbox.open figcaption {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    max-width: 800px; /* Center the figcaption container */
+    margin: 0 auto; /* Ensure it is centered */
+    text-align: left; /* Ensure text is left-aligned */
+}
+
+/* Media queries for responsiveness when lightbox is open */
 @media (max-width: 800px) {
-    .lightbox img {
+    .lightbox.open img {
         max-width: 100%;
-        max-height: 100vh;
+        max-height: 80vh; /* Ensure the image height fits on smaller screens */
     }
 
-    .lightbox figure {
-        text-align: left;
+    .lightbox.open #lightbox-caption p {
+        font-size: 1.5rem;
+        line-height: 2.2rem;
     }
 }

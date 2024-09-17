@@ -8,7 +8,8 @@ html {
     margin: 0;
     height: 100%;
     display: grid;
-    place-items: center; /* Centers content both horizontally and vertically */
+    place-items: center;
+    /* Centers content both horizontally and vertically */
 }
 
 body {
@@ -18,14 +19,17 @@ body {
     margin: 0 auto;
     padding: 0;
     display: grid;
-    grid-template-rows: auto; /* Optional: define rows if you have multiple elements */
-    justify-items: center; /* Centers the content horizontally */
-    align-items: center;    /* Centers the content vertically within the grid */
+    grid-template-rows: auto;
+    /* Optional: define rows if you have multiple elements */
+    justify-items: center;
+    /* Centers the content horizontally */
+    align-items: center;
+    /* Centers the content vertically within the grid */
 }
 
 
 p {
-    margin-bottom: 1rem;
+    margin: 1rem 0 0 0;
     /* between paragraphs */
 }
 
@@ -197,21 +201,7 @@ li {
 }
 
 
-
-/* Figcaption styling */
-figcaption {
-    font-family: "Lato", sans-serif;
-    font-size: 0.80rem;
-    line-height: 1.3rem;
-}
-
-.captiontitle {
-    font-family: "Lato", sans-serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1.5rem;
-    margin: 5px 0 1px 0;
-}
+/* Figcaption styling */    
 
 figcaption a:link {
     color: purple;
@@ -242,35 +232,40 @@ figcaption a:focus {
 
 /* Footer styling */
 footer {
-	color: #fff;
-	background-color: #cf520a;
-	font-size: 1rem;
-	text-align: center;
-	padding: 1rem 3%;
-	margin-top: 10px;
-	width: 100%;
+    color: #fff;
+    background-color: #cf520a;
+    font-size: 1rem;
+    text-align: center;
+    padding: 1rem 3%;
+    margin-top: 10px;
+    width: 100%;
 }
+
 .footer-text {
-	font-size: 1rem;
-	font-weight: 700;
-	color: #fff;
-	text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
 }
+
 footer a:link {
-	color: #fff;
-	text-decoration: underline;
+    color: #fff;
+    text-decoration: underline;
 }
+
 footer a:visited {
-	color: #fff;
-	text-decoration: underline;
+    color: #fff;
+    text-decoration: underline;
 }
+
 footer a:hover {
-	color: #f5dcce;
-	text-decoration: underline;
+    color: #f5dcce;
+    text-decoration: underline;
 }
+
 footer a:active {
-	color: #f5dcce;
-	text-decoration: underline;
+    color: #f5dcce;
+    text-decoration: underline;
 }
 
 /* Media queries go here for now – home page only */
