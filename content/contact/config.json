@@ -5,14 +5,14 @@
         "data": [
             {
                 "info_heading": "Contact Form",
-                "info_subheading": "This will have a contact form",
-                "info_items": [
-                    "Form coming soon for this page.",
-                    "Meanwhile, email us at: info@aagu.org.",
-                    "Eventually there will be a phone number, maybe."
-                ],
                 "main_image": "images/yellowtree_watercolor.jpg",
-                "main_image_alt_text": "watercolor of a yellow sideways tree by Alexandria Levin"
+                "main_image_alt_text": "watercolor of a yellow sideways tree by Alexandria Levin",
+                "source_data": [
+                    {
+                        "content_name": "boxed_text",
+                        "source": "info.md"
+                    }
+                ]
             }
         ]
     }
