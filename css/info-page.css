@@ -1,53 +1,82 @@
 /* CSS */
 
-    #info-section {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        /* 5:1 ratio */
-        grid-template-rows: auto 1fr;
-        grid-template-areas:
-            "title   image"
-            "content image";
-        align-items: start;
-        /* Align items at the start vertically */
-    }
+#info-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* 5:1 ratio */
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "title   image"
+        "content image";
+    align-items: start;
+    /* Align items at the start vertically */
+}
 
-    #info-section>#info-content {
-        grid-area: content;
-        margin: 2rem 1rem;
-    }
+#info-section>#info-content {
+    grid-area: content;
+    margin: 2rem 1rem;
+}
 
-    #info-section>#info-content>h1 {
-        grid-area: title;
-        margin: 0;
-        /* Reset default margin */
-    }
+#info-section>#info-content>h1 {
+    grid-area: title;
+    margin: 0;
+    /* Reset default margin */
+}
 
-    #info-section>.watercolor {
-        margin: 2rem 1rem;
-        padding: 0.5rem 0;
-        grid-area: image;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        /* Align content to the left */
-    }
+#info-section>.watercolor {
+    margin: 2rem 1rem;
+    padding: 0.5rem 0;
+    grid-area: image;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align content to the left */
+}
 
-    .watercolor img {
-        width: 100%;
-        /* Make the image full width of its container */
-        height: auto;
-    }
+.watercolor img {
+    width: 100%;
+    /* Make the image full width of its container */
+    height: auto;
+}
 
-    .outline-box {
-        margin: 2rem 0 0 0;
-        border: 1px solid black; /* 1px border */
-        padding: 10px;           /* Ensure some padding inside */
-        box-sizing: border-box;
-        width: 100%;             /* Force full width */
-        overflow: hidden;        /* Prevent content overflow from breaking the layout */
-    }
+.outline-box {
+    margin: 2rem 0 0 0;
+    border: 1px solid black;
+    /* 1px border */
+    padding: 10px;
+    /* Ensure some padding inside */
+    box-sizing: border-box;
+    width: 100%;
+    /* Force full width */
+    overflow: hidden;
+    /* Prevent content overflow from breaking the layout */
+}
 
+#info-section a:link {
+    color: purple;
+    text-decoration: underline;
+}
+
+#info-section a:visited {
+    color: purple;
+    text-decoration: underline;
+}
+
+#info-section a:hover {
+    color: darkblue;
+    text-decoration: underline;
+}
+
+#info-section a:active {
+    color: darkblue;
+    text-decoration: underline;
+}
+
+#info-section a:focus {
+    color: darkblue;
+    outline: none;
+    /* Remove any default outline if present */
+}
 
 @media (max-width: 750px) {
     #info-section {

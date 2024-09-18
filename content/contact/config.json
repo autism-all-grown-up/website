@@ -1,7 +1,7 @@
 [
     {
         "slot": "main",
-        "template": "info_page.html",
+        "template": "md_info_page.html",
         "data": [
             {
                 "info_heading": "Contact Form",
