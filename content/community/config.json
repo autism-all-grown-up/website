@@ -1,21 +1,18 @@
 [
     {
         "slot": "main",
-        "template": "info_page.html",
+        "template": "md_info_page.html",
         "data": [
             {
                 "info_heading": "Community",
-                "info_subheading": "New section to come &mdash; Fall 2024",
-                "info_items": [
-                    "The Uncommons and Autistic Clubhouse",
-                    "Events",
-                    "Community voices and stories",
-                    "Creative works from Oregon's autistic adults: art, poetry, videos, and more",
-                    "Listings of autistic-owned small businesses in Oregon",
-                    "And more"
-                ],
                 "main_image": "images/four_trees_community.jpg",
-                "main_image_alt_text": "watercolor of autumn trees by Alexandria Levin"
+                "main_image_alt_text": "watercolor of autumn trees by Alexandria Levin",
+                "source_data": [
+                    {
+                        "content_name": "boxed_text",
+                        "source": "info.md"
+                    }
+                ]
             }
         ]
     }

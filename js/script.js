@@ -127,12 +127,20 @@ async function renderSlot({ slot, template, data, action }, dir) {
   });
 
   await Promise.all(promises);
+
   const templateHtml = await fetchFile(`./templates/${template}`);
   if (data.length == 1){
     data = data[0];
   }
+
   // console.log(JSON.stringify(data, null, 2));
-  document.querySelector(`#${slot}`).innerHTML = Mustache.render(templateHtml, { data: data });
+  let rendered = Mustache.render(templateHtml, { data: data });
+  // console.log(rendered);
+  // console.log({slot});
+
+  let target_element = document.querySelector(`#${slot}`)
+  target_element.innerHTML = rendered;
+  // document.querySelector('#main').offsetHeight; // Reflow trigger
 }
 
 // Event delegation function
@@ -169,7 +177,7 @@ async function loadPlugins(pluginConfigs) {
         console.log(`Plugin loaded: ${path} with event: ${event}`);
       }
     } catch (error) {
-      // console.error(`Error loading plugin ${path}:`, error);
+      console.error(`Error loading plugin ${path}:`, error);
     }
   }
 }
@@ -186,11 +194,12 @@ console.log({is_local});
 
 let page = window.location.search.replace(/^\?/, '');
 // let page = window.location.href.split('/').slice(-1).replace(/^\?/, '');
-console.log({page});
+// console.log({page});
 
 // Initialization on window load
 // This function waits for the DOM to be fully loaded and then renders the templates and loads the plugins based on the config file.
 window.addEventListener('DOMContentLoaded', async () => {
+// window.onload = async function(){
   console.log("DOMContentLoaded");
 
   // if (!is_local) {
@@ -201,4 +210,5 @@ window.addEventListener('DOMContentLoaded', async () => {
   await renderPage('default');
   await renderPage(page || "home");
 
+// }
 });

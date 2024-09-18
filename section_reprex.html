@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reprex - Section Issue</title>
+</head>
+<body>
+    <main id="main"></main>
+
+    <script>
+        // The rendered HTML using a <section> tag
+		const rendered_html = `
+			<section class="info-page">
+				<h2>Section Title</h2>
+				<div>Some templated content</div>
+			</section>
+		`;
+
+        // Set innerHTML
+        document.querySelector('#main').innerHTML = rendered_html;
+
+        // Log the innerHTML
+        console.log("Logged innerHTML from JS:");
+        console.log(document.querySelector('#main').innerHTML);
+
+        // Check what actually gets rendered in the DOM
+        setTimeout(() => {
+            console.log("Logged innerHTML after render:");
+            console.log(document.querySelector('#main').innerHTML);
+        }, 0);
+    </script>
+</body>
+</html>
+

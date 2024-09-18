@@ -1,19 +1,19 @@
 [
     {
         "slot": "main",
-        "template": "info_page.html",
+        "template": "md_info_page.html",
         "data": [
             {
                 "info_heading": "About Us",
                 "info_subheading": "New section to come &mdash; Fall 2024",
-                "info_items": [
-                    "About AAGU as a whole",
-                    "Mission Statement",
-                    "History",
-                    "Why we saw the need for an organization like AAGU"
-                ],
                 "main_image": "images/mounthood_watercolor.jpg",
-                "main_image_alt_text": "watercolor of Mount Hood by Alexandria Levin"
+                "main_image_alt_text": "watercolor of Mount Hood by Alexandria Levin",
+                "source_data": [
+                    {
+                        "content_name": "boxed_text",
+                        "source": "info.md"
+                    }
+                ]
             }
         ]
     }
