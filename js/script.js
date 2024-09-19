@@ -3,35 +3,15 @@ const relativePath = (base_path, full_path) => {
   const escaped_base_path = base_path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
   return full_path
-          .replace(new RegExp('^' + escaped_base_path), '')
-          .replace(/\/$/, ''); // strip any trailing '/'
+    .replace(new RegExp('^' + escaped_base_path), '')
+    .replace(/\/$/, ''); // strip any trailing '/'
 }
 
-function isLocal(href) {
-  // console.log(`isLocal: ${href}`);
-
-  // Get the referrer (the URL of the previous page)
-  var referrer = document.referrer;
-
-  // Check if the referrer is empty or from a search engine (indicative of organic visit)
-  if (!referrer || referrer === "") {
-    console.log("This is likely a direct or organic visit.");
-
-    return false;
-  } else {
-    // Parse the referrer to get its domain
-    var referrerDomain = (new URL(referrer)).hostname;
-    var currentDomain = window.location.hostname;
-
-    // Check if the visit is from the same domain
-    if (referrerDomain === currentDomain) {
-      console.log("This is an internal visit (from another page on the same website).");
-      return true;
-    } else {
-      console.log("This is likely a referral from another site.");
-      return false;
-    }
-  }
+// Function to check if a link is external
+function isLocal(link) {
+  const linkHost = new URL(link.href).host;
+  const currentHost = window.location.host;
+  return linkHost == currentHost;
 }
 
 async function getPath(href) {
@@ -45,7 +25,6 @@ async function getPath(href) {
   // console.log({url_object});
 
 }
-
 
 async function renderPage(path) {
   // console.log(`renderPage: ${path}`);
@@ -129,7 +108,7 @@ async function renderSlot({ slot, template, data, action }, dir) {
   await Promise.all(promises);
 
   const templateHtml = await fetchFile(`./templates/${template}`);
-  if (data.length == 1){
+  if (data.length == 1) {
     data = data[0];
   }
 
@@ -190,7 +169,7 @@ console.log({ currentUrl });
 // console.log({path});
 
 let is_local = isLocal(currentUrl);
-console.log({is_local});
+console.log({ is_local });
 
 let page = window.location.search.replace(/^\?/, '');
 // let page = window.location.href.split('/').slice(-1).replace(/^\?/, '');
@@ -199,7 +178,7 @@ let page = window.location.search.replace(/^\?/, '');
 // Initialization on window load
 // This function waits for the DOM to be fully loaded and then renders the templates and loads the plugins based on the config file.
 window.addEventListener('DOMContentLoaded', async () => {
-// window.onload = async function(){
+  // window.onload = async function(){
   console.log("DOMContentLoaded");
 
   // if (!is_local) {
@@ -210,5 +189,79 @@ window.addEventListener('DOMContentLoaded', async () => {
   await renderPage('default');
   await renderPage(page || "home");
 
-// }
+  // }
+});
+
+
+
+
+
+
+
+
+window.addEventListener("load", () => {
+  const queryString = window.location.search;
+  console.log(`query: ${queryString}`);
+
+  // Load content based on the initial query
+  if (!queryString || queryString.trim() === '') {
+    mainElement.innerHTML = homeContent;
+  } else {
+    mainElement.innerHTML = otherContent;
+  }
+
+
+
+  // New function: Set the target link to active and remove active from others
+  function setActiveLink(targetPage) {
+    const navLinks = document.querySelectorAll('nav a'); // Target all nav links
+
+    navLinks.forEach(link => {
+      // If the link's href matches the targetPage, set it as active
+      if (link.getAttribute('href') === targetPage) {
+        link.classList.add('active');
+      } else {
+        // Remove active state from all other links
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  // Modified function to handle internal navigation logic
+  // Function to handle internal navigation logic
+  function handleInternalNavigation(event) {
+    const targetElement = event.target;
+
+    if (targetElement.matches('a')) {
+      if (isExternalLink(targetElement)) {
+        return; // Allow external links
+      }
+
+      event.preventDefault(); // Prevent page reload for internal links
+
+      const targetPage = targetElement.getAttribute('href');
+
+      // Only push state if the target page is different from the current URL
+      if (window.location.pathname !== targetPage) {
+        console.log(`Navigating to: ${targetPage}`);
+
+        mainElement.innerHTML = routing_table[targetPage] || '';
+        setActiveLink(targetPage);
+        window.history.pushState(null, '', targetPage);
+      }
+    }
+  }
+
+
+  // Event delegation: listen for clicks on the body element
+  document.body.addEventListener('click', handleInternalNavigation);
+
+  // Handle back/forward navigation with the popstate event
+  window.addEventListener('popstate', (event) => {
+    const pathQuery = window.location.pathname;
+    mainElement.innerHTML = routing_table[pathQuery] || '';
+
+    // Set the link for the current page as active
+    setActiveLink(pathQuery);
+  });
 });
