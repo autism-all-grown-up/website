@@ -28,7 +28,6 @@ body {
 }
 
 
-
 p {
     margin-top: 1rem;
 }
@@ -297,7 +296,7 @@ footer a:active {
     .header-screen {
         display: block;
         max-width: 100%;
-        margin-top: 0.5rem;
+        margin-top: 0.3rem;
     }
 
     .main-content {

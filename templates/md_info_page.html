@@ -1,17 +1,13 @@
-<div id="info-section">
-    
-    <h1 class="teal">{{data.info_heading}}</h1>
+<!--<main id="main"> -->
+<section class="info-page">
+    <h1 class="info-title" class="teal">{{data.info_heading}}</h1>
 
-    <div id="info-content">
+    <div class="outline-box">{{{data.boxed_text}}}</div>
 
-        <div class="outline-box">{{{data.boxed_text}}}</div>
-
-        <div class="watercolor">
-            <figure>
-                <img class="image-fluid" src="{{data.main_image}}" alt="{{data.main_image_alt_text}}" />
-            </figure>
-        </div>
-
+    <div class="watercolor">
+        <figure>
+            <img class="image-fluid" src="{{data.main_image}}" alt="{{data.main_image_alt_text}}" />
+        </figure>
     </div>
-
-</div>
+</section>
+<!-- </main> -->
