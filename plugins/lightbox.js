@@ -3,6 +3,12 @@ export default function attachLightboxListeners(event, targetElement) {
 
     console.log("Lightbox trigger clicked");
 
+    const element_clicked = event.target;
+    if (event.target.nodeName != "IMG")
+    {
+        return;
+    }
+
     const lightbox = document.querySelector('.lightbox');
     const lightbox_img = document.querySelector('#lightbox-img');
     const lightbox_caption = document.querySelector('#lightbox-caption');
@@ -25,7 +31,7 @@ export default function attachLightboxListeners(event, targetElement) {
     }
 
     // Close the lightbox when clicking on the lightbox itself (outside the image)
-    lightbox.addEventListener(
+    lightbox_img.addEventListener(
         'click',
         function () {
             // console.log("Lightbox clicked, closing...");

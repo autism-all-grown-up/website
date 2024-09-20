@@ -1,6 +1,0 @@
-# Disable default index file
-DirectoryIndex disabled
-
-# Enable directory listing
-Options +Indexes
-

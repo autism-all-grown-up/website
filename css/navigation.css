@@ -52,7 +52,7 @@ nav a:hover {
     color: var(--nav-reverse);
     padding: 9px 15px;
     text-decoration: none;
-    background-color: var(--hover-background-1);
+    background-color: var(--hover-2);
 }
 
 nav li:hover {

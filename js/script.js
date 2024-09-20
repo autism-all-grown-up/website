@@ -3,9 +3,16 @@ const relativePath = (base_path, full_path) => {
   const escaped_base_path = base_path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
   return full_path
-          .replace(new RegExp('^' + escaped_base_path), '')
-          .replace(/\/$/, ''); // strip any trailing '/'
+    .replace(new RegExp('^' + escaped_base_path), '')
+    .replace(/\/$/, ''); // strip any trailing '/'
 }
+
+// Function to check if a link is external
+// function isLocal(url) {
+//   const linkHost = new URL(url).host;
+//   const currentHost = window.location.host;
+//   return linkHost == currentHost;
+// }
 
 function isLocal(href) {
   // console.log(`isLocal: ${href}`);
@@ -34,6 +41,13 @@ function isLocal(href) {
   }
 }
 
+// Function to get the query parameter from the URL
+// This function extracts the value of a given query parameter (e.g., 'page') from the URL.
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param); // Return the value of the requested query parameter
+}
+
 async function getPath(href) {
   // const url = 'https://example.com/path/to/page?query=123#section';
 
@@ -47,8 +61,8 @@ async function getPath(href) {
 }
 
 
-async function renderPage(path) {
-  // console.log(`renderPage: ${path}`);
+async function renderContent(path) {
+  // console.log(`renderContent: ${path}`);
 
   const content_dir = `content/${path}`;
 
@@ -129,7 +143,7 @@ async function renderSlot({ slot, template, data, action }, dir) {
   await Promise.all(promises);
 
   const templateHtml = await fetchFile(`./templates/${template}`);
-  if (data.length == 1){
+  if (data.length == 1) {
     data = data[0];
   }
 
@@ -182,33 +196,147 @@ async function loadPlugins(pluginConfigs) {
   }
 }
 
+// Set the active link by adding/removing the 'active' class based on the current query
+// This function highlights the correct navigation link by comparing the current query parameter
+// with the href attribute of each link.
+function setActiveLink(targetPage) {
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    // Compare the href's query to the current query and add/remove 'active' class accordingly
+    const hrefQuery = new URLSearchParams(link.getAttribute('href')).get('page');
+    if (hrefQuery === targetPage) {
+      link.classList.add('active'); // Add active class to the current page link
+    } else {
+      link.classList.remove('active'); // Remove active class from other links
+    }
+  });
+}
+
+
+
 // Get the current page URL
-let currentUrl = window.location.href;
+let currentUrl = window.location.path;
 console.log({ currentUrl });
+console.log(`is local? ${isLocal(currentUrl)}`);
 
 // let path = currentUrl.split('/').slice(4).join('/');
 // console.log({path});
 
-let is_local = isLocal(currentUrl);
-console.log({is_local});
+// let is_local = isLocal(currentUrl);
+// console.log({ is_local });
 
-let page = window.location.search.replace(/^\?/, '');
+// let page = window.location.search.replace(/^\?/, '');
 // let page = window.location.href.split('/').slice(-1).replace(/^\?/, '');
 // console.log({page});
 
+/*
 // Initialization on window load
 // This function waits for the DOM to be fully loaded and then renders the templates and loads the plugins based on the config file.
 window.addEventListener('DOMContentLoaded', async () => {
-// window.onload = async function(){
+  // window.onload = async function(){
   console.log("DOMContentLoaded");
 
   // if (!is_local) {
   //   console.log('local request: rendering default');
-  //   await renderPage('default');
+  //   await renderContent('default');
   // }
 
-  await renderPage('default');
-  await renderPage(page || "home");
+  await renderContent('default');
+  await renderContent(page || "home");
 
-// }
+  // }
+});
+*/
+
+// Function to check if a link is external
+function isExternalLink(link) {
+  console.log(`isExternalLink: ${link}`);
+  const linkHost = new URL(link.href).host;
+  const currentHost = window.location.host;
+  console.log({ linkHost, currentHost });
+
+  return linkHost !== currentHost;
+}
+
+
+// Function to handle navigation on query-based links (client-side routing)
+// When a link is clicked, this function updates the content dynamically without reloading the page.
+function handleLinks(event) {
+  console.log("document clicked");
+  console.log({ event });
+
+  const targetElement = event.target;
+  console.log({ targetElement });
+
+  if (targetElement.nodeName == 'A') {
+    console.log(`got a link: ${targetElement}`);
+
+    // Check if the link is external  
+    if (isExternalLink(targetElement)) {
+      console.log(`got external link: {targetElement.href}`);
+
+      return; // Let the default behavior happen (e.g., open the external link)
+    }
+
+    event.preventDefault(); // Prevent default behavior for internal links
+
+    // Extract the query parameter from the link's href
+    console.log({ targetElement });
+    console.log(`href: ${targetElement.href}`);
+
+    const targetPage = new URL(targetElement.href).searchParams.get('page') || 'home';
+    console.log({ targetPage });
+
+    renderContent(targetPage); // Load specific content for the current query
+    setActiveLink(targetPage); // Set the correct active link based on the current query
+
+    // Only proceed if the target page is different from the current query
+    if (window.location.search !== `?page=${targetPage}`) {
+      renderContent(targetPage); // Load specific page content (main content)
+      setActiveLink(targetPage); // Highlight the correct active link in nav
+      window.history.pushState(null, '', `?page=${targetPage}`); // Update the URL without reloading the page
+    }
+  }
+}
+
+window.addEventListener("load", () => {
+// window.addEventListener('DOMContentLoaded', async () => {
+
+  if (!isLocal(currentUrl)) {
+    console.log("rendering default content");
+
+    renderContent("default");
+  }
+
+  // Initial page load: handle direct access by checking the current query parameter
+  const current_page = new URL(window.location.href).searchParams.get('page') || 'home';
+  renderContent(current_page); // Load specific content for the current query
+  setActiveLink(current_page); // Set the correct active link based on the current query
+
+  // Event delegation: listen for all clicks on the document body (for links)
+  document.addEventListener('click', handleLinks);
+
+  // Array.from(document.links)
+  //   .filter(link => link.hostname != window.location.hostname)
+  //   .forEach(link => link.target = '_blank');
+
+  // Array.from(document.querySelectorAll('a'))
+  //   .filter(link => link.hostname != window.location.hostname)
+  //   .forEach(link => link.target = '_blank');
+
+  // Handle back/forward navigation with the popstate event
+  // This ensures the correct content is loaded when using the browser's back/forward buttons.
+  window.addEventListener('popstate', () => {
+    const pathQuery = getQueryParam('page') || 'home'; // Default to 'home' if no query
+    renderContent(pathQuery); // Load content for the specific route
+    setActiveLink(pathQuery); // Set active state on the correct navigation link
+  });
+
+  
+  const links = [...document.querySelectorAll('a')];
+  console.log({links});
+  links
+    .filter(link => link.hostname != window.location.hostname)
+    .forEach(link => link.target = '_blank');
+
 });
