@@ -12,7 +12,7 @@ nav {
     font-size: 100%;
     margin: 0;
     padding: 0.65rem 2%;
-    background-color: #893673;
+    background-color: var(--accent-color-2);
     grid-column: 1 / -1;
     grid-row: 1 / 2;
     z-index: 100;
@@ -43,20 +43,20 @@ nav a {
     display: inline-block;
     margin: 0 3px;
     padding: 9px 15px;
-    color: #fff;
+    color: var(--nav-reverse);
     font-size: 100%;
     text-decoration: none;
 }
 
 nav a:hover {
-    color: #fff;
+    color: var(--nav-reverse);
     padding: 9px 15px;
     text-decoration: none;
-    background-color: #ba4909;
+    background-color: var(--hover-background-1);
 }
 
 nav li:hover {
-    color: #fff;
+    color: var(--nav-reverse);
 }
 
 li>a:after {
@@ -78,18 +78,13 @@ li>a:only-child:after {
     max-width: 100%;
 }
 
-@media all and (max-width : 900px) {
-    nav {
-        margin: -6px 0 0 0;
-    }
 
-}
-
-@media all and (max-width : 600px) {
+@media all and (max-width : 750px) {
 
     nav {
         margin: 0;
         padding-top: 2px;
+        margin: -6px 0 5px 0;
     }
 
     .toggle+a,
@@ -100,9 +95,9 @@ li>a:only-child:after {
     .toggle {
         text-align: left;
         display: block;
-        background-color: #893673;
+        background-color: var(--accent-color-2);
         padding: 2px 5%;
-        color: #fff;
+        color: var(--nav-reverse);
         font-size: 100%;
         line-height: 30px;
         text-decoration: none;
@@ -111,7 +106,7 @@ li>a:only-child:after {
     }
 
     .toggle:hover {
-        color: #d5916b;
+        color: var(--hover-1);
     }
 
     [id^=drop]:checked+ul {
@@ -139,7 +134,7 @@ li>a:only-child:after {
     }
 
     nav a:hover {
-        background-color: #ba4909;
+        background-color: var(--hover-5);
     }
 
 }

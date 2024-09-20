@@ -1,85 +1,94 @@
-/* CSS */
-@media (max-width: 750px) {
-    #info-section {
-        grid-template-columns: 1fr;
-        /* Single column */
-        grid-template-areas:
-            "title"
-            "content"
-            "image";
-        /* Image goes below content */
-    }
-
-    .watercolor {
-        justify-content: center;
-        /* Center image in full-width layout */
-    }
-
-    .watercolor img {
-        max-width: 100%;
-        /* Ensure image remains full width */
-        height: auto;
-    }
-
-}
-
 .info-page {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    column-gap: 2rem;
+    column-gap: 1rem;
     grid-template-rows: auto;
-    margin: 1rem 2rem;
-    /* border: 1px dotted green; */
+    margin: 0 2rem;
 }
 
 .info-title {
     grid-column: 1 / -1; 
     grid-row: 1;
-    margin: 0.5rem 0;
-    /* border: 1px dotted red; */
+    margin: 1rem 0 1rem 0;
+    text-align: left; 
+    color: var(--accent-color-1);
 }
 
 .outline-box {
     grid-column: 1;
     grid-row: 2;
     border: 1px solid black;
-    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
-    /* border: 1px dashed pink; */
+    padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
 .watercolor {
     grid-column: 2;
     grid-row: 2; 
-    /* border: 1px dashed orange; */
 }
 
 .watercolor img {
     width: 100%;
     height: auto;
-    /* border: 1px solid yellow; */
 }
 
-#info-section a:link {
-    color: #cf520a;
+.info-page a:link {
+    color: var(--link-1);
 	font-weight: 700;
     text-decoration: underline;
 }
 
-#info-section a:visited {
-    color: #cf520a;
+.info-page a:visited {
+    color: var(--link-1);
 	font-weight: 700;
     text-decoration: underline;
 }
 
-#info-section a:hover {
-    color: #1a705b;
+.info-page a:hover {
+    color: var(--hover-3);
 	font-weight: 700;
     text-decoration: underline;
 }
 
-#info-section a:active {
-    color: #1a705b;
+.info-page a:active {
+    color: var(--hover-3);
 	font-weight: 700;
     text-decoration: underline;
 }
+
+/* Responsive layout for smaller screens */
+@media screen and (max-width: 750px) {
+    .info-page {
+        grid-template-columns: 1fr; 
+        column-gap: 0;
+        margin: 0 0.5rem;
+    }
+
+    .info-title {
+        text-align: center; 
+        margin: 1rem 0; 
+    }
+
+    h2 {
+        line-height: 1.2em;
+    }
+
+    ul {
+        padding-left: 1em;
+    }
+
+    .outline-box {
+        grid-column: 1; 
+        grid-row: 2;
+        width: 100%; 
+        margin-bottom: 1rem; 
+        padding: 0.5rem 1rem;
+    }
+
+    .watercolor {
+        grid-column: 1; 
+        grid-row: 3;
+        width: 100%; 
+    }
+}
+
 

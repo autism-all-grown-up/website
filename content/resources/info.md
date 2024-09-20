@@ -1,4 +1,4 @@
-## Guides for Accessing ervices
+## Guides for Accessing Services
 Information on accessing services for autistic adults is currently scattered and unfocused. Also, most of it is not attuned to the autistic brain that wants plain-spoken facts. Calling offices to get answers runs into communication differences. Finally, autistic adults are tired, which increases the need to have simple, clear, accurate information in a single place.
 
 We started working with HealthShare Oregon to create "explainers" for OHP and paused to focus on launching AAGU. We will complete that project and create explainers for other topics such as:

@@ -2,14 +2,23 @@
 
 :root {
     --rem: 16px;
+    --default-text: #222;
+    --main-color: #df4009;
+    --accent-color-1: #1a705b;
+    --accent-color-2: #893673;
+    --accent-color-3: #a05e8f;
+    --nav-reverse: #fff;
+    --hover-1:  #d5916b;
+    --hover-2: #ba4909;
+    --hover-4: #f5dcce;
+    --hover-3: #1a705b;
+    --link-1: #cf520a;
 }
 
 html {
     margin: 0;
-    height: 100%;
-    display: grid;
-    place-items: center;
-    /* Centers content both horizontally and vertically */
+    height: 100vh;
+    width: 100vw;
 }
 
 body {
@@ -28,42 +37,7 @@ body {
 }
 
 
-p {
-    margin-top: 1rem;
-}
-
-h1 + p,
-h2 + p,
-h3 + p,
-h4 + p,
-h5 + p,
-h6 + p {
-    margin-top: 0;
-}
-
-
-.header-tagline {
-    margin-top: 1em;
-    /* Add space above the tagline */
-    font-family: 'Lato', sans-serif;
-    font-size: 1.75rem;
-    font-weight: 700;
-    padding: 0 5%;
-    line-height: 2rem;
-    color: #1a705b;
-    text-align: center;
-}
-
-.image-fluid {
-    margin: 0;
-    max-width: 100%;
-}
-
-.image-fluid-banner {
-    margin: 0;
-    max-width: 100%;
-}
-
+/**********   Gradients   *******************/
 .gradient-blue-green {
     background-color: #1a7030;
     background-image: linear-gradient(to bottom right, #4b5ecd, #1a7030);
@@ -79,119 +53,54 @@ h6 + p {
     border-radius: 5px;
 }
 
-.outline {
-    border: 1px solid #000;
-    padding: 10px 20px;
-    font-size: 1.25rem;
+
+/***********   Default Text Styling   *****************/
+p {
+    margin-top: 1rem;
 }
 
-/* Spacing */
-
-.moremargintop20 {
-    margin-top: 20px;
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+    margin-top: 0;
 }
 
-.marginbottom20 {
-    margin-bottom: 20px;
+h1, h2, h3 {
+    font-family: "Merriweather", Georgia, serif;
+    color: var(--default-text);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 1.2rem 0 0 0;
+    line-height: 1.5em;
 }
 
-.accordion-img-margin {
-    margin: 15px 5% 0 0;
-}
-
-/* Text styling including h2, etc. */
 h1 {
-    font-family: "Merriweather", Georgia, serif;
-    font-size: 2.50rem;
-    color: #000;
-    margin: 0.7rem 0.5rem 0;
+    font-size: 2.5rem;
     font-weight: 700;
-    line-height: 2.5rem;
 }
 
-h1.teal {
-    font-family: "Merriweather", Georgia, serif;
-    font-size: 2.00rem;
-    color: #1a705b;
-    margin: 10px 0 0 0;
-    font-weight: 700;
-    line-height: 2.5rem;
-}
 
 h2 {
-    font-family: 'Merriweather', 'Georgia', sans-serif;
-    font-size: 1.250rem;
+    font-size: 1.5rem;
     font-weight: 900;
-    margin: 1rem 0 0.3rem 0;
 }
 
-h2.cinnabar {
-    font-family: 'Merriweather', 'Georgia', sans-serif;
-    font-weight: 900;
-    line-height: 2rem;
-    margin: 0.7rem 0 0.5rem 0;
-    color: #df4009;
-}
 
-h2.cinnabar-margin-top {
-    font-family: 'Merriweather', 'Georgia', sans-serif;
-    font-weight: 900;
-    line-height: 30px;
-    margin: 20px 0 0.5rem 0;
-    color: #df4009;
-}
-
-h3.white {
-    font-family: 'Merriweather', 'Georgia', sans-serif;
-    font-size: 130%;
+h3 {
+    font-size: 1.3rem;
     font-weight: 700;
     font-style: italic;
-    color: #fff;
-    text-align: center;
-    margin: 0.7rem 0 0.5rem 0;
 }
 
-h5 {
-    font-family: 'Lato', sans-serif;
-    font-size: 115%;
-    font-weight: 700;
-    margin: 0.7rem 0 0.5rem 0;
+ul li:first-child,
+ol li:first-child {
+    margin-top: 0; /* Applies only to the first li in the ul */
 }
 
-.text-white-tagline {
-    color: #fff;
-    text-align: center;
-}
 
-.text-bold {
-    font-weight: 800;
-}
-
-.text-bold-left-align {
-    font-weight: 800;
-    margin-left: -5px;
-}
-
-.text-cinnabar {
-    color: #df4009;
-}
-
-.text-italic {
-    font-style: italic;
-}
-
-.text-italic-bold {
-    font-style: italic;
-    font-weight: bold;
-}
-
-.text-bold-125 {
-    font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 2rem;
-}
-
-/* List tyling */
 ul,
 ol {
     list-style-position: outside;
@@ -208,39 +117,36 @@ li {
 }
 
 
-/* Figcaption styling */    
-
-figcaption a:link {
-    color: purple;
-    text-decoration: underline;
+/***********    Custom Text Styling    **************/
+.header-tagline {
+    margin-top: 1em;
+    /* Add space above the tagline */
+    font-family: 'Lato', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    padding: 0 5%;
+    line-height: 2rem;
+    color: var(--accent-color-1);
+    text-align: center;
 }
 
-figcaption a:visited {
-    color: purple;
-    text-decoration: underline;
+/***********   Header Image   *********************/
+
+.image-fluid {
+    margin: 0;
+    max-width: 100%;
 }
 
-figcaption a:hover {
-    color: darkblue;
-    text-decoration: underline;
-}
-
-figcaption a:active {
-    color: darkblue;
-    text-decoration: underline;
-}
-
-figcaption a:focus {
-    color: darkblue;
-    outline: none;
-    /* Remove any default outline if present */
+.image-fluid-banner {
+    margin: 0;
+    max-width: 100%;
 }
 
 
-/* Footer styling */
+/****************    Footer styling   ******************/
 footer {
-    color: #fff;
-    background-color: #cf520a;
+    color: var(--nav-reverse);
+    background-color: var(--main-color);
     font-size: 1rem;
     text-align: center;
     padding: 1rem 3%;
@@ -251,32 +157,37 @@ footer {
 .footer-text {
     font-size: 1rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--nav-reverse);
+    text-align: center;
+}
+
+.footer-tagline {
+    color: var(--nav-reverse);
     text-align: center;
 }
 
 footer a:link {
-    color: #fff;
+    color: var(--nav-reverse);
     text-decoration: underline;
 }
 
 footer a:visited {
-    color: #fff;
+    color: var(--nav-reverse);
     text-decoration: underline;
 }
 
 footer a:hover {
-    color: #f5dcce;
+    color: var(--hover-4);
     text-decoration: underline;
 }
 
 footer a:active {
-    color: #f5dcce;
+    color: var(--hover-4);
     text-decoration: underline;
 }
 
-/* Media queries go here for now – home page only */
 
+/* Media queries go here for now – home page only */
 @media screen and (max-width: 750px) {
     .header-mobile {
         display: block;
@@ -303,7 +214,7 @@ footer a:active {
         grid-column: 1 / 4;
         grid-row: 3 / 4;
         text-align: left;
-        margin: 0 0 0 25px;
+        margin: 0 0 0 1.5rem;
     }
 
     .watercolor {
