@@ -52,7 +52,7 @@
     content: "+";
     font-size: 2.5rem; 
     font-weight: 900;
-    margin-right: 1rem; 
+    /* margin-right: 1rem;  */
     transition: transform 0.5s ease, content 0.5s ease;
     grid-column: 1; /* Places the marker in the first column */
     align-self: center; /* Center marker vertically */
@@ -186,15 +186,20 @@
         grid-template-columns: 1fr; /* Stack elements vertically */
         grid-template-rows: auto auto auto; /* Define rows for each item */
         text-align: center; /* Center align text */
-        padding: 1rem;
+        padding: 0;
+        margin: 0;
+        column-gap: 0;
+        row-gap: 0;
     }
 
     .accordion summary img {
         width: 100%;
-        max-width: 164px;
+        /* max-width: 164px; */
         grid-column: 1; /* Move the image to the top */
         grid-row: 1; 
-        margin: 1rem auto 1.5rem auto; /* Center image */
+        /* margin: 1rem auto 1.5rem auto; */
+        margin: 0;
+        padding: 0;
         justify-self: center;
         border: none;
     }
@@ -206,10 +211,9 @@
     .accordion .summary-text {
         grid-column: 1; /* Move text below the image */
         grid-row: 2;
-        align-self: center; /* Center text */
-        margin: 0; /* Tighten space below the text */
-        font-size: 1.2rem;    
-        padding: 0 2rem;
+        margin: 1em 0.5em 0.5em 0   ; /* Tighten space below the text */
+        font-size: 1.3rem;    
+        /* padding: 1em; */
     }
 
     .accordion summary::before {
@@ -226,7 +230,7 @@
         width: 100%;
         border: 0.1rem solid black;
         margin: 2rem 0;
-        padding: 0.5rem 0;
+        padding: 0;
         border-radius: 0.15rem;
     }
 

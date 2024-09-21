@@ -1,0 +1,30 @@
+<!--<main id="main"> -->
+{{#data}}
+<section class="info-page">
+
+    <h1 class="info-title teal">{{info_heading}}</h1>
+
+    <div class="outline-box faq">
+        {{#faq_data}}
+        <details>
+            <summary>
+                <h2>{{{question}}}</h2>
+            </summary>
+            <div>
+                {{#answer_lines}}
+                <p>{{{.}}}</p>
+                {{/answer_lines}}
+            </div>
+        </details>
+        {{/faq_data}}
+    </div>
+
+    <div class="watercolor">
+        <figure>
+            <img class="image-fluid" src="{{main_image}}" alt="{{main_image_alt_text}}" />
+        </figure>
+    </div>
+
+</section>
+{{/data}}
+<!-- </main> -->

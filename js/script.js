@@ -154,22 +154,22 @@ async function renderSlot({ slot, template, data, action }, dir) {
 
   await Promise.all(promises);
 
-  console.log(JSON.stringify(data, null, 2));
+  // console.log(JSON.stringify(data, null, 2));
 
   let rendered = "";
   if (template) {
-    console.log(`got nonempty template for slot: ${slot}, ${template}`);
-    console.log(JSON.stringify(data, null, 2));
+    // console.log(`got nonempty template for slot: ${slot}, ${template}`);
+    // console.log(JSON.stringify(data, null, 2));
 
     const templateHtml = await fetchFile(`./templates/${template}`);
-    console.log(`template html: \n${templateHtml}`);
+    // console.log(`template html: \n${templateHtml}`);
 
     rendered = Mustache.render(templateHtml, { data: data });
     // console.log(`rendered: ${rendered}`);
   }
 
-  console.log(rendered);
-  console.log({slot});
+  // console.log(rendered);
+  // console.log({ slot });
   let target_element = document.querySelector(`#${slot}`)
   target_element.innerHTML = rendered;
 
@@ -232,8 +232,8 @@ function setActiveLink(targetPage) {
 
 // Get the current page URL
 let currentUrl = window.location.path;
-console.log({ currentUrl });
-console.log(`is local? ${isLocal(currentUrl)}`);
+// console.log({ currentUrl });
+// console.log(`is local? ${isLocal(currentUrl)}`);
 
 // Function to check if a link is external
 function isExternalLink(link) {
@@ -242,7 +242,7 @@ function isExternalLink(link) {
   const currentHost = window.location.host;
 
   let is_external = linkHost !== currentHost;
-  console.log({ linkHost, currentHost, is_external});
+  console.log({ linkHost, currentHost, is_external });
 
   return is_external;
 }
@@ -250,21 +250,21 @@ function isExternalLink(link) {
 // Function to handle navigation on query-based links (client-side routing)
 // When a link is clicked, this function updates the content dynamically without reloading the page.
 function handleLinks(event) {
-  console.log("document clicked");
-  console.log({ event });
+  // console.log("document clicked");
+  // console.log({ event });
 
   const targetElement = event.target;
-  console.log({ targetElement });
+  // console.log({ targetElement });
 
   if (targetElement.nodeName == 'A') {
-    console.log(`got a link: ${targetElement}`);
+    // console.log(`got a link: ${targetElement}`);
 
     const url = targetElement.href;
-    console.log({ url })
+    // console.log({ url })
 
     // Check if the link is external  
     if (isExternalLink(targetElement)) {
-      console.log(`got external link: {targetElement.href}`);
+      // console.log(`got external link: {targetElement.href}`);
 
       return; // Let the default behavior happen (e.g., open the external link)
     }
@@ -283,6 +283,13 @@ function handleLinks(event) {
       renderContent(targetPage); // Load specific page content (main content)
       setActiveLink(targetPage); // Highlight the correct active link in nav
       window.history.pushState(null, '', `?page=${targetPage}`); // Update the URL without reloading the page
+    }
+
+    // Collapse the menu by unchecking the checkbox with id="drop"
+    const dropCheckbox = document.getElementById('drop');
+    console.log({dropCheckbox});
+    if (dropCheckbox && dropCheckbox.checked) {
+      dropCheckbox.checked = false;
     }
   }
 }
@@ -326,7 +333,7 @@ window.addEventListener("load", () => {
 
 
   const links = [...document.querySelectorAll('a')];
-  console.log({ links });
+  // console.log({ links });
   links
     .filter(link => link.hostname != window.location.hostname)
     .forEach(link => link.target = '_blank');
