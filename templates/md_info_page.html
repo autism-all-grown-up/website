@@ -1,15 +1,17 @@
 <!--<main id="main"> -->
+{{#data}}
 <section class="info-page">
     
-    <h1 class="info-title teal">{{data.info_heading}}</h1>
+    <h1 class="info-title teal">{{info_heading}}</h1>
 
-    <div class="outline-box">{{{data.boxed_text}}}</div>
+    <div class="outline-box">{{{boxed_text}}}</div>
 
     <div class="watercolor">
         <figure>
-            <img class="image-fluid" src="{{data.main_image}}" alt="{{data.main_image_alt_text}}" />
+            <img class="image-fluid" src="{{main_image}}" alt="{{main_image_alt_text}}" />
         </figure>
     </div>
 
 </section>
+{{/data}}
 <!-- </main> -->

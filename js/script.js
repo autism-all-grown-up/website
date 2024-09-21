@@ -7,38 +7,51 @@ const relativePath = (base_path, full_path) => {
     .replace(/\/$/, ''); // strip any trailing '/'
 }
 
-// Function to check if a link is external
-// function isLocal(url) {
-//   const linkHost = new URL(url).host;
-//   const currentHost = window.location.host;
-//   return linkHost == currentHost;
+// function isLocal(href) {
+//   console.log(`isLocal: ${href}`);
+
+//   // Get the referrer (the URL of the previous page)
+//   let referrer = document.referrer;
+//   let hostname = window.location.hostname;
+//   let origin = window.location.origin;
+//   let protocol = window.location.protocol;
+//   let host_url = `${protocol}//${hostname}`;
+
+//   // Check if the referrer is empty or from a search engine (indicative of organic visit)
+//   if (!referrer || referrer === "") {
+//     referrer = host_url;
+//   }
+
+//   console.log({referrer});
+
+//   // Parse the referrer to get its domain
+//   let referrerDomain = (new URL(referrer)).hostname;
+//   let currentDomain = window.location.hostname;
+
+//   // Check if the visit is from the same domain
+//   if (referrerDomain === currentDomain) {
+//     console.log("This is an internal visit (from another page on the same website).");
+//     return true;
+//   } else {
+//     console.log("This is likely a referral from another site.");
+//     return false;
+//   }
 // }
 
-function isLocal(href) {
-  // console.log(`isLocal: ${href}`);
+function isLocal() {
+  const referrer = document.referrer;
+  const currentOrigin = window.location.origin; // e.g., 'https://example.com'
 
-  // Get the referrer (the URL of the previous page)
-  var referrer = document.referrer;
-
-  // Check if the referrer is empty or from a search engine (indicative of organic visit)
-  if (!referrer || referrer === "") {
-    console.log("This is likely a direct or organic visit.");
-
+  // Check if there is no referrer or if the referrer is from a different domain
+  if (!referrer || !referrer.startsWith(currentOrigin)) {
+    // This is an organic visit (e.g., directly typed URL or from an external source)
+    console.log("This is likely a directly typed URL or a referral from another site.");
     return false;
-  } else {
-    // Parse the referrer to get its domain
-    var referrerDomain = (new URL(referrer)).hostname;
-    var currentDomain = window.location.hostname;
-
-    // Check if the visit is from the same domain
-    if (referrerDomain === currentDomain) {
-      console.log("This is an internal visit (from another page on the same website).");
-      return true;
-    } else {
-      console.log("This is likely a referral from another site.");
-      return false;
-    }
   }
+
+  // If the referrer is from the same origin, this is an internal navigation
+  console.log("This is an internal visit (from another page on the same website).");
+  return true;
 }
 
 // Function to get the query parameter from the URL
@@ -122,9 +135,8 @@ async function renderSlot({ slot, template, data, action }, dir) {
   // console.log({slot, template, data, action});
   // console.log({dir});
 
-  const contentDir = `content/${dir}`;
+  // const contentDir = `content/${dir}`;
   // console.log({contentDir});
-
 
   if (!slot || !document.querySelector(`#${slot}`)) {
     console.error('Configuration error or slot element missing:', { slot, template, data, action, dir });
@@ -142,19 +154,25 @@ async function renderSlot({ slot, template, data, action }, dir) {
 
   await Promise.all(promises);
 
-  const templateHtml = await fetchFile(`./templates/${template}`);
-  if (data.length == 1) {
-    data = data[0];
+  console.log(JSON.stringify(data, null, 2));
+
+  let rendered = "";
+  if (template) {
+    console.log(`got nonempty template for slot: ${slot}, ${template}`);
+    console.log(JSON.stringify(data, null, 2));
+
+    const templateHtml = await fetchFile(`./templates/${template}`);
+    console.log(`template html: \n${templateHtml}`);
+
+    rendered = Mustache.render(templateHtml, { data: data });
+    // console.log(`rendered: ${rendered}`);
   }
 
-  // console.log(JSON.stringify(data, null, 2));
-  let rendered = Mustache.render(templateHtml, { data: data });
-  // console.log(rendered);
-  // console.log({slot});
-
+  console.log(rendered);
+  console.log({slot});
   let target_element = document.querySelector(`#${slot}`)
   target_element.innerHTML = rendered;
-  // document.querySelector('#main').offsetHeight; // Reflow trigger
+
 }
 
 // Event delegation function
@@ -212,52 +230,22 @@ function setActiveLink(targetPage) {
   });
 }
 
-
-
 // Get the current page URL
 let currentUrl = window.location.path;
 console.log({ currentUrl });
 console.log(`is local? ${isLocal(currentUrl)}`);
-
-// let path = currentUrl.split('/').slice(4).join('/');
-// console.log({path});
-
-// let is_local = isLocal(currentUrl);
-// console.log({ is_local });
-
-// let page = window.location.search.replace(/^\?/, '');
-// let page = window.location.href.split('/').slice(-1).replace(/^\?/, '');
-// console.log({page});
-
-/*
-// Initialization on window load
-// This function waits for the DOM to be fully loaded and then renders the templates and loads the plugins based on the config file.
-window.addEventListener('DOMContentLoaded', async () => {
-  // window.onload = async function(){
-  console.log("DOMContentLoaded");
-
-  // if (!is_local) {
-  //   console.log('local request: rendering default');
-  //   await renderContent('default');
-  // }
-
-  await renderContent('default');
-  await renderContent(page || "home");
-
-  // }
-});
-*/
 
 // Function to check if a link is external
 function isExternalLink(link) {
   console.log(`isExternalLink: ${link}`);
   const linkHost = new URL(link.href).host;
   const currentHost = window.location.host;
-  console.log({ linkHost, currentHost });
 
-  return linkHost !== currentHost;
+  let is_external = linkHost !== currentHost;
+  console.log({ linkHost, currentHost, is_external});
+
+  return is_external;
 }
-
 
 // Function to handle navigation on query-based links (client-side routing)
 // When a link is clicked, this function updates the content dynamically without reloading the page.
@@ -270,6 +258,9 @@ function handleLinks(event) {
 
   if (targetElement.nodeName == 'A') {
     console.log(`got a link: ${targetElement}`);
+
+    const url = targetElement.href;
+    console.log({ url })
 
     // Check if the link is external  
     if (isExternalLink(targetElement)) {
@@ -287,9 +278,6 @@ function handleLinks(event) {
     const targetPage = new URL(targetElement.href).searchParams.get('page') || 'home';
     console.log({ targetPage });
 
-    renderContent(targetPage); // Load specific content for the current query
-    setActiveLink(targetPage); // Set the correct active link based on the current query
-
     // Only proceed if the target page is different from the current query
     if (window.location.search !== `?page=${targetPage}`) {
       renderContent(targetPage); // Load specific page content (main content)
@@ -300,16 +288,20 @@ function handleLinks(event) {
 }
 
 window.addEventListener("load", () => {
-// window.addEventListener('DOMContentLoaded', async () => {
+  // window.addEventListener('DOMContentLoaded', async () => {
 
   if (!isLocal(currentUrl)) {
-    console.log("rendering default content");
+    // console.log("rendering default content");
 
-    renderContent("default");
+    // renderContent("default");
   }
+
+  console.log("rendering default content");
+  renderContent("default");
 
   // Initial page load: handle direct access by checking the current query parameter
   const current_page = new URL(window.location.href).searchParams.get('page') || 'home';
+  console.log(`rendering content for page: ${current_page}`);
   renderContent(current_page); // Load specific content for the current query
   setActiveLink(current_page); // Set the correct active link based on the current query
 
@@ -332,9 +324,9 @@ window.addEventListener("load", () => {
     setActiveLink(pathQuery); // Set active state on the correct navigation link
   });
 
-  
+
   const links = [...document.querySelectorAll('a')];
-  console.log({links});
+  console.log({ links });
   links
     .filter(link => link.hostname != window.location.hostname)
     .forEach(link => link.target = '_blank');

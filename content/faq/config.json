@@ -100,7 +100,7 @@
     },
     {
         "slot": "tagline",
-        "template": "tagline.html",
+        "template": "",
         "data": []
     }
 ]

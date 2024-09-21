@@ -4,8 +4,8 @@
         "template": "md_info_page.html",
         "data": [
             {
-                "info_heading": "Contact Form",
-                "main_image": "images/yellowtree_watercolor.jpg",
+                "info_heading": "Contact Us!",
+                "main_image": "images/yellowtree_watercolor_compressed.jpg",
                 "main_image_alt_text": "watercolor of a yellow sideways tree by Alexandria Levin",
                 "source_data": [
                     {
@@ -15,5 +15,10 @@
                 ]
             }
         ]
+    },
+    {
+        "slot": "tagline",
+        "template": "",
+        "data": []
     }
 ]

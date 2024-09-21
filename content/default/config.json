@@ -27,8 +27,11 @@
                 "page_url": "contact",
                 "page_name": "Contact"
             }
-        ],
-        "plugins": [
         ]
+    },
+    {
+        "slot": "tagline",
+        "template": false,
+        "data": []
     }
 ]

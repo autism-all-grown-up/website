@@ -6,7 +6,7 @@
             {
                 "info_heading": "About Us",
                 "info_subheading": "New section to come &mdash; Fall 2024",
-                "main_image": "images/mounthood_watercolor.jpg",
+                "main_image": "images/mounthood_watercolor_compressed.jpg",
                 "main_image_alt_text": "watercolor of Mount Hood by Alexandria Levin",
                 "source_data": [
                     {
@@ -16,5 +16,10 @@
                 ]
             }
         ]
+    },
+    {
+        "slot": "tagline",
+        "template": "",
+        "data": []
     }
 ]
