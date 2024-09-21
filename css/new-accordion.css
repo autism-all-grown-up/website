@@ -211,8 +211,9 @@
     .accordion .summary-text {
         grid-column: 1; /* Move text below the image */
         grid-row: 2;
-        margin: 1em 0.5em 0.5em 0   ; /* Tighten space below the text */
-        font-size: 1.3rem;    
+        margin: 1em 1em 0em 1em; /* Tighten space below the text */
+        font-size: 1.4rem;    
+        line-height: 1.5em;
         /* padding: 1em; */
     }
 
