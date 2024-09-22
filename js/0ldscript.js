@@ -7,37 +7,6 @@ const relativePath = (base_path, full_path) => {
     .replace(/\/$/, ''); // strip any trailing '/'
 }
 
-// function isLocal(href) {
-//   console.log(`isLocal: ${href}`);
-
-//   // Get the referrer (the URL of the previous page)
-//   let referrer = document.referrer;
-//   let hostname = window.location.hostname;
-//   let origin = window.location.origin;
-//   let protocol = window.location.protocol;
-//   let host_url = `${protocol}//${hostname}`;
-
-//   // Check if the referrer is empty or from a search engine (indicative of organic visit)
-//   if (!referrer || referrer === "") {
-//     referrer = host_url;
-//   }
-
-//   console.log({referrer});
-
-//   // Parse the referrer to get its domain
-//   let referrerDomain = (new URL(referrer)).hostname;
-//   let currentDomain = window.location.hostname;
-
-//   // Check if the visit is from the same domain
-//   if (referrerDomain === currentDomain) {
-//     console.log("This is an internal visit (from another page on the same website).");
-//     return true;
-//   } else {
-//     console.log("This is likely a referral from another site.");
-//     return false;
-//   }
-// }
-
 function isLocal() {
   const referrer = document.referrer;
   const currentOrigin = window.location.origin; // e.g., 'https://example.com'
