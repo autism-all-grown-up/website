@@ -23,12 +23,13 @@
     p {
         font-size: 1rem;
         font-family: Lato, sans-serif;
-        margin: 0.5em 0 0 0;
+        margin: 1em 0 0 0;
         padding: 0;
+        line-height: 1.5em;
     }
 
     details:first-of-type {
-        margin-top: 0;
+        /* margin-top: 0; */
     }
 
     details {
