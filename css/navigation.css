@@ -1,107 +1,143 @@
 #nav-container {
-    display: block; /* If you don't need flexbox for this, use block */
     width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
     position: sticky;
     top: 0;
-    z-index: 2000;
+    max-width: 100%;    
 }
 
-/* Main Navigation Styles */
 nav {
     font-family: 'Merriweather', 'Georgia', sans-serif;
     font-weight: 700;
+    font-size: 1rem;
     margin: 0;
-    padding: 0 2%;
+    padding: 0.65rem 2%;
     background-color: var(--accent-color-2);
-    position: sticky;
-    top: 0;
-    z-index: 2000; /* Keep it above other elements */
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    z-index: 100;
     width: 100%;
-    /* No explicit height needed */
+}
+
+nav:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 nav ul {
-    display: flex;
-    justify-content: flex-end;
+    float: right;
     padding: 0;
     margin: 0;
     list-style: none;
+    position: relative;
 }
 
 nav ul li {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    display: block;
+    float: left;
 }
 
 nav a {
-    padding: 1em 1em;
-    margin: 0;
+    display: inline-block;
+    margin: 0 3px;
+    padding: 9px 15px;
     color: var(--nav-reverse);
+    font-size: 100%;
     text-decoration: none;
-    font-size: 1rem;
-    line-height: 3.5rem;
 }
 
 nav a:hover {
+    color: var(--nav-reverse);
+    padding: 9px 15px;
+    text-decoration: none;
     background-color: var(--hover-2);
+}
+
+nav li:hover {
     color: var(--nav-reverse);
 }
 
-/* Mobile Menu Toggle */
-.toggle,    
-#drop {
+li>a:after {
+    content: none;
+}
+
+.toggle,
+[id^=drop] {
     display: none;
 }
 
-/* Sticky Menu */
+li>a:only-child:after {
+    content: '';
+}
+
 .nav-sticky {
     position: sticky;
     top: 0;
     max-width: 100%;
 }
 
-/* Responsive Styles */
-@media all and (max-width: 750px) {
 
-    /* Display Toggle for Mobile */
+@media all and (max-width : 750px) {
+
+    nav {
+        margin: 0;
+        padding-top: 2px;
+        margin: -6px 0 5px 0;
+    }
+
+    .toggle+a,
+    .menu {
+        display: none;
+    }
+
     .toggle {
-        display: block;
-        padding: 0.2rem 5%;
-        background-color: var(--accent-color-2);
-        color: var(--nav-reverse);
         text-align: left;
-        margin: 0.65rem 0;
+        display: block;
+        background-color: var(--accent-color-2);
+        padding: 2px 5%;
+        color: var(--nav-reverse);
+        font-size: 100%;
+        line-height: 30px;
+        text-decoration: none;
         border: none;
+        margin: 10px 0;
     }
 
     .toggle:hover {
         color: var(--hover-1);
     }
 
-    /* Show Menu When Checkbox is Checked */
-    #drop:checked + ul {
+    [id^=drop]:checked+ul {
         display: block;
     }
 
-    nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
-
     nav ul li {
-        width: 100%;
+        display: block;
+        width: 94%;
     }
 
-    nav ul li a {
-        padding: 0.3rem 5%;
+    nav ul .toggle,
+    nav ul a {
         text-align: left;
-        background-color: var(--accent-color-2);
-        line-height: 1.8rem;
+        padding: 5px 5%;
+        line-height: 27px;
+        width: 94%;
+    }
+
+    nav ul .toggle,
+    nav ul a:hover {
+        text-align: left;
+        padding: 5px 5%;
+        line-height: 27px;
     }
 
     nav a:hover {
         background-color: var(--hover-5);
     }
+
 }
