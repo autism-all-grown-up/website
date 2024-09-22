@@ -57,6 +57,7 @@ body {
 /***********   Default Text Styling   *****************/
 p {
     margin-top: 1rem;
+    color: var(--default-text);
 }
 
 h1 + p,

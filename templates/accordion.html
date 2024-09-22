@@ -3,6 +3,18 @@
     {{#data}}
     <details>
         <summary>
+            <svg class="summary-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <path 
+                    id="plus-icon" 
+                    class="summary-icon"
+                    d="m416 208h-144v-144c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144h-144c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-144h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+
+                <path
+                    id="minus-icon"
+                    class="summary-icon"
+                    d="m416 208h-384c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+            </svg>
+
             <p class="summary-text">{{{summary_text}}}</p>
             <img src="{{{thumbnail_image}}}" alt="{{{thumbnail_alt_text}}}" />
         </summary>

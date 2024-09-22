@@ -1,4 +1,5 @@
 #nav-container {
+    display: grid;
     width: 100%;
     height: auto;
     padding: 0;
