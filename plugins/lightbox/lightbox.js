@@ -8,10 +8,14 @@ export default function attachLightboxToFigure() {
         lightbox = document.createElement('div');
         lightbox.classList.add('lightbox');
         lightbox.innerHTML = `
-            <div class="lightbox-content">
-                <div class="lightbox-close">&times;</div>
-                <div class="lightbox-body"></div>
-            </div>`;
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <img class="lightbox-btn lightbox-close" src="icons/fa-xmark-solid.svg" alt="Close" />
+                <img class="lightbox-btn lightbox-expand" src="icons/fa-expand-solid.svg" alt="Fullscreen" />
+                <img class="lightbox-btn lightbox-contract" src="icons/fa-compress-solid.svg" alt="Exit Fullscreen" style="display: none;" />
+            </div>
+            <div class="lightbox-body"></div>
+        </div>`;
         document.body.appendChild(lightbox);
         console.log("Lightbox structure added to DOM");
     }
@@ -23,7 +27,7 @@ export default function attachLightboxToFigure() {
         const img = figure.querySelector('img');
         img.addEventListener('click', () => {
             console.log("Lightbox for figure triggered");
-            
+
             const lightboxBody = lightbox.querySelector('.lightbox-body');
 
             // Add the figure content to the modal body
@@ -39,18 +43,50 @@ export default function attachLightboxToFigure() {
 
             // Close the lightbox when clicking on the close button
             const closeButton = lightbox.querySelector('.lightbox-close');
+            const expandButton = lightbox.querySelector('.lightbox-expand');
+            const contractButton = lightbox.querySelector('.lightbox-contract');
+
             closeButton.addEventListener('click', () => {
                 lightbox.classList.remove('open');
+                // Exit fullscreen mode if still active
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.webkitExitFullscreen) { /* Safari */
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) { /* IE11 */
+                        document.msExitFullscreen();
+                    }
+                }
             });
 
-            // Handle fullscreen mode for the modal
-            if (lightbox.requestFullscreen) {
-                lightbox.requestFullscreen();
-            } else if (lightbox.webkitRequestFullscreen) { /* Safari */
-                lightbox.webkitRequestFullscreen();
-            } else if (lightbox.msRequestFullscreen) { /* IE11 */
-                lightbox.msRequestFullscreen();
-            }
+            // Enter fullscreen mode
+            expandButton.addEventListener('click', () => {
+                if (lightbox.requestFullscreen) {
+                    lightbox.requestFullscreen();
+                } else if (lightbox.webkitRequestFullscreen) { /* Safari */
+                    lightbox.webkitRequestFullscreen();
+                } else if (lightbox.msRequestFullscreen) { /* IE11 */
+                    lightbox.msRequestFullscreen();
+                }
+                // Hide the expand button, show the contract button
+                expandButton.style.display = 'none';
+                contractButton.style.display = 'inline';
+            });
+
+            // Exit fullscreen mode
+            contractButton.addEventListener('click', () => {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+                // Hide the contract button, show the expand button
+                contractButton.style.display = 'none';
+                expandButton.style.display = 'inline';
+            });
         });
     });
 }

@@ -1,3 +1,4 @@
+/* Lightbox container */
 .lightbox {
     position: fixed;
     top: 0;
@@ -11,32 +12,46 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease;
+    z-index: 1000;
 }
 
+/* When the lightbox is active */
 .lightbox.open {
     opacity: 1;
     visibility: visible;
 }
 
+/* Lightbox content container */
 .lightbox-content {
+    display: grid;
+    grid-template-rows: auto auto;
     position: relative;
     background: white;
     padding: 20px;
     width: 90%;
-    /* max-width: 800px; */
     border-radius: 5px;
-    overflow-y: auto; /* Enable scroll within modal */
+    overflow-y: auto;
 }
 
-.lightbox-close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 30px;
+/* Header for buttons (close, fullscreen, exit fullscreen) */
+.lightbox-header {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: end; /* Push buttons to the right */
+    gap: 1rem; /* Add spacing between buttons */
+    align-items: center;
+}
+
+/* Button styling */
+.lightbox-btn {
+    width: 24px;
+    height: 24px;
     cursor: pointer;
 }
 
+/* Lightbox body content (image, figure, etc.) */
 .lightbox-body {
-    max-height: 80vh; /* Ensure scrolling */
+    max-height: 80vh;
     overflow-y: auto;
+    grid-row: 2;
 }
