@@ -84,17 +84,8 @@
         "plugins": [
             {
                 "path": "dimbox",
-                "event": "click",
-                "parent": ".accordion",
-                "target": ".lightbox",
-                "callback": "attachLightboxListeners"
-            },
-            {
-                "path": "accordion_scroll",
-                "event": "click",
-                "parent": ".accordion",
-                "target": "summary",
-                "callback": "setScrollBehavior"
+                "css": "dimbox.min.css",
+                "js": "dimbox.js"
             }
         ]
     }

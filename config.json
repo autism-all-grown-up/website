@@ -3,7 +3,10 @@
     "base_url": "localhost/aagu_website_accordions/",
     "default_page": "default",
     "default_plugins": [
-        "external-links"
+        {
+            "path": "external-links",
+            "js": "external-links.js"
+        }
     ],
     "default_css": [],
     "default_js": []

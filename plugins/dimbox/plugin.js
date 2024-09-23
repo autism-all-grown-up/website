@@ -1,24 +1,35 @@
-// Example of how plugin wrappers should now bind events directly
-export default function(evt, parent) {
-  const elements = [...document.querySelectorAll(`${parent} .lightbox`)];
+export default function() {
+  console.log("dimbox plugin.js");
+  
+  // Select all elements with class .details-figure (likely <figure> elements)
+  const elements = document.querySelectorAll('.details-figure');
+
   elements.forEach((element, index) => {
+    // Create an <a> wrapper and set its attributes
     const img = element.querySelector('img');
-    const figcaption = element.querySelector('figcaption');
-    
     const a_wrapper = document.createElement('a');
-    a_wrapper.href = img.src;
+    a_wrapper.href = img.src; // Link to the image source
     a_wrapper.setAttribute('data-dimbox-type', 'image');
     a_wrapper.setAttribute('data-dimbox', index);
+    
+    // Optionally, include a caption if a <figcaption> is present
+    const figcaption = element.querySelector('figcaption');
     if (figcaption) {
-      a_wrapper.setAttribute('data-dimbox-caption', figcaption.innerHTML);
+      // a_wrapper.setAttribute('data-dimbox-caption', figcaption.innerHTML);
     }
 
+    // Insert the <a> wrapper before the <figure> element
     element.parentNode.insertBefore(a_wrapper, element);
-    a_wrapper.appendChild(element);
+
+    // Move the entire <figure> element inside the <a> wrapper
+    a_wrapper.appendChild(img);
   });
 
+  // Configure dimbox settings
   dimbox.setConfig({
-    showDownloadButton: true,
+    showDownloadButton: false,
     theme: 'dark'
   });
+
+  dimbox.init();
 }
