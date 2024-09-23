@@ -43,10 +43,5 @@
                 ]
             }
         ]
-    },
-    {
-        "slot": "tagline",
-        "template": "",
-        "data": []
     }
 ]

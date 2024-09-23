@@ -16,10 +16,5 @@
                 ]
             }
         ]
-    },
-    {
-        "slot": "tagline",
-        "template": "",
-        "data": []
     }
 ]
