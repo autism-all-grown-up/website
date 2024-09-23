@@ -1,8 +1,19 @@
 #!/bin/env bash
-git switch gh-pages
-git merge main
+
+branch=$(git rev-parse --abbrev-ref HEAD)
+if [[ $branch == "main" ]]; then
+	other_branch="gh-pages"
+else
+	other_branch="main"
+fi
+
+git switch $other_branch
+git merge $branch
 git push
-git switch gh-pages
+if [[ branch == "gh-pages" ]]; then
+	git switch $other_branch
+fi
+
 ssh imh << EOF
 cd www/ariel
 git pull
