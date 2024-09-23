@@ -1,10 +1,24 @@
+/* tagline */
+.tagline {
+    margin: 0.75em 0;
+    padding: 0 2em;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.25em;
+    color: var(--accent-color-1);
+    text-align: center;
+}
+
 /* Accordion container */
 .accordion {
-    margin: 2rem 0;
+    margin: 0;
     padding: 0;
     list-style: none;
     max-width: 1200px;
     min-width: 900px;
+    display: grid;
+    justify-items: center;
 }
 
 /* Accordion details */

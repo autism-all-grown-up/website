@@ -17,6 +17,7 @@
 
 html {
     margin: 0;
+    padding: 0;
     height: 100vh;
     width: 100vw;
 }
@@ -116,19 +117,6 @@ li {
     margin: 0.5em;
 }
 
-
-/***********    Custom Text Styling    **************/
-.header-tagline {
-    margin-top: 1em;
-    /* Add space above the tagline */
-    font-family: 'Lato', sans-serif;
-    font-size: 1.75rem;
-    font-weight: 700;
-    padding: 0 5%;
-    line-height: 2rem;
-    color: var(--accent-color-1);
-    text-align: center;
-}
 
 /***********   Header Image   *********************/
 

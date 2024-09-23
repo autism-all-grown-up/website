@@ -1,23 +1,27 @@
+#nav-container, 
+nav, 
+.toggle {
+    margin: 0;
+    padding: 0;
+}
+
 #nav-container {
     width: 100%;
     height: auto;
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
     position: sticky;
     top: 0;
-    max-width: 100%;    
+    max-width: 100%;
 }
 
 nav {
     font-family: 'Merriweather', 'Georgia', sans-serif;
     font-weight: 700;
     font-size: 1rem;
-    margin: 0;
-    padding: 0.65rem 2%;
     background-color: var(--accent-color-2);
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: end;
     z-index: 100;
     width: 100%;
 }
@@ -30,22 +34,27 @@ nav:after {
 
 nav ul {
     float: right;
-    padding: 0;
+    padding: 0.5em 0;
     margin: 0;
     list-style: none;
     position: relative;
 }
 
+nav ul li:last-of-type {
+    margin-right: 1.5em;
+}
+
 nav ul li {
-    margin: 0px;
-    display: block;
-    float: left;
+    margin: 0;
+    margin-right: 0.5em;
+    padding: 0;
+    display: inline-block;
 }
 
 nav a {
     display: inline-block;
-    margin: 0 3px;
-    padding: 9px 15px;
+    margin: 0;
+    padding: 0.5em 1em;
     color: var(--nav-reverse);
     font-size: 100%;
     text-decoration: none;
@@ -53,7 +62,6 @@ nav a {
 
 nav a:hover {
     color: var(--nav-reverse);
-    padding: 9px 15px;
     text-decoration: none;
     background-color: var(--hover-2);
 }
@@ -66,6 +74,8 @@ li>a:after {
     content: none;
 }
 
+
+
 .toggle,
 [id^=drop] {
     display: none;
@@ -76,6 +86,8 @@ li>a:only-child:after {
 }
 
 .nav-sticky {
+    margin: 0;
+    padding: 0;
     position: sticky;
     top: 0;
     max-width: 100%;
@@ -83,13 +95,9 @@ li>a:only-child:after {
 
 
 @media all and (max-width : 750px) {
-
     nav {
-        margin: 0;
-        padding-top: 2px;
-        margin: -6px 0 5px 0;
+        justify-items: left;
     }
-
     .toggle+a,
     .menu {
         display: none;
@@ -99,13 +107,13 @@ li>a:only-child:after {
         text-align: left;
         display: block;
         background-color: var(--accent-color-2);
-        padding: 2px 5%;
+        /* margin: 0; */
+        padding: 1.25em;
         color: var(--nav-reverse);
-        font-size: 100%;
-        line-height: 30px;
+        font-size: 1rem;
+        /* line-height: 30px; */
         text-decoration: none;
-        border: none;
-        margin: 10px 0;
+        /* border: 1px dotted green; */
     }
 
     .toggle:hover {
@@ -118,22 +126,17 @@ li>a:only-child:after {
 
     nav ul li {
         display: block;
-        width: 94%;
+    }
+
+    nav ul {
+        padding: 0;
     }
 
     nav ul .toggle,
     nav ul a {
         text-align: left;
-        padding: 5px 5%;
-        line-height: 27px;
-        width: 94%;
-    }
-
-    nav ul .toggle,
-    nav ul a:hover {
-        text-align: left;
-        padding: 5px 5%;
-        line-height: 27px;
+        line-height: 1.5em;
+        margin-left: 1.5em;
     }
 
     nav a:hover {

@@ -1,12 +1,9 @@
 <nav class="nav-sticky">
-    <div id="menudiv" class="fluid">
-        <label for="drop" class="toggle">MENU</label>
-        <input type="checkbox" id="drop" />
-        <ul class="menu">
-            {{#data}}
-            <li><a href="?page={{page_url}}">{{page_name}}</a></li>
-            {{/data}}
-        </ul>
-    </div>
+    <label for="drop" class="toggle">MENU</label>
+    <input type="checkbox" id="drop" />
+    <ul class="menu">
+        {{#data}}
+        <li><a href="?page={{page_url}}">{{page_name}}</a></li>
+        {{/data}}
+    </ul>
 </nav>
-
