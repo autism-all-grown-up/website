@@ -12,9 +12,5 @@ git merge $branch
 git push
 git switch main
 
-ssh -t imh << EOF
-cd www/ariel
-git pull
-exit
-EOF
+ssh -t imh "cd www/ariel && git pull"
 

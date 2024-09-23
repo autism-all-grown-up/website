@@ -1,6 +1,8 @@
 {
     "use_cached": false,
-    "base_url": "localhost/aagu_website_accordions/",
+    "content_base": "content",
+    "template_base": "templates",
+    "plugins_base": "plugins",
     "default_page": "default",
     "default_plugins": [
         {
