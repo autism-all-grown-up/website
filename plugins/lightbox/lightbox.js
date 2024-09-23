@@ -3,6 +3,7 @@ export default function attachLightboxToFigure() {
 
     // Ensure the lightbox is already in the DOM (create it if not)
     let lightbox = document.querySelector('.lightbox');
+    
     if (!lightbox) {
         lightbox = document.createElement('div');
         lightbox.classList.add('lightbox');

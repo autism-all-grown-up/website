@@ -10,9 +10,7 @@ fi
 git switch $other_branch
 git merge $branch
 git push
-if [[ branch == "gh-pages" ]]; then
-	git switch $other_branch
-fi
+git switch main
 
 ssh -t imh << EOF
 cd www/ariel

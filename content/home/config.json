@@ -86,6 +86,10 @@
                 "path": "lightbox",
                 "css": "lightbox.css",
                 "js": "lightbox.js"
+            },
+            {
+                "path": "accordion-scrolltop",
+                "js": "accordion-scrolltop.js"
             }
         ]
     }

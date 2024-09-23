@@ -134,7 +134,7 @@ li {
 /****************    Footer styling   ******************/
 footer {
     color: var(--nav-reverse);
-    background-color: var(--main-color);
+    background-color: var(--link-1);
     font-size: 1rem;
     text-align: center;
     padding: 1rem 3%;

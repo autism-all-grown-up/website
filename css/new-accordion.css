@@ -143,7 +143,7 @@ accordiong details:first-of-type {
 }
 
 .accordion .details-text h2 {
-    color: #df4009;
+    color: var(--main-color);
     line-height: 1.2em;
 }
 
