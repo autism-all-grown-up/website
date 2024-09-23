@@ -14,7 +14,7 @@ if [[ branch == "gh-pages" ]]; then
 	git switch $other_branch
 fi
 
-ssh imh << EOF
+ssh -t imh << EOF
 cd www/ariel
 git pull
 exit

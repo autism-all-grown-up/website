@@ -129,11 +129,11 @@ accordiong details:first-of-type {
 /* Accordion details content */
 .accordion .details-content {
     display: grid;
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 1fr 1fr;
     align-items: start;
     padding: 1rem 2rem;
     background-color: #f9f9f9;
-    gap: 10%;
+    column-gap: 2rem;
     width: 100%;
 }
 
@@ -165,14 +165,17 @@ accordiong details:first-of-type {
         font-size: 0.9rem;
         line-height: 1.3rem;
         padding: 0;
+        margin: 0;
+        margin-top: 1em;
     }
 
     h2 {
         font-family: "Lato", sans-serif;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-weight: 700;
-        line-height: 1.5rem;
-        text-align: center;
+        line-height: 1.5em;
+        text-align: left;
+        margin: 0;
     }
 
 
@@ -279,11 +282,8 @@ accordiong details:first-of-type {
     };
 
     .accordion .details-content {
-        display: grid;
         grid-template-columns: 1fr;
-        /* Stack elements vertically */
         grid-template-rows: auto auto;
-        /* Define rows for each item */
         gap: 0;
         padding: 0.5rem 1rem 0.5rem 1rem
     }
@@ -295,19 +295,13 @@ accordiong details:first-of-type {
     .accordion .details-figure {
         grid-column: 1;
         grid-row: 2;
-        /* Move the figure above the text */
-        width: 75%;
-        /* Set figure to 75% width */
         margin: 2rem auto 1rem auto;
-        /* Center the figure horizontally with a bottom margin */
         text-align: left;
-        /* Align caption text to the left */
-    }
+    }f
 
     .accordion .details-text {
         grid-column: 1;
         grid-row: 1;
-        /* Move text below the figure */
         margin: 0;
     }
 

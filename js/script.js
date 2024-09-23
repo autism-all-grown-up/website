@@ -13,11 +13,11 @@ class ClientSideRouter {
 
   // Load default or specific content based on the current URL
   async onLoad() {
-    console.log("onLoad");
+    // console.log("onLoad");
 
     this.globalConfig = await this.fetchFile("config.json", "json");
     const config = this.globalConfig;
-    console.log({ config });
+    // console.log({ config });
 
     console.log('Rendering default content');
     await this.renderQuery('default');
@@ -96,17 +96,17 @@ class ClientSideRouter {
 
     const contentDir = `content/${path}`;
     const config = await this.fetchFile(`${contentDir}/config.json`, 'json');
-    console.log({config});
+    // console.log({config});
 
     // First, render page-specific content
     if (config) {
       for (const slotConfig of config) {
-        console.log({slotConfig});
+        // console.log({slotConfig});
 
         await this.renderSlot(slotConfig, contentDir);
         if (slotConfig.plugins) {
           const plugins = slotConfig.plugins;
-          console.log({plugins});
+          // console.log({plugins});
 
           await this.loadPlugins(slotConfig.plugins);  // Load page-specific plugins
         }
@@ -116,7 +116,7 @@ class ClientSideRouter {
     // Ensure all default plugins are loaded after page-specific plugins
     if (this.globalConfig && this.globalConfig.default_plugins) {
       const config = this.globalConfig;
-      console.log({ config });
+      // console.log({ config });
       await this.loadPlugins(this.globalConfig.default_plugins);  // Load default plugins
     }
 
@@ -124,7 +124,7 @@ class ClientSideRouter {
 
   // Render a slot (template or content area)
   async renderSlot({ slot, template, data }, dir) {
-    console.log("renerSlot");
+    console.log("rednerSlot");
     console.log({ slot, template, data, dir});
 
     if (!slot || !document.querySelector(`#${slot}`)) {
@@ -158,7 +158,7 @@ class ClientSideRouter {
     return new Promise((resolve, reject) => {
       // Only concatenate the relative path for the CSS file
       const fullPath = `${window.location.origin}${window.location.pathname}plugins/${cssPath}`;
-      console.log({ fullPath });
+      // console.log({ fullPath });
 
       const link = document.createElement('link');
       link.rel = 'stylesheet';
