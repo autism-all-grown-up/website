@@ -1,0 +1,11 @@
+#!/bin/env bash
+git switch gh-pages
+git merge main
+git push
+git switch gh-pages
+ssh imh << EOF
+cd www/ariel
+git pull
+exit
+EOF
+
