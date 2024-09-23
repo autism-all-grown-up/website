@@ -23,12 +23,16 @@
 
 /* Accordion details */
 .accordion details {
-    margin: 0;
+    margin: 2em;
     width: 100%;
     max-width: 900px;
     overflow: hidden;
     transition: max-width 0.5s ease;
     border-radius: 0.3rem;
+}
+
+accordiong details:first-of-type {
+    margin-top: 0;
 }
 
 .accordion details[open] {
