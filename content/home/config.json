@@ -83,10 +83,10 @@
         ],
         "plugins": [
             {
-                "path": "lightbox",
+                "path": "dimbox",
                 "event": "click",
                 "parent": ".accordion",
-                "target": ".lightbox-trigger",
+                "target": ".lightbox",
                 "callback": "attachLightboxListeners"
             },
             {
@@ -97,10 +97,5 @@
                 "callback": "setScrollBehavior"
             }
         ]
-    },
-    {
-        "slot": "tagline",
-        "template": "tagline.html",
-        "data": []
     }
 ]
