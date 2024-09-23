@@ -28,10 +28,5 @@
                 "page_name": "Contact"
             }
         ]
-    },
-    {
-        "slot": "tagline",
-        "template": false,
-        "data": []
     }
 ]
