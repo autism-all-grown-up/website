@@ -50,6 +50,11 @@ class ClientSideRouter {
         this.collapseMenu();
       }
     }
+
+    // **Send a page view to Google Analytics**
+    gtag('config', 'G-RND4D70EJW', {
+      'page_path': window.location.pathname + window.location.search
+    });
   }
 
   // Collapse the menu (if applicable)
@@ -197,10 +202,6 @@ class ClientSideRouter {
     }
   }
   
-
-
-
-
 }
 
 // Initialize the client-side router

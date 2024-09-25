@@ -9,11 +9,11 @@
                 "thumbnail_alt_text": "Thumbnail: Dr. Bones McCoy trying to safe Klingon General Gorkon in the Star Trek movie _The Undiscovered Country_",
                 "main_image": "images/gorkon_800.png",
                 "main_image_alt_text": "Dr. Bones McCoy trying to safe Klingon General Gorkon in the Star Trek movie _The Undiscovered Country_.",
-                "source_data": [
-                    {
-                        "content_name": "main_text",
-                        "source": "challenges.md"
-                    },
+                    "source_data": [
+                        {
+                            "content_name": "main_text",
+                            "source": "challenges.md"
+                        },
                     {
                         "content_name": "fig_caption",
                         "source": "gorkon_caption.md"
