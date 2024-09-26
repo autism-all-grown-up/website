@@ -7,7 +7,7 @@ independent lives by facilitating innovation and supporting existing programs th
 - Establish _The Uncommons_: Physical meeting and coworking spaces where autistic adults can work and socialize unmasked.
 
 ### Communication
-- Improve communication channels to enhance service delivery
+- Improve communication channels to enhance service delivery.
 - Facilitate connections and collaboration within the adult autistic community.
 
 ### Information
@@ -17,4 +17,4 @@ independent lives by facilitating innovation and supporting existing programs th
 - Improve online resources for autistic adults and provide consulting services to others to do the same.
 - Participate in data analysis and research to inform policy and advocacy efforts.
 - Unlike most autism-related websites, _we will allocate a significant portion of our budget to continuously 
-  reviewing and updating this information as it evolves._
+  reviewing and updating this information as it evolves_.

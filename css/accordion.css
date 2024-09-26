@@ -58,14 +58,14 @@ details summary:focus {
 
 @keyframes details-show {
     from {
-      opacity:0;
-      transform: var(--details-translate, translateY(-0.5em));
+        opacity: 0;
+        transform: var(--details-translate, translateY(-0.5em));
     }
-  }
-  
-  details[open] > *:not(summary) {
+}
+
+details[open]>*:not(summary) {
     animation: details-show 150ms ease-in-out;
-  }
+}
 
 
 /* Accordion summary */
@@ -227,6 +227,53 @@ details summary:focus {
     padding: 1rem;
 
     p {
+        font-family: "Lato", sans-serif;
+        font-size: 0.8rem;
+        line-height: 1.5em;
+        padding: 0;
+        margin: 0;
+        margin-top: 1em;
+    }
+
+    h2 {
+        font-family: "Lato", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 1.5rem;
+    }
+
+    a:link {
+        color: var(--accent-color-2);
+        text-decoration: underline;
+    }
+
+    a:visited {
+        color: var(--accent-color-2);
+        text-decoration: underline;
+    }
+
+    a:hover {
+        color: var(--accent-color-2);
+        text-decoration: underline;
+    }
+
+    a:active {
+        color: var(--accent-color-1);
+        text-decoration: underline;
+    }
+
+    a:focus {
+        color: var(--accent-color-1);
+        outline: none;
+        /* Remove any default outline if present */
+    }
+}
+
+/*
+.accordion figcaption {
+    padding: 1rem;
+
+    p {
         font-family: "Merriweather", serif;
         font-size: 0.9rem;
         line-height: 1.3rem;
@@ -265,7 +312,7 @@ details summary:focus {
         text-decoration: underline;
     }
 }
-
+*/
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 800px) {
