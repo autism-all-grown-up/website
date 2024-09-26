@@ -103,9 +103,7 @@ accordiong details:first-of-type {
 .accordion .summary-text {
     margin: 0;
     grid-column: 2;
-    /* Places the text in the second column */
     align-self: center;
-    /* Center text vertically */
 }
 
 /* Accordion summary thumbnail */
@@ -116,9 +114,7 @@ accordiong details:first-of-type {
     margin-left: 0.5rem;
     border: 1px solid black;
     grid-column: 3;
-    /* Places the image in the third column */
     align-self: center;
-    /* Center image vertically */
 }
 
 /* Hide the thumbnail when details are open */
@@ -144,7 +140,7 @@ accordiong details:first-of-type {
 
 .accordion .details-text h2 {
     color: var(--main-color);
-    line-height: 1.2em;
+    /* line-height: 1.2em; */
 }
 
 .accordion .details-figure {
@@ -219,11 +215,8 @@ accordiong details:first-of-type {
     .accordion summary {
         display: grid;
         grid-template-columns: 1fr;
-        /* Stack elements vertically */
         grid-template-rows: auto auto auto;
-        /* Define rows for each item */
         text-align: center;
-        /* Center align text */
         padding: 0;
         margin: 0;
         column-gap: 0;
