@@ -223,6 +223,10 @@ details[open]>*:not(summary) {
 }
 
 /************      Figcaption styling      *******************/
+.accordion figcaption:empty {
+    padding: 0;
+}
+
 .accordion figcaption {
     padding: 1rem;
 
@@ -268,6 +272,11 @@ details[open]>*:not(summary) {
         /* Remove any default outline if present */
     }
 }
+
+.accordion figcaption:empty {
+    padding: 0;
+}
+
 
 /*
 .accordion figcaption {
