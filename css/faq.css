@@ -47,7 +47,7 @@
 
     summary::marker {
         color: var(--main-color);
-        font-size: 1.5rem;
+        font-size: 1.5em;
     }
 
     summary {

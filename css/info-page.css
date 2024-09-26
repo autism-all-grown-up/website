@@ -26,9 +26,12 @@
 }
 
 .watercolor {
+    text-align: left;
+    max-width: 100%;
     grid-column: 2;
     grid-row: 2; 
 }
+
 
 .watercolor img {
     width: 100%;

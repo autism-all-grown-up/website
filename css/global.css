@@ -1,5 +1,4 @@
 /* Global styling */
-
 :root {
     --rem: 16px;
     --default-text: #222;
@@ -30,11 +29,8 @@ body {
     padding: 0;
     display: grid;
     grid-template-rows: auto;
-    /* Optional: define rows if you have multiple elements */
     justify-items: center;
-    /* Centers the content horizontally */
     align-items: center;
-    /* Centers the content vertically within the grid */
 }
 
 /**********   Gradients   *******************/
@@ -53,6 +49,14 @@ body {
     border-radius: 5px;
 }
 
+.header-mobile {
+    display: none;
+}
+
+.header-screen {
+    margin-top: 0.3rem;
+}
+
 
 /***********   Default Text Styling   *****************/
 p {
@@ -66,6 +70,15 @@ h3 + p,
 h4 + p,
 h5 + p,
 h6 + p {
+    margin-top: 0;
+}
+
+h1 + ul,
+h2 + ul,
+h3 + ul,
+h4 + ul,
+h5 + ul,
+h6 + ul {
     margin-top: 0;
 }
 
@@ -100,7 +113,6 @@ ul li:first-child,
 ol li:first-child {
     margin-top: 0; /* Applies only to the first li in the ul */
 }
-
 
 ul,
 ol {
@@ -174,9 +186,19 @@ footer a:active {
     text-decoration: underline;
 }
 
+@media screen and (max-width: 1199px) {
+    body {
+        padding: 0 1vw;
+    }
+}
+
 
 /* Media queries go here for now – home page only */
 @media screen and (max-width: 750px) {
+    body {
+        padding: 0;
+    }
+    
     .header-mobile {
         display: block;
         max-width: 100%;
@@ -193,27 +215,5 @@ footer a:active {
 }
 
 @media screen and (min-width: 751px) {
-    .header-mobile {
-        display: none;
-    }
 
-    .header-screen {
-        display: block;
-        max-width: 100%;
-        margin-top: 0.3rem;
-    }
-
-    .main-content {
-        grid-column: 1 / 4;
-        grid-row: 3 / 4;
-        text-align: left;
-        margin: 0 0 0 1.5rem;
-    }
-
-    .watercolor {
-        grid-column: 4 / -1;
-        grid-row: 3 / 4;
-        text-align: left;
-        max-width: 100%;
-    }
 }

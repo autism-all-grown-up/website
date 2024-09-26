@@ -90,6 +90,10 @@
             {
                 "path": "accordion-scrolltop",
                 "js": "accordion-scrolltop.js"
+            },
+            {
+                "path": "accordion-bottom-close",
+                "js": "accordion-bottom-close.js"
             }
         ]
     }

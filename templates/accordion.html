@@ -5,6 +5,7 @@
     {{#data}}
     <details>
         <summary>
+
             <svg class="summary-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                 <path 
                     id="plus-icon" 
@@ -20,7 +21,7 @@
             <p class="summary-text">{{{summary_text}}}</p>
             <img src="{{{thumbnail_image}}}" alt="{{{thumbnail_alt_text}}}" />
         </summary>
-        <div class="details-content">
+        <div class="details-content show show-start">
             <div class="details-text">
                 {{{main_text}}}
             </div>
@@ -33,6 +34,7 @@
                 </figcaption>
             </figure>
         </div>
+        <div class="close-details">Close</div>
     </details>
     {{/data}}
 </section>

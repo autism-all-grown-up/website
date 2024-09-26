@@ -14,7 +14,7 @@
 .accordion {
     margin: 0;
     padding: 0;
-    list-style: none;
+    /* list-style: none; */
     max-width: 1200px;
     min-width: 900px;
     display: grid;
@@ -31,7 +31,7 @@
     border-radius: 0.3rem;
 }
 
-accordiong details:first-of-type {
+.accordion details:first-of-type {
     margin-top: 0;
 }
 
@@ -39,6 +39,34 @@ accordiong details:first-of-type {
     max-width: 1200px;
     transition: max-width 0.5s ease;
 }
+
+.accordion details:not([open]) {
+    transition: max-width 0.5s ease;
+}
+
+details summary {
+    cursor: pointer;
+    -webkit-tap-highlight-color: #0000;
+    font: 600 18px/22px 'Raleway', arial, sans-serif;
+    color: #121212;
+}
+
+details summary:focus {
+    outline: none !important;
+}
+
+
+@keyframes details-show {
+    from {
+      opacity:0;
+      transform: var(--details-translate, translateY(-0.5em));
+    }
+  }
+  
+  details[open] > *:not(summary) {
+    animation: details-show 150ms ease-in-out;
+  }
+
 
 /* Accordion summary */
 .accordion summary {
@@ -57,28 +85,54 @@ accordiong details:first-of-type {
 }
 
 .summary-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-right: 1rem;
-    color: #000;
+    display: none;
 }
 
-.accordion details[open] summary {
-    background-color: #a05e8f;
-    background-image: linear-gradient(to bottom right, #a05e8f, #d8743a);
+.close-details {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+    background-color: var(--link-1);
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-.accordion details[open] summary:hover {
-    background-color: #cfaec7;
-    background-image: linear-gradient(to bottom right, #cfaec7, #ebb99d);
+.close-details:hover {
+    color: var(--accent-color-1);
 }
 
-.accordion details:not([open]):hover summary {
-    background-color: #a05e8f;
-    background-image: linear-gradient(to bottom right, #a05e8f, #d8743a);
+.accordion details summary::before {
+    /* content: '▶'; */
+    display: inline-block;
+    padding: 0;
+    margin-right: 1em;
+    font-size: 1.5rem;
+    color: var(--main-color);
 }
 
-.accordion details:not([open]) #plus-icon {
+/* Closed marker */
+.accordion details:not([open]) summary::before {
+    content: '▶';
+    /* display: inline-block;
+    padding: 0;
+    margin-right: 1em;
+    font-size: 1.5rem;
+    color: var(--main-color); */
+}
+
+/* Open marker */
+.accordion details[open] summary::before {
+    content: '▼';
+    /* display: inline-block;
+    padding: 0;
+    margin-right: 1em;
+    font-size: 1.5rem;
+    color: var(--main-color); */
+}
+
+/* .accordion details:not([open]) #plus-icon {
     display: inline-block;
     display: transform 0.5s ease, content 0.5s ease;
 }
@@ -96,6 +150,22 @@ accordiong details:first-of-type {
 .accordion details[open] #minus-icon {
     display: inline-block;
     display: transform 0.5s ease, content 0.5s ease;
+} */
+
+
+.accordion details[open] summary {
+    background-color: #a05e8f;
+    background-image: linear-gradient(to bottom right, #a05e8f, #d8743a);
+}
+
+.accordion details[open] summary:hover {
+    background-color: #cfaec7;
+    background-image: linear-gradient(to bottom right, #cfaec7, #ebb99d);
+}
+
+.accordion details:not([open]):hover summary {
+    background-color: #a05e8f;
+    background-image: linear-gradient(to bottom right, #a05e8f, #d8743a);
 }
 
 
@@ -212,6 +282,14 @@ accordiong details:first-of-type {
         min-width: 100vw;
     }
 
+    .accordion summary::before {
+        display: none !important;
+    }
+
+    .accordion summary::marker {
+        display: none;
+    }
+
     .accordion summary {
         display: grid;
         grid-template-columns: 1fr;
@@ -221,9 +299,11 @@ accordiong details:first-of-type {
         margin: 0;
         column-gap: 0;
         row-gap: 0;
+        list-style: none;
     }
 
     .summary-icon {
+        display: revert;
         grid-column: 1;
         grid-row: 3;
         justify-self: center;
@@ -272,7 +352,9 @@ accordiong details:first-of-type {
 
     .accordion details:first-of-type {
         margin-top: 0;
-    };
+    }
+
+    ;
 
     .accordion .details-content {
         grid-template-columns: 1fr;
@@ -287,7 +369,7 @@ accordiong details:first-of-type {
         grid-template-rows: auto auto;
         gap: 0;
         padding: 0.5rem 1rem;
-        grid-template-areas: 
+        grid-template-areas:
             "details-text"
             "details-figure";
     }

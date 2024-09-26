@@ -6,7 +6,7 @@
  autistic patients, leading to misunderstandings and subpar care. Getting diagnosed as an adult? It's a long, winding road 
  that can delay access to crucial support.
 - **Social challenges:** Building and maintaining relationships is like navigating a maze without a map. Isolation is common, 
- especially during significant life transitions like starting a career or living independently. The â€œservices cliffâ€ at high 
+ especially during significant life transitions like starting a career or living independently. The "services cliff" at high 
  school graduation is a prime example.
 - **Mental health struggles:** Anxiety, depression, and thoughts of suicide are all too common. Many mental health services miss 
  the mark, leaving autistic adults feeling misunderstood and unsupported.
@@ -16,8 +16,9 @@
 These issues often snowball, making life tougher across the board.
 
 ## Solutions
-- Autism-friendly social and workspaces
-- Healthcare providers to really get it
-- Stronger peer-support social support networks
-- Mental and physical health approaches that actually click with autistic minds and bodies
-- Work and education tailored to play to autistic strengths
+- Foster and promote _inclusion_ and _acceptance_ over _accommodation_.
+- Create autism-friendly social spaces and workspaces.
+- Facilitate healthcare providers to "really get it".
+- Foster stronger peer-support social support networks.
+- Promote mental and physical health approaches that click with autistic minds and bodies.
+- Foster work and education tailored to autistic strengths rather than using "accommodations" bandaids.

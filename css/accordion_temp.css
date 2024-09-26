@@ -1,0 +1,58 @@
+/* tagline */
+.tagline {
+    margin: 1em 0;
+    padding: 0 2em;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.25em;
+    color: var(--accent-color-1);
+    text-align: center;
+}
+
+/* Accordion container */
+.accordion {
+    margin: 0;
+    padding: 0;
+    /* list-style: none; */
+    max-width: 1200px;
+    min-width: 900px;
+    display: grid;
+    justify-items: center;
+}
+
+/* Accordion details */
+.accordion details {
+    margin: 1em;
+    width: 100%;
+    max-width: 900px;
+    overflow: hidden;
+    transition: max-width 0.5s ease;
+    border-radius: 0.3rem;
+}   
+
+.accordion details:first-of-type {
+    margin-top: 0;
+}
+
+.accordion details[open] {
+    max-width: 1200px;
+    transition: max-width 0.5s ease;
+}
+
+/* Accordion summary */
+.accordion summary {
+    font-family: 'Merriweather', serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    line-height: 1.4;
+    column-gap: 0.3rem;
+    scroll-margin-top: 0rem;
+    list-style: none;
+}
