@@ -1,5 +1,5 @@
 ## About AAGU
-We refer you to our business plan for detailed information about AAGU, its formation, and its specific mission.
+We refer you to [our business plan](https://aagu.org/biz_plan) for detailed information about AAGU, its formation, and its specific mission.
 
 ## Growth and Funding
 AAGU has a solid plan for funding and growth. But until we have ample funding, we aren't doing much actively. The simple reason is that we want this organization to be by and for autistic people, and we feel reluctant to ask them to volunteer time when they are already deeply underserved.
