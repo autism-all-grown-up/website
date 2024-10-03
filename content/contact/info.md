@@ -2,7 +2,7 @@ The best way to contact us for now is to send us an email at <a href="mailto:inf
 
 We will provide improved methods for contacting us very soon.
 
-<form action="/send" method="POST">
+<form action="contact.php" method="POST">
   <label for="name">Name:</label>
   <input type="text" id="name" name="name" required>
 
