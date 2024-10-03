@@ -2,7 +2,7 @@
 Because the commons, i.e., public spaces such as coffee shops and libraries, are often not optimal venues for autistic people, we are opening _The Uncommons_: professional, autism-friendly co-working spaces. We have two locations that have been offered for us to use. We have a fantastic autistic person ready to organize and run this as soon as we can fund their salary.
 
 ## Autism Clubhouse
-While not an actual clubhouse yet, the _Autism Clubhouse_ is currently two autism-friendly, program-free, and agenda-free drop-in public spaces. Craft or work in parallel play, chat, stim, hang out, etc. We have two locations which will soon open with at least 15 hrs/week.
+While not an actual clubhouse yet, the _Autism Clubhouse_ is currently two autism-friendly, program-free, and agenda-free drop-in public spaces. Craft or work in parallel play, chat, hang out, stim, etc. We have two locations which will soon open with at least 15 hrs/week.
 
 ## Autism Networking Conference
 We have been disheartened to find that while many excellent (and a few not-so-excellent) organizations in Oregon serve autistic adults in one way or another, few know very much about any of the others. We are coordinating with the [Oregon Commission on Autism Spectrum Disorder](https://www.orcommissionasd.org/) (OCASD) to host a state-wide conference where these organizations can meet and learn about each other.
