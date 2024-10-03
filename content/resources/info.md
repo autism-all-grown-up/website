@@ -4,7 +4,7 @@ Information on accessing services for autistic adults is currently scattered and
 We started working with HealthShare Oregon to create "explainers": guides to help OHP members navigate and access services. We paused to focus on launching AAGU. We will complete that project and develop explainers for other topics, such as:
 - Simplest and least expensive routes to a positive evaluation experience. Including how to get the correct referral from the right provider to the right agency.
 - The difference between an agency, a PA, and a DSP.
-- How do you navigate working with I/DD, Vocational Rehab, OHP, SSI, SSDI, and other state and federal agencies?
+- How to navigate working with I/DD, Vocational Rehab, OHP, SSI, SSDI, and other state and federal agencies.
 - Tips for talking to doctors.
 
 These guides will be available as web pages, as downloadable PDFs, and in print by request.
@@ -13,7 +13,7 @@ These guides will be available as web pages, as downloadable PDFs, and in print 
 We are also helping HealthShare Oregon create "explainers" for doctors to help them better understand caring for autistic people on topics such as communication, listening, perspective-taking, and the many physical and physiological differences autistic people may have. Regarding OHP, there will be a particular focus on why and how to write a referral for evaluation. There is such a surprising level of misunderstanding about this in the medical community that we were told by OHSU (in a documented email) that they will no longer do evaluations for autistic adults because "they are not medically necessary".  
 
 ## Updated Resources Lists  
-Many Oregon organizations maintain lists of resources (therapists, doctors, etc.) that serve or are of interest to the adult autistic community. The Autism Society of Oregon has [an excellent one](https://autismsocietyoregon.org/adult-resources/) that gets consistently updated. We know of none that are able to devote sufficient resources to keep up a complete list that is absolutely accurate and up-to-date. Also, none give enough details about focus, orientation, insurance, payment, and other topics to be entirely thorough.
+Many Oregon organizations maintain lists of resources (therapists, doctors, etc.) that serve or are of interest to the adult autistic community. The Autism Society of Oregon [has one](https://autismsocietyoregon.org/adult-resources/) that gets consistently updated. We know of none that are able to devote sufficient resources to keep up a complete list that is absolutely accurate and up-to-date. Also, none give enough details about focus, orientation, insurance, payment, and other topics to be entirely thorough.
 
 We have been scouring these existing lists and organizing them into our own database, which we will provide as a searchable web application. Our initial goal is to have a staff member funded at 20 hours/week to ensure it is updated.
 

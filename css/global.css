@@ -2,12 +2,12 @@
 :root {
     --rem: 16px;
     --default-text: #222;
-    --main-color: #df4009;
+    --main-color: #cf520a;
     --accent-color-1: #1a705b;
     --accent-color-2: #893673;
     --accent-color-3: #a05e8f;
     --nav-reverse: #fff;
-    --hover-1:  #d5916b;
+    --hover-1: #d5916b;
     --hover-2: #ba4909;
     --hover-4: #f5dcce;
     --hover-3: #1a705b;
@@ -65,25 +65,27 @@ p {
     color: var(--default-text);
 }
 
-h1 + p,
-h2 + p,
-h3 + p,
-h4 + p,
-h5 + p,
-h6 + p {
+h1+p,
+h2+p,
+h3+p,
+h4+p,
+h5+p,
+h6+p {
     margin-top: 0;
 }
 
-h1 + ul,
-h2 + ul,
-h3 + ul,
-h4 + ul,
-h5 + ul,
-h6 + ul {
+h1+ul,
+h2+ul,
+h3+ul,
+h4+ul,
+h5+ul,
+h6+ul {
     margin-top: 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: "Merriweather", Georgia, serif;
     color: var(--default-text);
     font-size: 2.5rem;
@@ -101,6 +103,7 @@ h1 {
 h2 {
     font-size: 1.5rem;
     font-weight: 900;
+    color: var(--main-color);
 }
 
 
@@ -112,7 +115,8 @@ h3 {
 
 ul li:first-child,
 ol li:first-child {
-    margin-top: 0; /* Applies only to the first li in the ul */
+    margin-top: 0;
+    /* Applies only to the first li in the ul */
 }
 
 ul,
@@ -141,6 +145,34 @@ li {
 .image-fluid-banner {
     margin: 0;
     max-width: 100%;
+}
+
+p {
+    a:link {
+        color: var(--accent-color-2);
+        text-decoration: underline;
+    }
+
+    a:visited {
+        color: var(--accent-color-2);
+        text-decoration: underline;
+    }
+
+    a:hover {
+        color: var(--accent-color-1);
+        text-decoration: underline;
+    }
+
+    a:active {
+        color: var(--accent-color-1);
+        text-decoration: underline;
+    }
+
+    a:focus {
+        color: var(--accent-color-1);
+        outline: none;
+        /* Remove any default outline if present */
+    }
 }
 
 
@@ -198,7 +230,7 @@ footer a:active {
     body {
         padding: 0;
     }
-    
+
     .header-mobile {
         display: block;
         max-width: 100%;
@@ -214,6 +246,4 @@ footer a:active {
     }
 }
 
-@media screen and (min-width: 751px) {
-
-}
+@media screen and (min-width: 751px) {}

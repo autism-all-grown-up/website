@@ -211,7 +211,7 @@ details[open]>*:not(summary) {
 }
 
 .accordion .details-text h2 {
-    color: var(--main-color);
+    /* color: var(--main-color); */
     /* line-height: 1.2em; */
 }
 
@@ -248,31 +248,7 @@ details[open]>*:not(summary) {
         line-height: 1.5rem;
     }
 
-    a:link {
-        color: var(--accent-color-2);
-        text-decoration: underline;
-    }
 
-    a:visited {
-        color: var(--accent-color-2);
-        text-decoration: underline;
-    }
-
-    a:hover {
-        color: var(--accent-color-2);
-        text-decoration: underline;
-    }
-
-    a:active {
-        color: var(--accent-color-1);
-        text-decoration: underline;
-    }
-
-    a:focus {
-        color: var(--accent-color-1);
-        outline: none;
-        /* Remove any default outline if present */
-    }
 }
 
 .accordion figcaption:empty {
@@ -280,7 +256,6 @@ details[open]>*:not(summary) {
 }
 
 
-/*
 .accordion figcaption {
     padding: 1rem;
 
@@ -303,7 +278,7 @@ details[open]>*:not(summary) {
     }
 
 
-    a:link {
+    /* a:link {
         color: purple;
         text-decoration: underline;
     }
@@ -321,9 +296,9 @@ details[open]>*:not(summary) {
     a:active {
         color: darkblue;
         text-decoration: underline;
-    }
+    } */
 }
-*/
+
 
 /* Media queries for responsiveness */
 @media screen and (max-width: 800px) {
