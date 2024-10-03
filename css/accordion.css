@@ -97,10 +97,12 @@ details[open]>*:not(summary) {
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
+    background-color: var(--another-color);
+    background-image: linear-gradient(to bottom right, #cfaec7, #ebb99d);
 }
 
-.close-details:hover {
-    color: var(--accent-color-1);
+.close-details:hover, .close-details:active {
+    color: var(--accent-color-2);
 }
 
 .accordion details summary::before {

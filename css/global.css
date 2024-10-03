@@ -12,6 +12,7 @@
     --hover-4: #f5dcce;
     --hover-3: #1a705b;
     --link-1: #cf520a;
+    --another-color: #cfaec7;
 }
 
 html {
@@ -191,7 +192,6 @@ footer a:active {
         padding: 0 1vw;
     }
 }
-
 
 /* Media queries go here for now – home page only */
 @media screen and (max-width: 750px) {
