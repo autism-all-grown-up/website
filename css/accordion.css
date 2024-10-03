@@ -117,43 +117,12 @@ details[open]>*:not(summary) {
 /* Closed marker */
 .accordion details:not([open]) summary::before {
     content: '▶';
-    /* display: inline-block;
-    padding: 0;
-    margin-right: 1em;
-    font-size: 1.5rem;
-    color: var(--main-color); */
 }
 
 /* Open marker */
 .accordion details[open] summary::before {
     content: '▼';
-    /* display: inline-block;
-    padding: 0;
-    margin-right: 1em;
-    font-size: 1.5rem;
-    color: var(--main-color); */
 }
-
-/* .accordion details:not([open]) #plus-icon {
-    display: inline-block;
-    display: transform 0.5s ease, content 0.5s ease;
-}
-
-.accordion details:not([open]) #minus-icon {
-    display: none;
-    display: transform 0.5s ease, content 0.5s ease;
-}
-
-.accordion details[open] #plus-icon {
-    display: none;
-    display: transform 0.5s ease, content 0.5s ease;
-}
-
-.accordion details[open] #minus-icon {
-    display: inline-block;
-    display: transform 0.5s ease, content 0.5s ease;
-} */
-
 
 .accordion details[open] summary {
     background-color: #a05e8f;
@@ -277,26 +246,6 @@ details[open]>*:not(summary) {
         margin: 0;
     }
 
-
-    /* a:link {
-        color: purple;
-        text-decoration: underline;
-    }
-
-    a:visited {
-        color: purple;
-        text-decoration: underline;
-    }
-
-    a:hover {
-        color: darkblue;
-        text-decoration: underline;
-    }
-
-    a:active {
-        color: darkblue;
-        text-decoration: underline;
-    } */
 }
 
 
