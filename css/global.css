@@ -147,7 +147,7 @@ li {
     max-width: 100%;
 }
 
-p {
+p, ul {
     a:link {
         color: var(--accent-color-2);
         text-decoration: underline;

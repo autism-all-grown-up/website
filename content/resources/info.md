@@ -1,5 +1,5 @@
 ## Guides for Accessing Services
-Information on accessing services for autistic adults is currently scattered and unfocused. Also, most of it is not attuned to the autistic brain, which wants plain-spoken facts. Calling offices to get answers runs into communication differences. Finally, autistic adults experience high amounts of burnout and fatigue, which increases the need for simple, straightforward, accurate information in a single place.
+Information on accessing services for autistic adults is currently scattered and unfocused. Also, most of it is not attuned to the autistic brain, which wants plain-spoken facts. Calling offices to get answers runs into communication differences. Finally, autistic adults experience high amounts of burnout and fatigue, which increases the need for simple, straightforward, accurate information in a single place.plement
 
 We started working with HealthShare Oregon to create "explainers": guides to help OHP members navigate and access services. We paused to focus on launching AAGU. We will complete that project and develop explainers for other topics, such as:
 - Simplest and least expensive routes to a positive evaluation experience. Including how to get the correct referral from the right provider to the right agency.
@@ -24,11 +24,11 @@ Although volumes of what we thought we knew about autism have turned out to be w
 
 A few of our favorite sources of accurate information are:
 
-* [Embrace autism](https://embrace-autism.com/), which is a fantastic website that provides loads of great information and keeps it updated (articles are tagged as to when they were last updated) written by actually autistic medical and science professionals.
+* [Embrace Autism](https://embrace-autism.com/), which is a fantastic website that provides loads of great information and keeps it updated (articles are tagged as to when they were last updated) written by actually autistic medical and science professionals.
 * [Thinking Person's Guide to Autism](https://thinkingautismguide.com/), which features actually autistic writers such as Maxfield Sparrow and Shannon Des Roches Rosa.
 * [Divergent Conversations](https://www.divergentpod.com/), which is a podcast by two actually autistic scientists and therapists.
 
-We will complement those with content articles and videos that are less journalistic and editorial, briefer, and slightly more academic. Our articles address questions such as "Is ABA therapy harmful?", "What is autistic burnout?" "Is autism a disability?" "What is neurodiversity?" "Is autism genetic?" "Are autistic people gifted?" etc., by limiting ourselves to the best consensus we can find in current scientific literature. We feel this is an unfilled niche that will allow professionals (policymakers, doctors, lawyers, teachers, managers, etc.) to make more informed decisions about autism and autistic individuals.
+We will complement those sources with content such as articles and videos which are less journalistic and editorial, briefer, and slightly more academic. We will address questions such as "Is ABA therapy harmful?", "What is autistic burnout?" "Is autism a disability?" "What is neurodiversity?" "Is autism genetic?" "Are autistic people gifted?" etc., by limiting ourselves to the best consensus we can find in current scientific and professional literature. We feel this is an unfilled niche that will allow professionals (policymakers, doctors, lawyers, teachers, managers, etc.) to make more informed decisions about autism and autistic individuals.
 
 Most importantly, these articles will be written by scientifically trained writers and consistently updated.
 

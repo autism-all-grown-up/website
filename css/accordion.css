@@ -225,7 +225,7 @@ details[open]>*:not(summary) {
 }
 
 
-.accordion figcaption {
+/* .accordion figcaption {
     padding: 1rem;
 
     p {
@@ -246,7 +246,7 @@ details[open]>*:not(summary) {
         margin: 0;
     }
 
-}
+} */
 
 
 /* Media queries for responsiveness */
