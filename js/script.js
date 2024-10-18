@@ -1,3 +1,5 @@
+// import { gfmHeadingId } from "marked-gfm-heading-id";
+
 class ClientSideRouter {
   constructor() {
     this.currentUrl = window.location.path;
@@ -13,8 +15,7 @@ class ClientSideRouter {
 
   // Load default or specific content based on the current URL
   async onLoad() {
-    // console.log("onLoad");
-
+    // Load the global configuration
     this.globalConfig = await this.fetchFile("config.json", "json");
     const config = this.globalConfig;
     // console.log({ config });
@@ -27,7 +28,37 @@ class ClientSideRouter {
     await this.renderQuery(currentPage);
     this.setActiveLink(currentPage);
 
+    // Check if there is a hash in the URL before calling scrollToHash
+    if (window.location.hash) {
+      this.scrollToHash();
+    }
   }
+
+  // Function to scroll to the element if a hash is present in the URL
+  scrollToHash() {
+    const { hash } = window.location;
+    const targetElement = document.querySelector(hash);
+    const topPosition = document.querySelector('nav').offsetHeight;
+    const elementPosition = targetElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.scrollY - topPosition;
+
+    // Smoothly scroll to the calculated position
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+
+    if (targetElement) {
+      // Smoothly scroll to the element
+      // targetElement.scrollIntoView({ behavior: 'smooth' });
+      // Smoothly scroll to the calculated position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
+
 
   // Handle browser back/forward button
   async onPopState() {
@@ -130,7 +161,7 @@ class ClientSideRouter {
   // Render a slot (template or content area)
   async renderSlot({ slot, template, data }, dir) {
     console.log("rednerSlot");
-    console.log({ slot, template, data, dir});
+    console.log({ slot, template, data, dir });
 
     if (!slot || !document.querySelector(`#${slot}`)) {
       console.error('Slot element missing or config error:', slot);
@@ -184,14 +215,14 @@ class ClientSideRouter {
 
   async loadPlugins(pluginConfigs) {
     for (const { path, css, js } of pluginConfigs) {
-      console.log({path, css, js});
+      console.log({ path, css, js });
       try {
         // Load CSS if specified
         if (css) await this.loadCSS(`${path}/${css}`);
-  
+
         // Load the plugin.js file (which will handle whether to load a module or non-module script)
         const pluginPath = `${window.location.origin}${window.location.pathname}plugins/${path}/plugin.js`;
-        
+
         const pluginModule = await import(pluginPath);
         if (typeof pluginModule.default === 'function') {
           pluginModule.default();  // Run the logic defined by the developer
@@ -201,7 +232,7 @@ class ClientSideRouter {
       }
     }
   }
-  
+
 }
 
 // Initialize the client-side router
