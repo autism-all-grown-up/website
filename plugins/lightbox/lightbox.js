@@ -17,7 +17,7 @@ export default function attachLightboxToFigure() {
             <div class="lightbox-body"></div>
         </div>`;
         document.body.appendChild(lightbox);
-        console.log("Lightbox structure added to DOM");
+        // console.log("Lightbox structure added to DOM");
     }
 
     // Select all <figure> elements with the class .details-figure
@@ -26,7 +26,7 @@ export default function attachLightboxToFigure() {
     figures.forEach((figure) => {
         const img = figure.querySelector('img');
         img.addEventListener('click', () => {
-            console.log("Lightbox for figure triggered");
+            // console.log("Lightbox for figure triggered");
 
             const lightboxBody = lightbox.querySelector('.lightbox-body');
 

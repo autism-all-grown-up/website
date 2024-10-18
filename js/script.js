@@ -20,51 +20,54 @@ class ClientSideRouter {
     const config = this.globalConfig;
     // console.log({ config });
 
-    console.log('Rendering default content');
+    // Render the default content
     await this.renderQuery('default');
 
     const currentPage = this.getQueryParam('page') || 'home';
-    console.log(`Rendering content for page: ${currentPage}`);
+    // Render the content for the current page
     await this.renderQuery(currentPage);
     this.setActiveLink(currentPage);
 
-    // Check if there is a hash in the URL before calling scrollToHash
-    if (window.location.hash) {
-      this.scrollToHash();
-    }
+    // Handle scrolling based on the current location
+    this.scrollToLocation();
+
   }
 
-  // Function to scroll to the element if a hash is present in the URL
-  scrollToHash() {
+  // Function to scroll to the appropriate location
+  scrollToLocation() {
     const { hash } = window.location;
-    const targetElement = document.querySelector(hash);
-    const topPosition = document.querySelector('nav').offsetHeight;
-    const elementPosition = targetElement.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.scrollY - topPosition;
 
-    // Smoothly scroll to the calculated position
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
+    if (hash) {
+      // console.log(`scroll to ${hash}`);
 
-    if (targetElement) {
-      // Smoothly scroll to the element
-      // targetElement.scrollIntoView({ behavior: 'smooth' });
-      // Smoothly scroll to the calculated position
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      // Scroll to the element with the matching ID
+      const targetElement = document.querySelector(hash);
+      if (targetElement) {
+        const topPosition = document.querySelector('nav').offsetHeight;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - topPosition;
+
+        // Smoothly scroll to the calculated position
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // console.log(`scroll to top`);
+      // No hash in the URL, scroll to the top of the page
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
-
 
   // Handle browser back/forward button
   async onPopState() {
     const pathQuery = this.getQueryParam('page') || 'home';
     await this.renderQuery(pathQuery);
     this.setActiveLink(pathQuery);
+
+    // Handle scrolling based on the current location
+    this.scrollToLocation();
   }
 
   // Handle click events on links
@@ -74,10 +77,14 @@ class ClientSideRouter {
       event.preventDefault();
 
       const targetPage = new URL(targetElement.href).searchParams.get('page') || 'home';
+
       if (window.location.search !== `?page=${targetPage}`) {
         await this.renderQuery(targetPage);
         this.setActiveLink(targetPage);
         window.history.pushState(null, '', `?page=${targetPage}`);
+
+        // Handle scrolling based on the current location
+        this.scrollToLocation();
         this.collapseMenu();
       }
     }
@@ -128,7 +135,7 @@ class ClientSideRouter {
   }
 
   async renderQuery(path) {
-    console.log(`renderQuery: ${path}`);
+    // console.log(`renderQuery: ${path}`);
 
     const contentDir = `content/${path}`;
     const config = await this.fetchFile(`${contentDir}/config.json`, 'json');
@@ -160,8 +167,8 @@ class ClientSideRouter {
 
   // Render a slot (template or content area)
   async renderSlot({ slot, template, data }, dir) {
-    console.log("rednerSlot");
-    console.log({ slot, template, data, dir });
+    // console.log("renderSlot");
+    // console.log({ slot, template, data, dir });
 
     if (!slot || !document.querySelector(`#${slot}`)) {
       console.error('Slot element missing or config error:', slot);
@@ -215,7 +222,7 @@ class ClientSideRouter {
 
   async loadPlugins(pluginConfigs) {
     for (const { path, css, js } of pluginConfigs) {
-      console.log({ path, css, js });
+      // console.log({ path, css, js });
       try {
         // Load CSS if specified
         if (css) await this.loadCSS(`${path}/${css}`);

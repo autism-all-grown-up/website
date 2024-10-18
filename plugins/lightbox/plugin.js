@@ -10,7 +10,7 @@
 
 
 export default async function() {
-  console.log("Initializing lightbox as ES module...");
+  // console.log("Initializing lightbox as ES module...");
 
   // Load the lightbox module dynamically
   const lightboxModule = await import('./lightbox.js');

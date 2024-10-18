@@ -5,11 +5,11 @@ export default function setScrollBehavior() {
     accordion_details.forEach(details => {
         const summary = details.querySelector('summary');
         summary.addEventListener('click', function (event) {
-            console.log(`summary element clicked: {event}`);
+            // console.log(`summary element clicked: {event}`);
 
             setTimeout(() => {
                 if (details && details.open) {
-                    console.log('Details are open, calculating scroll position');
+                    // console.log('Details are open, calculating scroll position');
 
                     // Calculate the top position, adjust for margin
                     const topPosition = summary.getBoundingClientRect().top + window.scrollY - document.querySelector('nav').offsetHeight;
@@ -20,7 +20,7 @@ export default function setScrollBehavior() {
                         behavior: 'smooth'
                     });
 
-                    console.log('Scrolled to top position:', topPosition);
+                    // console.log('Scrolled to top position:', topPosition);
                 }
             }, 200); // Adjust delay if necessary
             
