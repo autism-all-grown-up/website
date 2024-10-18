@@ -1,4 +1,4 @@
-## A Partial List  
+## A Partial List
 - **Work/Life:** Landing and keeping a job is often an uphill battle. Many find themselves unemployed or in roles that 
  don't tap their potential. Hiring processes and workplace environments frequently clash with autistic needs, creating 
  frustrating barriers.
