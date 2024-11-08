@@ -1,6 +1,11 @@
-import Mustache from 'https://esm.run/mustache';
-import { marked } from 'https://esm.run/marked';
-import YAML from 'https://esm.run/js-yaml';
+//  Import libraries from CDN in ESM mode
+import Mustache from '../assets/mustache/mustache.js';
+import { marked } from '../assets/marked/marked.js';
+import { gfmHeadingId } from '../assets/marked-gfm-heading-id/marked-gfm-heading-id.js';
+// Import marked-custom-heading-id as the default export
+import customHeadingId from '../assets/marked-custom-heading-id/marked-custom-heading-id.js';
+import YAML from '../assets/js-yaml/js-yaml.js';
+
 
 class ClientSideRouter {
   constructor() {

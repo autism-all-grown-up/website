@@ -4,10 +4,7 @@
         "template": "md_info_page.html",
         "data": [
             {
-                "info_heading": "Community",
-                "main_image": "images/four_trees_community_compressed.jpg",
-                "main_image_alt_text": "watercolor of autumn trees by Alexandria Levin",
-                "source_data": [
+                "sources": [
                     {
                         "content_name": "boxed_text",
                         "source": "info.md"

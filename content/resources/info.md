@@ -1,3 +1,10 @@
+---
+info_heading: "Resources"
+info_subheading: "New section to come &mdash; Fall 2024"
+main_image: "images/pathway_resources_compressed.jpg"
+main_image_alt_text: "watercolor of a forest pathway by Alexandria Levin"
+---
+
 ## Guides for Accessing Services
 Information on accessing services for autistic adults is currently scattered and unfocused. Also, most of it is not attuned to the autistic brain, which wants plain-spoken facts. Calling offices to get answers runs into communication differences. Finally, autistic adults experience high amounts of burnout and fatigue, which increases the need for simple, straightforward, accurate information in a single place.plement
 

@@ -4,11 +4,7 @@
         "template": "md_info_page.html",
         "data": [
             {
-                "info_heading": "Resources",
-                "info_subheading": "New section to come &mdash; Fall 2024",
-                "main_image": "images/pathway_resources_compressed.jpg",
-                "main_image_alt_text": "watercolor of a forest pathway by Alexandria Levin",
-                "source_data": [
+                "sources": [
                     {
                         "content_name": "boxed_text",
                         "source": "info.md"

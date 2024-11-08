@@ -1,7 +1,7 @@
 ---
 info_heading: "Community"
 main_image: "images/four_trees_community_compressed.jpg"
-main_image_alt_text: "watercolor of autumn trees by Alexandria Levin"s
+main_image_alt_text: "watercolor of autumn trees by Alexandria Levin's"
 ---
 
 ## The Uncommons
