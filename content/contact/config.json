@@ -4,15 +4,7 @@
         "template": "md_info_page.html",
         "data": [
             {
-                "info_heading": "Contact Us",
-                "main_image": "images/ALevin_HuggingTree_compressed.jpg",
-                "main_image_alt_text": "watercolor of a yellow sideways tree by Alexandria Levin",
-                "source_data": [
-                    {
-                        "content_name": "boxed_text",
-                        "source": "info.md"
-                    }
-                ]
+                "sources": {"content_name": "boxed_text", "source": "info.md"}
             }
         ]
     }

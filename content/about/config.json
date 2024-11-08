@@ -4,15 +4,10 @@
         "template": "md_info_page.html",
         "data": [
             {
-                "info_heading": "About Us",
-                "main_image": "images/mounthood_watercolor_compressed.jpg",
-                "main_image_alt_text": "watercolor of Mount Hood by Alexandria Levin",
-                "source_data": [
-                    {
-                        "content_name": "boxed_text",
-                        "source": "info.md"
-                    }
-                ]
+                "sources": [{
+                    "content_name": "boxed_text",
+                    "source": "info.md"
+                }]
             }
         ]
     }

@@ -1,0 +1,12 @@
+{{#data}}
+<article class="post" data-theme="{{theme}}">
+    <h1>{{title}}</h1>
+    <p>{{date}}</p>
+    {{#author}}
+    <p>{{first_name}} {{last_name}}</p>
+    {{/author}}
+    <aside>
+      <h2>{{aside_title}}</h2>
+      {{aside_content}}
+    </aside>
+{{/data}}

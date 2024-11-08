@@ -1,3 +1,9 @@
+---
+info_heading: "Community"
+main_image: "images/four_trees_community_compressed.jpg"
+main_image_alt_text: "watercolor of autumn trees by Alexandria Levin"s
+---
+
 ## The Uncommons
 Because the commons, i.e., public spaces such as coffee shops and libraries, are often not optimal venues for autistic people, we are opening _The Uncommons_: professional, autism-friendly co-working spaces. We have two locations that have been offered for us to use. We have a fantastic autistic person ready to organize and run this as soon as we can fund their salary.
 

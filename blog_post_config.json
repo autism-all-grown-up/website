@@ -1,0 +1,37 @@
+[
+    {
+        "slot": "main",
+        "template": "blog_post.html",
+        "data": {
+            "theme": "autumn",
+            "sources": [
+                {
+                    "content_name": "post",
+                    "source": "post.md"
+                },
+                {
+                    "content_name": "aside",
+                    "source": "aside.md"
+                }
+            ]
+        }
+    },
+    {
+        "slot": "sidebar",
+        "template": "author_bio.html",
+        "data": [
+            {
+                "sources": {
+                    "content_name": "bio",
+                    "source": "juan.md"
+                }
+            },
+            {
+                "sources": {
+                    "content_name": "bio",
+                    "source": "aviva.md"
+                }
+            }
+        ]
+    }
+]
