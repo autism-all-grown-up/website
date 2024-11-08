@@ -28,6 +28,10 @@ console.log(YAML);
 const options = { /* custom options */ };
 marked.use(gfmHeadingId(options));
 marked.use(customHeadingId());
+marked.use({
+  breaks: true,
+  gfm: true,
+});
 
 class ClientSideRouter {  
   constructor() {
@@ -61,8 +65,6 @@ class ClientSideRouter {
     }
   }
   
-  
-
   // Load default or specific content based on the current URL
   async onLoad() {
     // Load the global configuration
@@ -141,6 +143,10 @@ class ClientSideRouter {
 
     // **Send a page view to Google Analytics**
     gtag('config', 'G-RND4D70EJW', {
+      'page_path': window.location.pathname + window.location.search
+    });
+
+    gtag('config', 'G-95DS5EZ5HP', {
       'page_path': window.location.pathname + window.location.search
     });
   }
