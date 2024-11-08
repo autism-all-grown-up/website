@@ -1,6 +1,35 @@
-// import { gfmHeadingId } from "marked-gfm-heading-id";
+/*
+// Import Mustache and Marked from the assets directory (ESM versions)
+import Mustache from '../assets/mustache.esm.js';
+import { marked } from '../assets/marked.esm.js';
+import { gfmHeadingId } from '../assets/marked-gfm-heading-id/index.esm.js';
+import { customHeadingId } from '../assets/marked-custom-heading-id/index.esm.js';
 
-class ClientSideRouter {
+// Configure marked with the plugins
+const options = {
+    // prefix: "my-prefix-",
+};
+marked.use(gfmHeadingId(options));
+marked.use(customHeadingId());
+*/
+
+// Import libraries from CDN in ESM mode
+import Mustache from 'https://esm.run/mustache';
+import { marked } from 'https://esm.run/marked';
+import { gfmHeadingId } from 'https://esm.run/marked-gfm-heading-id';
+// import { customHeadingId } from 'https://esm.run/marked-custom-heading-id';
+// Import marked-custom-heading-id as the default export
+import customHeadingId from 'https://esm.run/marked-custom-heading-id';
+import YAML from 'https://esm.run/js-yaml';
+
+console.log(YAML);  
+
+// Configure Marked with plugins
+const options = { /* custom options */ };
+marked.use(gfmHeadingId(options));
+marked.use(customHeadingId());
+
+class ClientSideRouter {  
   constructor() {
     this.currentUrl = window.location.path;
     this.init();
@@ -12,6 +41,27 @@ class ClientSideRouter {
     window.addEventListener('popstate', this.onPopState.bind(this));
     document.addEventListener('click', this.handleLinks.bind(this));
   }
+
+  parseMarkdownWithYaml(markdown) {
+    // Adjust regex to handle different newline characters and ensure it matches frontmatter accurately
+    const regex = /^---\r?\n([\s\S]*?)\r?\n---\r?\n/;
+    const match = regex.exec(markdown);
+  
+    if (match) {
+      try {
+        const yamlData = YAML.load(match[1]);
+        const content = markdown.slice(match[0].length);
+        return { metadata: yamlData, content };
+      } catch (error) {
+        console.error('Error parsing YAML frontmatter:', error);
+        return { metadata: {}, content: markdown };
+      }
+    } else {
+      return { metadata: {}, content: markdown };
+    }
+  }
+  
+  
 
   // Load default or specific content based on the current URL
   async onLoad() {
@@ -193,7 +243,10 @@ class ClientSideRouter {
   // Convert markdown to HTML
   async convertMarkdownToHtml(filePath) {
     const markdown = await this.fetchFile(filePath);
-    return marked.parse(markdown || '');
+    const { metadata, content } = this.parseMarkdownWithYaml(markdown);
+    console.log({metadata, content});
+
+    return marked.parse(content || '');
   }
 
   // Load plugins dynamically

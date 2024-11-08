@@ -1,3 +1,10 @@
+---
+info_heading: "About Us"
+info_subheading: "New section to come &mdash; Fall 2024"
+main_image: "images/mounthood_watercolor_compressed.jpg"
+main_image_alt_text: "watercolor of Mount Hood by Alexandria Levin"
+---
+
 ## About AAGU
 We refer you to [our business plan](https://autism-all-grown-up.github.io/business-plan/mission.html) for detailed information about AAGU, its formation, and its specific mission.
 

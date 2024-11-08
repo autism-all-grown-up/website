@@ -1,0 +1,15 @@
+{
+  "name": "aagu_website",
+  "version": "1.0.0",
+  "scripts": {
+    "copy-libs": "node copy-libs.js",
+    "postinstall": "npm run copy-libs"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "marked": "^4.0.0",
+    "marked-custom-heading-id": "^1.0.0",
+    "marked-gfm-heading-id": "^4.1.0",
+    "mustache": "^4.2.0"
+  }
+}
