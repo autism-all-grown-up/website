@@ -1,3 +1,11 @@
+---
+summary_text: "The autistic community has the talent and ability to create solutions NOW. \"Actually Autistic\" adults are not what you see on TV."
+thumbnail_image: "images/thumbnails/autism_spectrum_thumbnail.jpg"
+thumbnail_alt_text: "Autism Spectrum thumbnail"
+main_image: "images/autism_spectrum.jpeg"
+main_image_alt_text: "autism_spectrum.jpeg"
+---
+
 ## Savants are rare. Capable autistic people are not.
 Advocacy is working to change our general view of neurodiversity and how we handle it in society, including how to adjust research priorities for autism. This work moves slowly. In the meantime, millions of autistic adults are trying to redefine and reclaim their identities and hopefully overcome some of their past struggles.
 

@@ -1,3 +1,4 @@
+/*
 //  Import libraries from CDN in ESM mode
 import Mustache from '../assets/mustache/mustache.js';
 import { marked } from '../assets/marked/marked.js';
@@ -5,6 +6,24 @@ import { gfmHeadingId } from '../assets/marked-gfm-heading-id/marked-gfm-heading
 // Import marked-custom-heading-id as the default export
 import customHeadingId from '../assets/marked-custom-heading-id/marked-custom-heading-id.js';
 import YAML from '../assets/js-yaml/js-yaml.js';
+*/
+
+// Import libraries from CDN
+// Some are the default export. Other's aren't.
+import Mustache from 'https://esm.run/mustache';
+import { marked } from 'https://esm.run/marked';
+import { gfmHeadingId } from 'https://esm.run/marked-gfm-heading-id';
+import customHeadingId from 'https://esm.run/marked-custom-heading-id';
+import YAML from 'https://esm.run/js-yaml';
+
+// Configure Marked with plugins
+const options = { /* custom options */ };
+marked.use(gfmHeadingId(options));
+marked.use(customHeadingId());
+marked.use({
+  breaks: true,
+  gfm: true,
+});
 
 
 class ClientSideRouter {
@@ -20,6 +39,7 @@ class ClientSideRouter {
   }
 
   parseFrontmatter(markdown) {
+    // console.log(`parseFrontmatter: \n${markdown}`);
     const match = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/.exec(markdown);
     if (match) {
       const frontmatter = YAML.load(match[1]);
@@ -30,9 +50,13 @@ class ClientSideRouter {
   }
 
   async fetchMarkdownWithFrontmatter(sourceUrl, contentName) {
+    // console.log(`fetchMarkdownWithFrontmatter: ${sourceUrl}, ${contentName}`);
+
     const response = await fetch(sourceUrl);
     const markdown = await response.text();
     const { frontmatter, content } = this.parseFrontmatter(markdown);
+    // console.log({frontmatter, content});
+
     return { ...frontmatter, [contentName]: marked.parse(content) };
   }
 
@@ -118,23 +142,32 @@ class ClientSideRouter {
     }
   }
 
+
   async renderQuery(path) {
+    // console.log(`renderQuery: ${path}`);
+
     const contentDir = `content/${path}`;
     const config = await this.fetchFile(`${contentDir}/config.json`, 'json');
 
-    if (config) {
-      for (const slotConfig of config) {
+    // Check if the config is a single object and wrap it in an array if needed
+    const configArray = Array.isArray(config) ? config : [config];
+
+    // Process each configuration entry in the array
+    for (const slotConfig of configArray) {
+        // console.log({ slotConfig });
+
         await this.renderSlot(slotConfig, contentDir);
         if (slotConfig.plugins) {
-          await this.loadPlugins(slotConfig.plugins);
+            await this.loadPlugins(slotConfig.plugins);  // Load page-specific plugins
         }
-      }
     }
 
+    // Ensure all default plugins are loaded after page-specific plugins
     if (this.globalConfig && this.globalConfig.default_plugins) {
-      await this.loadPlugins(this.globalConfig.default_plugins);
+        await this.loadPlugins(this.globalConfig.default_plugins);  // Load default plugins
     }
-  }
+}
+
 
   async renderSlot({ slot, template, data }, dir) {
     const slotElement = document.getElementById(slot);

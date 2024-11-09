@@ -1,3 +1,11 @@
+---
+summary_text: "Many autistic adults in Oregon are invisible, marginalized, and struggling. We can fix this."
+thumbnail_image: "images/thumbnails/oregon_adult_population_breakdown_1200x600_thumbnail.jpg"
+thumbnail_alt_text: "Population chart thumbnail"
+main_image: "images/oregon_adult_population_breakdown_1200x600.png"
+main_image_alt_text: "Chart showing population of adults in oregon receiving I/DD services and/or autistic."
+---
+
 ## Unmet needs
 Only a fraction of autistic adults in Oregon receive social services. Not all of us need them, but a huge gap remains. Access to services and information remains a persistent problem.
 

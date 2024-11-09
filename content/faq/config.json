@@ -1,47 +1,43 @@
-[
-    {
-        "slot": "main",
-        "template": "faq.html",
-        "data": [
+{
+    "slot": "main",
+    "template": "faq.html",
+    "data": {
+        "info_heading": "F.A.Q.",
+        "main_image": "images/yellowtree_watercolor_compressed.jpg",
+        "main_image_alt_text": "watercolor of a yellow sideways tree by Alexandria Levin",
+        "faq_data": [
             {
-                "info_heading": "F.A.Q.",
-                "main_image": "images/yellowtree_watercolor_compressed.jpg",
-                "main_image_alt_text": "watercolor of a yellow sideways tree by Alexandria Levin",
-                "faq_data": [
-                    {
-                        "question": "Is Autism All Grown Up a nonprofit?",
-                        "answer_lines": [
-                            "Yes. AAGU is incorporated as a nonprofit LLC in the State of Oregon.",
-                            "We are operating as a Federal 501(c)3 under our fiscal sponsor <a href=\"https://cascadepacific.org/sample-page\">Cascade Pacific</a>."
-                        ]
-                    },
-                    {
-                        "question": "Are your services free?",
-                        "answer_lines": [
-                            "Materials and information we publish on our website will be free. We will initially operate the <em>Autism Clubhouse</em> and <em>The Uncommons</em> on a voluntary donation basis. Down the road we may create a fee structure for <em>The Uncommons</em> as a coworking space.",
-                            "Eventually we also hope to get contracts for consulting, reporting, and analysis work."
-                        ]
-                    },
-                    {
-                        "question": "When will your materials and information be available?",
-                        "answer_lines": [
-                            "We need to achieve our seed funding goals in order to pay staff to finalize and publish these things. We should be able to have some material up within the first month of funding."
-                        ]
-                    },
-                    {
-                        "question": "When will <em>The Uncommons</em> open?",
-                        "answer_lines": [
-                            "Because we want <em>The Uncommons</em> to be a professional-quality coworking space, we will need enough funding to pay a capable manager. This is most likely to happen during the 2nd (Sprout) or 3rd (Grow) phases of our funding and growth plans."
-                        ]
-                    },
-                    {
-                        "question": "When will <em>The Autism Clubhouse</em> open?",
-                        "answer_lines": [
-                            "We are going to open during Fall 2024. Hopefully by mid-October."
-                        ]
-                    }
+                "question": "Is Autism All Grown Up a nonprofit?",
+                "answer_lines": [
+                    "Yes. AAGU is incorporated as a nonprofit LLC in the State of Oregon.",
+                    "We are operating as a Federal 501(c)3 under our fiscal sponsor <a href=\"https://cascadepacific.org/sample-page\">Cascade Pacific</a>."
+                ]
+            },
+            {
+                "question": "Are your services free?",
+                "answer_lines": [
+                    "Materials and information we publish on our website will be free. We will initially operate the <em>Autism Clubhouse</em> and <em>The Uncommons</em> on a voluntary donation basis. Down the road we may create a fee structure for <em>The Uncommons</em> as a coworking space.",
+                    "Eventually we also hope to get contracts for consulting, reporting, and analysis work."
+                ]
+            },
+            {
+                "question": "When will your materials and information be available?",
+                "answer_lines": [
+                    "We need to achieve our seed funding goals in order to pay staff to finalize and publish these things. We should be able to have some material up within the first month of funding."
+                ]
+            },
+            {
+                "question": "When will <em>The Uncommons</em> open?",
+                "answer_lines": [
+                    "Because we want <em>The Uncommons</em> to be a professional-quality coworking space, we will need enough funding to pay a capable manager. This is most likely to happen during the 2nd (Sprout) or 3rd (Grow) phases of our funding and growth plans."
+                ]
+            },
+            {
+                "question": "When will <em>The Autism Clubhouse</em> open?",
+                "answer_lines": [
+                    "We are going to open during Fall 2024. Hopefully by mid-October."
                 ]
             }
         ]
     }
-]
+}

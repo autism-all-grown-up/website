@@ -1,16 +1,10 @@
-[
-    {
-        "slot": "main",
-        "template": "md_info_page.html",
-        "data": [
-            {
-                "sources": [
-                    {
-                        "content_name": "boxed_text",
-                        "source": "info.md"
-                    }
-                ]
-            }
-        ]
+{
+    "slot": "main",
+    "template": "md_info_page.html",
+    "data": {
+        "sources": {
+            "content_name": "boxed_text",
+            "source": "info.md"
+        }
     }
-]
+}

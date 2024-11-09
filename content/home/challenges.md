@@ -1,3 +1,11 @@
+---
+summary_text: 'Autism is all grown up now, and it isn''t always pretty. Autistic adults face a multitude of significant, endemic challenges.'
+thumbnail_image: "images/thumbnails/gorkon_800_thumbnail.jpg"
+thumbnail_alt_text: "Thumbnail: Dr. Bones McCoy trying to save Klingon General Gorkon in the Star Trek movie _The Undiscovered Country_"
+main_image: "images/gorkon_800.png"
+main_image_alt_text: "Dr. Bones McCoy trying to save Klingon General Gorkon in the Star Trek movie _The Undiscovered Country_."
+---
+
 ## A Partial List
 - **Work/Life:** Landing and keeping a job is often an uphill battle. Many find themselves unemployed or in roles that 
  don't tap their potential. Hiring processes and workplace environments frequently clash with autistic needs, creating 
