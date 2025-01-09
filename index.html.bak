@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>AAGU</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="description" content="Autism All Grown Up: Adult Community Nexus of Oregon">
+
+  <link rel="icon" type="image/x-icon" href="images/aagu_favicon.ico">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/mini-reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/accordion.css">
+  <link rel="stylesheet" href="css/info-page.css">
+  <link rel="stylesheet" href="css/faq.css">
+
+  <!-- <link rel="stylesheet" href="css/accordion_temp.css"> -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RND4D70EJW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-RND4D70EJW');
+  </script>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-95DS5EZ5HP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-95DS5EZ5HP');
+  </script>
+
+
+
+  <!-- google fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,900">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap">
+
+</head>
+
+<body>
+
+  <div id="nav-container" class="menu-containerr"></div>
+
+  <header>
+
+    <div class="header-screen">
+      <img src="images/banner_forest_screen_compressed.png" class="image-fluid-banner" alt="AAGU logo and banner" />
+    </div>
+
+    <div class="header-mobile">
+      <img src="images/banner_forest_mobile_compressed.png" class="image-fluid-banner" alt="AAGU logo and banner" />
+    </div>
+
+  </header>
+
+  <main id="main"></main>
+
+  <footer>
+    <div class="text-white-tagline"> Autism All Grown Up, &copy2025, All Rights Reserved |
+      <a href="mailto:info@aagu.org" target="_blank">info@aagu.org</a>
+    </div>
+  </footer>
+
+  <script src="js/script.js" type="module"></script>
+
+</body>
+
+</html>
