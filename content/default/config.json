@@ -27,4 +27,14 @@
             "page_name": "Contact"
         }
     ]
+
+
+},
+{
+    "slot": "footer",
+    "template": "footer.html",
+    "data": {
+        "year": "2006",
+        "email": "someone@aagu.org"
+    }
 }
