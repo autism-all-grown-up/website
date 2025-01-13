@@ -1,7 +1,7 @@
 ---
 info_heading: "Contact Us"
 main_image: "images/ALevin_HuggingTree_compressed.jpg"
-main_image_alt_text: "watercolor of a yellow sideways tree by Alexandria Levin"
+main_image_alt_text: "watercolor of the hugging tree by Alexandria Levin"
 ---
 
 The best way to contact us for now is to send us an email at <a href="mailto:info@aagu.org">info@aagu.org</a> or <a href="mailto:ariel@arielbalter.com">ariel@arielbalter.com</a>.
