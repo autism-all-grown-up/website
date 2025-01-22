@@ -154,51 +154,91 @@ class ClientSideRouter {
 
     // Process each configuration entry in the array
     for (const slotConfig of configArray) {
-        // console.log({ slotConfig });
+      // console.log({ slotConfig });
 
-        await this.renderSlot(slotConfig, contentDir);
-        if (slotConfig.plugins) {
-            await this.loadPlugins(slotConfig.plugins);  // Load page-specific plugins
-        }
+      await this.renderSlot(slotConfig, contentDir);
+      if (slotConfig.plugins) {
+        await this.loadPlugins(slotConfig.plugins);  // Load page-specific plugins
+      }
     }
 
     // Ensure all default plugins are loaded after page-specific plugins
     if (this.globalConfig && this.globalConfig.default_plugins) {
-        await this.loadPlugins(this.globalConfig.default_plugins);  // Load default plugins
+      await this.loadPlugins(this.globalConfig.default_plugins);  // Load default plugins
     }
-}
+  }
 
 
   async renderSlot({ slot, template, data }, dir) {
+    console.log("renderSlot");
+    console.log({slot, template, data, dir});
+
     const slotElement = document.getElementById(slot);
     if (!slotElement) {
       console.error('Slot element missing:', slot);
       return;
     }
 
-    const dataElements = Array.isArray(data) ? data : [data];
-    const dataPromises = dataElements.map(async dataElement => {
-      // Ensure sources is defined and an array
-      const sources = Array.isArray(dataElement.sources) ? dataElement.sources : [dataElement.sources].filter(Boolean);
+    // Ensure sources is a valid array
+    const sources = Array.isArray(data.sources) ? data.sources : [data.sources].filter(Boolean);
 
-      const sourcesPromises = sources.map(source => {
-        // Ensure source is defined and has a 'source' property
-        if (source && source.source) {
-          return this.fetchMarkdownWithFrontmatter(`${dir}/${source.source}`, source.content_name);
+    console.log("Processing sources:", sources);
+
+    // Process each source asynchronously inside map
+    const sourcesPromises = sources.map(async (source) => {
+      if (!source || !source.source) {
+        console.warn("Skipping undefined or invalid source:", source);
+        return null;
+      }
+
+      try {
+        const filePath = `${dir}/${source.source}`;
+        console.log(`Fetching markdown for: ${filePath}`);
+
+        // Fetch markdown
+        const result = await this.fetchMarkdownWithFrontmatter(filePath, source.content_name);
+
+        console.log(`Raw result from fetchMarkdownWithFrontmatter for ${source.source}:`, result);
+
+        // Check if the key matching `content_name` exists in the returned object
+        if (!result || !result[source.content_name]) {
+          console.warn(`No content found for ${source.source} under key: ${source.content_name}`);
+          return null;
         }
-        console.warn("Skipping undefined source:", source);
-        return Promise.resolve({}); // Return an empty object if source is invalid
-      });
 
-      const sourcesData = await Promise.all(sourcesPromises);
-      return Object.assign(dataElement, ...sourcesData);
+        // Construct structured source data object
+        return {
+          [source.content_name]: result[source.content_name],  // Use the actual key dynamically
+          ...result // Include all frontmatter fields
+        };
+      } catch (error) {
+        console.error(`Error processing source ${source.source}:`, error);
+        return null;
+      }
     });
 
-    const finalData = await Promise.all(dataPromises);
+    // Wait for all markdown processing to complete
+    const source_data = (await Promise.all(sourcesPromises)).filter(Boolean);
+
+    // Ensure finalData is a new object that keeps original data
+    const finalData = { ...data, source_data };
+
+    console.log("Final processed data:", finalData);
+
+    // Fetch template if provided
     const templateHtml = template ? await this.fetchFile(`./templates/${template}`) : '';
-    const rendered = Mustache.render(templateHtml, { data: finalData });
+
+    // Render template using Mustache
+    console.log("Passing to Mustache:", JSON.stringify(finalData, null, 2));
+    const rendered = Mustache.render(templateHtml, finalData);
+
+    // const rendered = Mustache.render(templateHtml, { data: finalData });
     slotElement.innerHTML = rendered;
   }
+
+
+
+
 
 
   async loadPlugins(pluginConfigs) {

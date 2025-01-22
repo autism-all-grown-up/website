@@ -1,9 +1,11 @@
+{{#data}}
 <nav class="nav-sticky">
     <label for="drop" class="toggle">MENU</label>
     <input type="checkbox" id="drop" />
     <ul class="menu">
-        {{#data}}
+        {{#nav_data}}
         <li><a href="?page={{page_url}}">{{page_name}}</a></li>
-        {{/data}}
+        {{/nav_data}}
     </ul>
 </nav>
+{{/data}}
