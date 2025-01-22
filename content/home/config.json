@@ -2,8 +2,8 @@
     {
         "slot": "main",
         "template": "accordion.html",
-        "data": [
-            {
+        "data": {
+
                 "sources": [
                     {
                         "content_name": "main_text",
