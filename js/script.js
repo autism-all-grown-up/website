@@ -168,77 +168,113 @@ class ClientSideRouter {
     }
   }
 
-
   async renderSlot({ slot, template, data }, dir) {
-    console.log("renderSlot");
-    console.log({slot, template, data, dir});
+    console.log("🔵 renderSlot started");
+    console.log({ slot, template, data, dir });
 
     const slotElement = document.getElementById(slot);
     if (!slotElement) {
-      console.error('Slot element missing:', slot);
-      return;
+        console.error('❌ Slot element missing:', slot);
+        return;
     }
 
-    // Ensure sources is a valid array
-    const sources = Array.isArray(data.sources) ? data.sources : [data.sources].filter(Boolean);
+    // Separate markdown from other data, but only if markdown exists
+    let markdown_data = [];
+    let otherData = { ...data };
 
-    console.log("Processing sources:", sources);
+    if (data.markdown) {
+        let markdown = data.markdown;
 
-    // Process each source asynchronously inside map
-    const sourcesPromises = sources.map(async (source) => {
-      if (!source || !source.source) {
-        console.warn("Skipping undefined or invalid source:", source);
-        return null;
-      }
-
-      try {
-        const filePath = `${dir}/${source.source}`;
-        console.log(`Fetching markdown for: ${filePath}`);
-
-        // Fetch markdown
-        const result = await this.fetchMarkdownWithFrontmatter(filePath, source.content_name);
-
-        console.log(`Raw result from fetchMarkdownWithFrontmatter for ${source.source}:`, result);
-
-        // Check if the key matching `content_name` exists in the returned object
-        if (!result || !result[source.content_name]) {
-          console.warn(`No content found for ${source.source} under key: ${source.content_name}`);
-          return null;
+        // If `markdown` is an object, convert it to an array
+        if (!Array.isArray(markdown)) {
+            console.warn("⚠️ `markdown` is an object instead of an array. Converting...");
+            markdown = [markdown];  // Convert object to single-item array
         }
 
-        // Construct structured source data object
-        return {
-          [source.content_name]: result[source.content_name],  // Use the actual key dynamically
-          ...result // Include all frontmatter fields
-        };
-      } catch (error) {
-        console.error(`Error processing source ${source.source}:`, error);
-        return null;
-      }
-    });
+        console.log("🟢 Processing markdown:", markdown);
 
-    // Wait for all markdown processing to complete
-    const source_data = (await Promise.all(sourcesPromises)).filter(Boolean);
+        // Process each markdown entry asynchronously
+        const markdownPromises = markdown.map(async (markdownEntry, index) => {
+            if (!markdownEntry || typeof markdownEntry !== "object") {
+                console.warn(`⚠️ Skipping invalid markdown entry at index ${index}:`, markdownEntry);
+                return null;
+            }
 
-    // Ensure finalData is a new object that keeps original data
-    const finalData = { ...data, source_data };
+            console.log(`🟠 Processing markdown entry ${index + 1}:`, markdownEntry);
 
-    console.log("Final processed data:", finalData);
+            // Process each key-value pair (content name -> markdown file)
+            const entryPromises = Object.entries(markdownEntry).map(async ([contentName, fileName]) => {
+                if (!fileName) {
+                    console.warn(`⚠️ Skipping undefined or invalid file for content: ${contentName}`);
+                    return null;
+                }
+
+                try {
+                    const filePath = `${dir}/${fileName}`;
+                    console.log(`🔵 Fetching markdown for: ${filePath}`);
+
+                    // Fetch markdown content + frontmatter
+                    const result = await this.fetchMarkdownWithFrontmatter(filePath, contentName);
+                    console.log(`🔍 Processed ${fileName}:`, result);
+
+                    if (!result) {
+                        console.warn(`⚠️ fetchMarkdownWithFrontmatter returned null for ${fileName}`);
+                        return null;
+                    }
+
+                    const { content, ...frontmatter } = result;
+
+                    if (!content && Object.keys(frontmatter).length === 0) {
+                        console.warn(`⚠️ No content or frontmatter found for ${fileName}`);
+                        return null;
+                    }
+
+                    console.log(`✅ Collected data for ${fileName}:\n📄 Content: ${content}\n📑 Frontmatter:`, frontmatter);
+
+                    return {
+                        ...(content ? { [contentName]: content } : {}),
+                        ...frontmatter
+                    };
+                } catch (error) {
+                    console.error(`❌ Error processing ${fileName}:`, error);
+                    return null;
+                }
+            });
+
+            // Wait for all markdown files in this entry to process
+            const processedEntry = (await Promise.all(entryPromises)).filter(Boolean);
+
+            // Merge all processed markdown data into a single object
+            return processedEntry.length ? Object.assign({}, ...processedEntry) : null;
+        });
+
+        // Wait for all markdown processing to complete
+        markdown_data = (await Promise.all(markdownPromises)).filter(Boolean);
+
+        // Remove `markdown` from `data`
+        delete otherData.markdown;
+    }
+
+    // If there's only one markdown entry, store `markdown_data` as an object
+    if (markdown_data.length === 1) {
+        otherData.markdown_data = markdown_data[0];
+    } else if (markdown_data.length > 1) {
+        otherData.markdown_data = markdown_data;
+    }
+
+    console.log("🟣 Final processed data:", JSON.stringify(otherData, null, 2));
 
     // Fetch template if provided
     const templateHtml = template ? await this.fetchFile(`./templates/${template}`) : '';
 
     // Render template using Mustache
-    console.log("Passing to Mustache:", JSON.stringify(finalData, null, 2));
-    const rendered = Mustache.render(templateHtml, finalData);
+    console.log("🟡 Passing to Mustache:", JSON.stringify(otherData, null, 2));
+    const rendered = Mustache.render(templateHtml, otherData);
 
-    // const rendered = Mustache.render(templateHtml, { data: finalData });
     slotElement.innerHTML = rendered;
-  }
 
-
-
-
+    console.log("🟢 renderSlot completed successfully.");
+}
 
 
   async loadPlugins(pluginConfigs) {

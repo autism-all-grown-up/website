@@ -3,59 +3,27 @@
         "slot": "main",
         "template": "accordion.html",
         "data": {
-
-                "sources": [
-                    {
-                        "content_name": "main_text",
-                        "source": "challenges.md"
-                    },
-                    {
-                        "content_name": "fig_caption",
-                        "source": "gorkon_caption.md"
-                    }
-                ]
-            },
-            {
-                "sources": [
-                    {
-                        "content_name": "main_text",
-                        "source": "mission.md"
-                    },
-                    {
-                        "content_name": "fig_caption",
-                        "source": "population_plot_caption.md"
-                    }
-                ]
-            },
-            {
-                "sources": [
-                    {
-                        "content_name": "main_text",
-                        "source": "invisible_majority.md"
-                    },
-                    {
-                        "content_name": "fig_caption",
-                        "source": "research_funding_figure_caption.md"
-                    }
-                ]
-            },
-            {
-                "sources": [
-                    {
-                        "content_name": "main_text",
-                        "source": "actually_autistic.md"
-                    }
-                ]
-            },
-            {
-                "sources": [
-                    {
-                        "content_name": "main_text",
-                        "source": "impact.md"
-                    }
-                ]
-            }
-        ],
+            "markdown": [
+                {
+                    "main_text": "challenges.md",
+                    "fig_caption": "gorkon_caption.md"
+                },
+                {
+                    "main_text": "mission.md",
+                    "fig_caption": "population_plot_caption.md"
+                },
+                {
+                    "main_text": "invisible_majority.md",
+                    "fig_caption": "research_funding_figure_caption.md"
+                },
+                {
+                    "main_text": "actually_autistic.md"
+                },
+                {
+                    "main_text": "impact.md"
+                }
+            ]
+        },
         "plugins": [
             {
                 "path": "lightbox",
