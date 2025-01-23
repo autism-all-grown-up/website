@@ -2,15 +2,15 @@
     "slot": "main",
     "template": "team.html",
     "data": {
-        "heading": "Some heading",
+        "heading": "Team",
         "sources": [
             {
                 "content_name": "boxed_text",
-                "source": "info1.md"
+                "source": "alexandria.md"
             },
             {
                 "content_name": "boxed_text",
-                "source": "info2.md"
+                "source": "ariel.md"
             }
         ]
     }

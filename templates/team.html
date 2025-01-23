@@ -1,20 +1,23 @@
 <!--<main id="main"> -->
-
     <section class="info-page">
+        
         <h1 class="info-title teal">{{heading}}</h1>
-    
+
         {{#source_data}}
-        <div class="content-group">
-            <h2 class="title">{{title}}</h2>
-            <div class="outline-box">{{{boxed_text}}}</div> 
-            <div class="watercolor">
-                <figure>
-                    <img class="image-fluid" src="{{main_image}}" alt="{{main_image_alt_text}}" />
-                </figure>
-            </div>
+        
+        <h2>{{title}}</h2>
+        <div class="outline-box">
+            <h3>{{name}}</h3>
+            {{{boxed_text}}}
+        </div>
+    
+        <div class="watercolor">
+            <figure>
+                <img class="image-fluid" src="{{main_image}}" alt="{{main_image_alt_text}}" />
+            </figure>
         </div>
         {{/source_data}}
+
     </section>
-    
 
 <!-- </main> -->
