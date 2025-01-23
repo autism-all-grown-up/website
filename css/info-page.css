@@ -1,69 +1,55 @@
 .info-page {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.5fr 1fr; /* Left column wider than right */
     column-gap: 2rem;
+    row-gap: 2rem;
     grid-template-rows: auto;
     margin: 0 2rem;
 }
 
+/* Heading at the top, spanning both columns */
 .info-title {
     grid-column: 1 / -1; 
     grid-row: 1;
-    margin: 1rem 0 1rem 0;
+    margin: 1rem 0;
     text-align: left; 
     color: var(--accent-color-1);
 }
 
+/* Each content entry */
+.content-group {
+    display: contents; /* Allows children to inherit from .info-page grid */
+}
+
+/* Title directly above the outline box */
+.title {
+    grid-column: 1;
+    grid-row: auto;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+/* Boxed text */
 .outline-box {
     grid-column: 1;
-    grid-row: 2;
     border: 1px solid black;
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: 1.5rem;
 }
 
-.outline-box h2 {
-    /* color: var(--main-color); */
-}
-
+/* Image aligned to the right, same height as .outline-box */
 .watercolor {
-    text-align: left;
-    max-width: 100%;
     grid-column: 2;
-    grid-row: 2; 
+    display: flex;
+    align-items: center; /* Centers image vertically */
+    justify-content: center;
 }
 
-
+/* Ensure image takes full width of right column */
 .watercolor img {
     width: 100%;
     height: auto;
     margin-top: -1%;
 }
-
-/*
-.info-page a:link {
-    color: var(--link-1);
-	font-weight: 700;
-    text-decoration: underline;
-}
-
-.info-page a:visited {
-    color: var(--link-1);
-	font-weight: 700;
-    text-decoration: underline;
-}
-
-.info-page a:hover {
-    color: var(--hover-3);
-	font-weight: 700;
-    text-decoration: underline;
-}
-
-.info-page a:active {
-    color: var(--hover-3);
-	font-weight: 700;
-    text-decoration: underline;
-}
-*/
 
 /* Responsive layout for smaller screens */
 @media screen and (max-width: 750px) {
@@ -78,17 +64,13 @@
         margin: 1rem 0; 
     }
 
-    h2 {
-        line-height: 1.2em;
-    }
-
-    ul {
-        padding-left: 1em;
+    .title {
+        text-align: center;
     }
 
     .outline-box {
         grid-column: 1; 
-        grid-row: 2;
+        grid-row: auto;
         width: 100%; 
         margin-bottom: 1rem; 
         padding: 0.5rem 1rem;
@@ -96,9 +78,7 @@
 
     .watercolor {
         grid-column: 1; 
-        grid-row: 3;
-        width: 100%; 
+        grid-row: auto;
+        width: 100%;
     }
 }
-
-

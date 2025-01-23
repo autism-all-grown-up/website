@@ -1,5 +1,6 @@
 ---
 title: "A Title for info 2"
+main_image: "https://placehold.co/200x200"
 ---
 
 ### Info 2
