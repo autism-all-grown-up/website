@@ -39,8 +39,8 @@
         "slot": "footer",
         "template": "footer.html",
         "data": {
-            "year": "2006",
-            "email": "someone@aagu.org"
+            "year": "2025",
+            "email": "info@aagu.org"
         }
     }
 ]

@@ -169,112 +169,86 @@ class ClientSideRouter {
   }
 
   async renderSlot({ slot, template, data }, dir) {
-    console.log("🔵 renderSlot started");
-    console.log({ slot, template, data, dir });
+    console.log("🔵 renderSlot started", { slot, template, data, dir });
 
     const slotElement = document.getElementById(slot);
     if (!slotElement) {
-        console.error('❌ Slot element missing:', slot);
-        return;
+      console.error('❌ Slot element missing:', slot);
+      return;
     }
 
-    // Separate markdown from other data, but only if markdown exists
+    // Extract markdown and preserve other data fields
+    const { markdown, ...otherData } = data;
     let markdown_data = [];
-    let otherData = { ...data };
 
-    if (data.markdown) {
-        let markdown = data.markdown;
+    // Process markdown only if it exists
+    if (markdown) {
+      // Normalize markdown into an array (if it's an object, convert it to an array)
+      const normalizedMarkdown = Array.isArray(markdown) ? markdown : [markdown];
+      // console.log("🟢 Processing markdown:", normalizedMarkdown);
 
-        // If `markdown` is an object, convert it to an array
-        if (!Array.isArray(markdown)) {
-            console.warn("⚠️ `markdown` is an object instead of an array. Converting...");
-            markdown = [markdown];  // Convert object to single-item array
+      // Process each markdown entry
+      for await (const markdownEntry of normalizedMarkdown) {
+        if (!markdownEntry || typeof markdownEntry !== "object") {
+          console.warn(`⚠️ Skipping invalid markdown entry:`, markdownEntry);
+          continue;
         }
 
-        console.log("🟢 Processing markdown:", markdown);
+        const processedEntry = {};
 
-        // Process each markdown entry asynchronously
-        const markdownPromises = markdown.map(async (markdownEntry, index) => {
-            if (!markdownEntry || typeof markdownEntry !== "object") {
-                console.warn(`⚠️ Skipping invalid markdown entry at index ${index}:`, markdownEntry);
-                return null;
+        for await (const [contentName, fileName] of Object.entries(markdownEntry)) {
+          if (!fileName) {
+            console.warn(`⚠️ Skipping undefined or invalid file for content: ${contentName}`);
+            continue;
+          }
+
+          try {
+            const filePath = `${dir}/${fileName}`;
+            // console.log(`🔵 Fetching markdown for: ${filePath}`);
+
+            // Fetch markdown content + frontmatter
+            const { content, ...frontmatter } = await this.fetchMarkdownWithFrontmatter(filePath, contentName);
+            // console.log(`🔍 Processed ${fileName}:`, { content, frontmatter });
+
+            if (!content && Object.keys(frontmatter).length === 0) {
+              console.warn(`⚠️ No content or frontmatter found for ${fileName}`);
+              continue;
             }
 
-            console.log(`🟠 Processing markdown entry ${index + 1}:`, markdownEntry);
+            // Add extracted content and metadata to the entry
+            if (content) processedEntry[contentName] = content;
+            Object.assign(processedEntry, frontmatter);
 
-            // Process each key-value pair (content name -> markdown file)
-            const entryPromises = Object.entries(markdownEntry).map(async ([contentName, fileName]) => {
-                if (!fileName) {
-                    console.warn(`⚠️ Skipping undefined or invalid file for content: ${contentName}`);
-                    return null;
-                }
+          } catch (error) {
+            console.error(`❌ Error processing ${fileName}:`, error);
+          }
+        }
 
-                try {
-                    const filePath = `${dir}/${fileName}`;
-                    console.log(`🔵 Fetching markdown for: ${filePath}`);
-
-                    // Fetch markdown content + frontmatter
-                    const result = await this.fetchMarkdownWithFrontmatter(filePath, contentName);
-                    console.log(`🔍 Processed ${fileName}:`, result);
-
-                    if (!result) {
-                        console.warn(`⚠️ fetchMarkdownWithFrontmatter returned null for ${fileName}`);
-                        return null;
-                    }
-
-                    const { content, ...frontmatter } = result;
-
-                    if (!content && Object.keys(frontmatter).length === 0) {
-                        console.warn(`⚠️ No content or frontmatter found for ${fileName}`);
-                        return null;
-                    }
-
-                    console.log(`✅ Collected data for ${fileName}:\n📄 Content: ${content}\n📑 Frontmatter:`, frontmatter);
-
-                    return {
-                        ...(content ? { [contentName]: content } : {}),
-                        ...frontmatter
-                    };
-                } catch (error) {
-                    console.error(`❌ Error processing ${fileName}:`, error);
-                    return null;
-                }
-            });
-
-            // Wait for all markdown files in this entry to process
-            const processedEntry = (await Promise.all(entryPromises)).filter(Boolean);
-
-            // Merge all processed markdown data into a single object
-            return processedEntry.length ? Object.assign({}, ...processedEntry) : null;
-        });
-
-        // Wait for all markdown processing to complete
-        markdown_data = (await Promise.all(markdownPromises)).filter(Boolean);
-
-        // Remove `markdown` from `data`
-        delete otherData.markdown;
+        // Store processed entry if it contains data
+        if (Object.keys(processedEntry).length > 0) markdown_data.push(processedEntry);
+      }
     }
 
-    // If there's only one markdown entry, store `markdown_data` as an object
+    // Ensure `markdown_data` is structured correctly
     if (markdown_data.length === 1) {
-        otherData.markdown_data = markdown_data[0];
+      otherData.markdown_data = markdown_data[0]; // Single object if only one entry
     } else if (markdown_data.length > 1) {
-        otherData.markdown_data = markdown_data;
+      otherData.markdown_data = markdown_data; // Keep as array if multiple entries
     }
 
-    console.log("🟣 Final processed data:", JSON.stringify(otherData, null, 2));
+    // console.log("🟣 Final processed data:", JSON.stringify(otherData, null, 2));
 
     // Fetch template if provided
     const templateHtml = template ? await this.fetchFile(`./templates/${template}`) : '';
 
     // Render template using Mustache
-    console.log("🟡 Passing to Mustache:", JSON.stringify(otherData, null, 2));
+    // console.log("🟡 Passing to Mustache:", JSON.stringify(otherData, null, 2));
     const rendered = Mustache.render(templateHtml, otherData);
 
     slotElement.innerHTML = rendered;
 
     console.log("🟢 renderSlot completed successfully.");
-}
+  }
 
 
   async loadPlugins(pluginConfigs) {
