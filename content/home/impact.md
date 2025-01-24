@@ -7,8 +7,7 @@ main_image_alt_text: "pathway watercolor by Alexandria Levin"
 ---
 
 ## Attainable Objectives  
-AAGU believes it can help nurture organic changes by facilitating small steps to empower autistic adults to live rich, 
-independent lives by facilitating innovation and supporting existing programs through networking, collaboration, and education.
+AAGU believes it can help nurture organic changes by facilitating small steps to empower autistic adults to live rich, independent lives by facilitating innovation and supporting existing programs through networking, collaboration, and education.
 
 ### Community
 - Build partnerships with local organizations by networking and creating alliances. 
@@ -24,5 +23,4 @@ independent lives by facilitating innovation and supporting existing programs th
 - Create comprehensive and accessible guides on navigating healthcare, employment, and social services.
 - Improve online resources for autistic adults and provide consulting services to others to do the same.
 - Participate in data analysis and research to inform policy and advocacy efforts.
-- Unlike most autism-related websites, _we will allocate a significant portion of our budget to continuously 
-  reviewing and updating this information as it evolves_.
+- Unlike most autism-related websites, _we will allocate a significant portion of our budget to continuously reviewing and updating this information as it evolves_.
