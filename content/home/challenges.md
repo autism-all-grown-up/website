@@ -7,9 +7,7 @@ main_image_alt_text: "Dr. Bones McCoy trying to save Klingon General Gorkon in t
 ---
 
 ## A Partial List
-- **Work/Life:** Landing and keeping a job is often an uphill battle. Many find themselves unemployed or in roles that 
-  don't tap their potential. Hiring processes and workplace environments frequently clash with autistic needs, creating 
-  frustrating barriers.
+- **Work/Life:** Landing and keeping a job is often an uphill battle. Many find themselves unemployed or in roles that  don't tap their potential. Hiring processes and workplace environments frequently clash with autistic needs, creating frustrating barriers.
 - **Health care hurdles:** Medical settings can be overwhelming sensory minefields. Many doctors struggle to connect with 
   autistic patients, leading to misunderstandings and subpar care. Getting diagnosed as an adult? It's a long, winding road 
   that can delay access to crucial support.
