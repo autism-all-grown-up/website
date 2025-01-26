@@ -1,7 +1,7 @@
 ---
 title: "Art Director"
 name: "Alexandria Levin"
-main_image: "https://placehold.co/200x200"
+main_image: "images/temp_team_kitty_bat.jpg"
 ---
 
 I am actually a cat.

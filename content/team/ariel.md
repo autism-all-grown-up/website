@@ -1,7 +1,7 @@
 ---
 title: "Cruel Overlord"
 name: "Ariel Balter"
-main_image: "https://placehold.co/200x200"
+main_image: "images/temp_team_pocket_bear.jpg"
 ---
 
 I am loud.
