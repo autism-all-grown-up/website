@@ -1,0 +1,10 @@
+{
+    "slot": "main",
+    "template": "md_info_page.html",
+    "data": {
+        "sources": {
+            "content_name": "boxed_text",
+            "source": "news.md"
+        }
+    }
+}

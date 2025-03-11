@@ -26,6 +26,10 @@
             {
                 "page_url": "contact",
                 "page_name": "Contact"
+            },
+            {
+                "page_url": "news",
+                "page_name": "News"
             }
         ]
     },
