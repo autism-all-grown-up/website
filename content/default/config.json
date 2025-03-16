@@ -20,16 +20,16 @@
                 "page_name": "Community"
             },
             {
+                "page_url": "news",
+                "page_name": "News"
+            },
+            {
                 "page_url": "faq",
                 "page_name": "FAQ"
             },
             {
                 "page_url": "contact",
                 "page_name": "Contact"
-            },
-            {
-                "page_url": "news",
-                "page_name": "News"
             }
         ]
     },
