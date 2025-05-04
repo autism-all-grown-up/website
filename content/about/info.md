@@ -15,3 +15,8 @@ Our key short-term funding option is our GoFundMe site. We are also applying for
 
 ## Specifics
 There are many specific things we are taking action on. Please read about them in our [Resources](?page=resources) and [Community](?page=community) pages.
+
+## Support us!
+<div id="donate-button-container" data-hosted-button-id="T36ZA62J7TQS2">
+    <div id="donate-button"></div>
+</div>

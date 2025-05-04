@@ -54,8 +54,12 @@ class ClientSideRouter {
 
     const response = await fetch(sourceUrl);
     const markdown = await response.text();
+        
     const { frontmatter, content } = this.parseFrontmatter(markdown);
-    // console.log({frontmatter, content});
+    // console.log({frontmatter, content });
+
+    // let parsed = marked.parse(content);
+    // console.log({ parsed });
 
     return { ...frontmatter, [contentName]: marked.parse(content) };
   }

@@ -1,0 +1,10 @@
+{
+    "slot": "main",
+    "template": "donate.html",
+    "data": {},
+    "plugins": [
+        {
+            "path": "paypal-donate"
+        }
+    ]
+}
