@@ -1,6 +1,13 @@
 [
     {
         "slot": "main",
+        "template": "home.html",
+        "data": {
+            "tagline": "Fixing problems, not people.<br/>Removing barriers, not behaviors."
+        }
+    },
+    {
+        "slot": "accordion",
         "template": "accordion.html",
         "data": [
             {

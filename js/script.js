@@ -179,6 +179,8 @@ class ClientSideRouter {
         const finalData = await Promise.all(dataPromises);
         const templateHtml = template ? await this.fetchFile(`./templates/${template}`) : '';
         const rendered = Mustache.render(templateHtml, { data: finalData });
+
+        console.log({finalData, templateHtml, rendered}); // Debug log
         slotElement.innerHTML = rendered;
     }
 
