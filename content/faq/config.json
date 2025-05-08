@@ -39,5 +39,11 @@
                 ]
             }
         ]
-    }
+    },
+    "plugins": [
+        {
+            "path": "paypal-donate",
+            "css": "paypal-donate.css"
+        }
+    ]
 }
