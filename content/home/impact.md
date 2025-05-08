@@ -1,4 +1,5 @@
 ---
+summary_title: "Path to Impact"
 summary_text: "Working from within, we can make an immediate impact by activating and empowering the autistic community in Oregon to focus on attainable objectives."
 thumbnail_image: "images/thumbnails/watercolor_path_thumbnail.jpg"
 thumbnail_alt_textthumbnail: "pathway watercolor by Alexandria Levin"

@@ -180,7 +180,8 @@ class ClientSideRouter {
         const templateHtml = template ? await this.fetchFile(`./templates/${template}`) : '';
         const rendered = Mustache.render(templateHtml, { data: finalData });
 
-        console.log({finalData, templateHtml, rendered}); // Debug log
+        console.log({finalData});
+        
         slotElement.innerHTML = rendered;
     }
 

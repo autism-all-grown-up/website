@@ -1,5 +1,6 @@
 ---
-summary_text: 'Autism is all grown up now, and it isn''t always pretty. Autistic adults face a multitude of significant, endemic challenges.'
+summary_title: "Autism is all grown up now..."
+summary_text: "and it isn't always pretty. Autistic adults face a multitude of significant, endemic challenges. Late diagnosed adults have gone their entire lives without supports or knowledge that might have helped them."
 thumbnail_image: "images/thumbnails/gorkon_800_thumbnail.jpg"
 thumbnail_alt_text: "Thumbnail: Dr. Bones McCoy trying to save Klingon General Gorkon in the Star Trek movie _The Undiscovered Country_"
 main_image: "images/gorkon_800.png"

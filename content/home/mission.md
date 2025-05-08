@@ -1,4 +1,5 @@
 ---
+summary_title: "Engineering solutions with available resources"
 summary_text: "Many autistic adults in Oregon are invisible, marginalized, and struggling. We can fix this."
 thumbnail_image: "images/thumbnails/oregon_adult_population_breakdown_1200x600_thumbnail.jpg"
 thumbnail_alt_text: "Population chart thumbnail"
