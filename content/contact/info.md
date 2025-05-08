@@ -23,9 +23,4 @@ We will provide improved methods for contacting us very soon.
 </form>
 -->
 
-## Support us!
-<div id="donate-button-container" data-hosted-button-id="T36ZA62J7TQS2">
-    <div id="donate-button"></div>
-</div>
-
 All watercolor artwork by [Alexandria Levin](https://www.alexalev.com/), an autistic artist living and working in Oregon.

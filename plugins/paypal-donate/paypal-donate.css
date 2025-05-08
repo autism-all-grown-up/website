@@ -1,3 +1,6 @@
 #donate-button-container {
-    margin: 20px 0;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
 }

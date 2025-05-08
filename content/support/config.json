@@ -5,6 +5,13 @@
         "sources": {
             "content_name": "boxed_text",
             "source": "info.md"
+        }   
+    },
+    "plugins": [
+        {
+            "path": "paypal-donate",
+            "js": "paypal-donate.js",
+            "css": "paypal-donate.css"
         }
-    }
+    ]
 }

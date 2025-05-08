@@ -43,8 +43,3 @@ Most importantly, these articles will be written by _actually autistic_, scienti
 
 ## AAGU Recommendations and Favorites
 We will list popular books, websites, podcasts, etc., with information about them and summaries of what people think about them.
-
-## Support us!
-<div id="donate-button-container" data-hosted-button-id="T36ZA62J7TQS2">
-    <div id="donate-button"></div>
-</div>

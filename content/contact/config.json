@@ -6,11 +6,5 @@
             "content_name": "boxed_text",
             "source": "info.md"
         }
-    },
-    "plugins": [
-        {
-            "path": "paypal-donate",
-            "css": "paypal-donate.css"
-        }
-    ]
+    }
 }

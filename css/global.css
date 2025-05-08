@@ -219,6 +219,13 @@ footer a:active {
     text-decoration: underline;
 }
 
+/* #donate-button-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+} */
+
 @media screen and (max-width: 1199px) {
     body {
         padding: 0 1vw;

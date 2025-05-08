@@ -27,9 +27,4 @@ Some things the autistic community would love to see happen are:
 - **Showcasing Oregon's autistic creators.** Art, Poetry, Video, Music, Crafts, etc.
 - **Peer-support.** We believe that the peer-support model, which is currently getting a lot of funding and attention, is particularly well suited for the autistic community. We want to help get peer-support projects off the ground.
 - **Suicide prevention.** Suicide is a painful scourge on the autistic community. Yet, there is little research or practice for adjusting response techniques to autistic people. We want to support efforts to address this.
-
-
-## Support us!
-<div id="donate-button-container" data-hosted-button-id="T36ZA62J7TQS2">
-    <div id="donate-button"></div>
-</div>
+- 

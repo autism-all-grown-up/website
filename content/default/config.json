@@ -30,6 +30,10 @@
             {
                 "page_url": "contact",
                 "page_name": "Contact"
+            },
+            {
+                "page_url": "support",
+                "page_name": "Support Us"
             }
             
         ]
