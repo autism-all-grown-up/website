@@ -1,11 +1,11 @@
 ---
-info_heading: "Support Us"
+info_heading: "Please Support Us"
 info_subheading: ""
 main_image: "images/mounthood_watercolor_compressed.jpg"
 main_image_alt_text: "watercolor of Mount Hood by Alexandria Levin"
 ---
 
-## Why support us?
+## Why we need your help?
 AAGU launched in 2025 with a small grant. We have several critical projects about to launch, but the current economic and political climate has made it harder than ever for grassroots organizations like ours to survive.
 
 Funding for disability services, diversity initiatives, and foundational research is being slashed nationwide—putting immense pressure on private foundations and severely limiting the support available to Autistic-led efforts like ours.
