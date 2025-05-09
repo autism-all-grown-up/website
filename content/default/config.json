@@ -35,7 +35,6 @@
                 "page_url": "support",
                 "page_name": "Support Us"
             }
-            
         ]
     },
     {
@@ -45,5 +44,11 @@
             "year": "2025",
             "email": "info@aagu.org"
         }
+    },
+    {
+        "slot": "body",
+        "template": "donate.html",
+        "placement": "append"
+        
     }
 ]

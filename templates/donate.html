@@ -1,3 +1,20 @@
-<div id="donate-button-container" data-hosted-button-id="T36ZA62J7TQS2">
-    <div id="donate-button"></div>
+<h2>Support Autism All Grown Up</h2>
+
+<div class="frequency-toggle">
+  <button id="oneTime" class="active">One-Time</button>
+  <button id="monthly">Monthly</button>
+  <button id="yearly">Yearly</button>
 </div>
+
+<div class="donation-options">
+  <button class="donation-button" data-amount="10"> $10 </button>
+  <button class="donation-button" data-amount="50"> $50 </button>
+  <button class="donation-button" data-amount="200"> $200 </button>
+  <button class="donation-button" id="otherAmountBtn">Other</button>
+</div>
+
+<input type="number" id="customAmountInput" placeholder="Enter custom amount" style="display:none; margin-bottom:20px;" />
+
+<div id="paypal-button-container"></div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID_HERE&currency=USD"></script>
