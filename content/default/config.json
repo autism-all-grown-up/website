@@ -44,11 +44,5 @@
             "year": "2025",
             "email": "info@aagu.org"
         }
-    },
-    {
-        "slot": "body",
-        "template": "donate.html",
-        "placement": "append"
-        
     }
 ]
