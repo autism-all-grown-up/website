@@ -207,7 +207,7 @@ details[open]>*:not(summary) {
     grid-template-columns: 1fr 1fr;
     align-items: start;
     padding: 1rem 2rem;
-    background-color: #f9f9f9;
+    background-color: #e5e1e5;
     column-gap: 2rem;
     width: 100%;
 }
