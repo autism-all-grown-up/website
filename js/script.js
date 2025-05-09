@@ -152,37 +152,59 @@ class ClientSideRouter {
         }
     }
 
-    async renderSlot({ slot, template, data }, dir) {
-        console.log(`Rendering slot: ${slot}, template: ${template}, data:`, data);
+    async renderSlot({ slot, template, data, placement }, dir) {
+        console.log(`Rendering slot: ${slot}, template: ${template}, data:`, data, `placement: ${placement}`);
         const slotElement = document.getElementById(slot); // Use getElementById for IDs
         if (!slotElement) {
             console.error('Slot element missing:', slot);
             return;
         }
-
-        const dataElements = Array.isArray(data) ? data : [data];
-        const dataPromises = dataElements.map(async dataElement => {
-            const sources = Array.isArray(dataElement.sources) ? dataElement.sources : [dataElement.sources].filter(Boolean);
-
-            const sourcesPromises = sources.map(source => {
-                if (source && source.source) {
-                    return this.fetchMarkdownWithFrontmatter(`${dir}/${source.source}`, source.content_name);
-                }
-                console.warn("Skipping undefined source:", source);
-                return Promise.resolve({});
+    
+        let finalData = [];
+        
+        // Only process data if it exists
+        if (data) {
+            const dataElements = Array.isArray(data) ? data : [data];
+            const dataPromises = dataElements.map(async dataElement => {
+                if (!dataElement) return {};
+                
+                const sources = Array.isArray(dataElement.sources) ? 
+                    dataElement.sources : 
+                    (dataElement.sources ? [dataElement.sources] : []).filter(Boolean);
+    
+                const sourcesPromises = sources.map(source => {
+                    if (source && source.source) {
+                        return this.fetchMarkdownWithFrontmatter(`${dir}/${source.source}`, source.content_name);
+                    }
+                    console.warn("Skipping undefined source:", source);
+                    return Promise.resolve({});
+                });
+    
+                const sourcesData = await Promise.all(sourcesPromises);
+                return Object.assign(dataElement, ...sourcesData);
             });
-
-            const sourcesData = await Promise.all(sourcesPromises);
-            return Object.assign(dataElement, ...sourcesData);
-        });
-
-        const finalData = await Promise.all(dataPromises);
+    
+            finalData = await Promise.all(dataPromises);
+        }
+    
+        // Fetch the template and render it, even if finalData is empty
         const templateHtml = template ? await this.fetchFile(`./templates/${template}`) : '';
         const rendered = Mustache.render(templateHtml, { data: finalData });
-
-        console.log({finalData});
+    
+        console.log({finalData, templateHtml, rendered}); // Debug log
         
-        slotElement.innerHTML = rendered;
+        // Handle different placement options
+        switch (placement) {
+            case 'prepend':
+                slotElement.insertAdjacentHTML('afterbegin', rendered);
+                break;
+            case 'append':
+                slotElement.insertAdjacentHTML('beforeend', rendered);
+                break;
+            default:
+                // Default behavior (replace)
+                slotElement.innerHTML = rendered;
+        }
     }
 
     async fetchMarkdownWithFrontmatter(sourceUrl, contentName) {

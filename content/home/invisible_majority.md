@@ -1,7 +1,7 @@
 ---
 summary_title: "The Invisible Majority of Autistic Adults"
 summary_text: "Autism is lifelong. Support and research haven't been. We are just starting to learn what successful adulthood looks like for autistic people."
-thumbnail_image: "images/thumbnails/iacc_autism_research_funding_by_category_2008-2020_1200x750_thumbnail.jpg"
+thumbnail_image: "images/iacc_autism_research_funding_thumbnail_250x250.png"
 thumbnail_alt_text: "some text"
 main_image: "images/iacc_autism_research_funding_by_category_2008-2020_1200x750.png"
 main_image_alt_text: "Plot of autism research funding by category from 2010 to 2020. Data from the IACC."

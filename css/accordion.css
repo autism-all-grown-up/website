@@ -37,7 +37,7 @@
 }
 
 .accordion details[open] {
-    max-width: 1200px;
+    max-width: 95%;
     transition: max-width 0.5s ease;
     border: 1px solid #333;
 }
@@ -71,20 +71,112 @@ details[open]>*:not(summary) {
 }
 
 
-/* Accordion summary */
+/* Consolidated accordion summary styles */
 .accordion summary {
-    /* font-family: 'Merriweather', serif; */
     font-size: 1.2rem;
     font-weight: bold;
     padding: 0.5rem 1.5rem;
     display: grid;
     grid-template-columns: auto 1fr auto;
-    align-items: center;
+    /* Use fixed heights instead of min-content */
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "icon title image"
+        "icon text image";
+    /* Remove align-items which can cause issues */
+    align-content: start;
     cursor: pointer;
     transition: background-color 0.5s ease;
-    line-height: 1.4;
+    /* line-height: 1.2; */
     column-gap: 0.3rem;
+    row-gap: 0;
     scroll-margin-top: 0rem;
+}
+
+/* Title styles - top aligned */
+.accordion summary h2 {
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    padding: 0;
+    /* margin-bottom: 0.1em; Small controlled space below title */
+    font-size: 1.5rem;
+    line-height: 1.2em;
+    color: var(--main-color);
+    font-weight: 700;
+    grid-area: title;
+    /* Use align-self without !important */
+    align-self: start;
+}
+
+/* Summary text styles - directly below title */
+.accordion summary p, 
+.accordion summary p.summary-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    /* Remove top margin */
+    margin: 0;
+    padding: 0.5rem 0 0 0;
+    grid-area: text;
+    /* Use align-self without !important */
+    align-self: start;
+    font-weight: 500;
+    line-height: 1.2em;
+    /* Set a specific height constraint */
+    max-height: none;
+    height: auto;
+}
+
+/* Thumbnail styles - top aligned */
+.accordion summary img {    
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+    margin-left: 0.5rem;
+    border: 1px solid black;
+    grid-area: image;
+    align-self: start !important; /* Force top alignment */
+    margin-top: 0;
+}
+
+/* Consolidated icon styles - top aligned with title */
+.accordion details summary::before {
+    grid-area: icon;
+    align-self: start;
+    margin-top: 0.4rem;
+    display: inline-block;
+    padding: 0;
+    margin-right: 1em;
+    font-size: 1.5rem;
+    color: var(--main-color);
+}
+
+/* Accordion state styles - these don't need consolidation */
+.accordion details:not([open]) summary::before {
+    content: '▶';
+}
+
+.accordion details[open] summary::before {
+    content: '▼';
+}
+
+.accordion details[open] summary {
+    background-color: #a05e8f;
+    background-image: linear-gradient(to bottom right, #a05e8f, #d8743a);
+}
+
+.accordion details[open] summary:hover {
+    background-color: #cfaec7;
+    background-image: linear-gradient(to bottom right, #cfaec7, #ebb99d);
+}
+
+.accordion details:not([open]):hover summary {
+    background-color: #a05e8f;
+    background-image: linear-gradient(to bottom right, #a05e8f, #d8743a);
+}
+
+/* Hide the thumbnail when details are open */
+.accordion details[open] summary img {
+    visibility: hidden;
 }
 
 .summary-icon {
@@ -106,76 +198,6 @@ details[open]>*:not(summary) {
 
 .close-details:hover, .close-details:active {
     color: var(--accent-color-2);
-}
-
-.accordion details summary::before {
-    /* content: '▶'; */
-    display: inline-block;
-    padding: 0;
-    margin-right: 1em;
-    font-size: 1.5rem;
-    color: var(--main-color);
-}
-
-/* Closed marker */
-.accordion details:not([open]) summary::before {
-    content: '▶';
-}
-
-/* Open marker */
-.accordion details[open] summary::before {
-    content: '▼';
-}
-
-.accordion details[open] summary {
-    background-color: #a05e8f;
-    background-image: linear-gradient(to bottom right, #a05e8f, #d8743a);
-}
-
-.accordion details[open] summary:hover {
-    background-color: #cfaec7;
-    background-image: linear-gradient(to bottom right, #cfaec7, #ebb99d);
-}
-
-.accordion details:not([open]):hover summary {
-    background-color: #a05e8f;
-    background-image: linear-gradient(to bottom right, #a05e8f, #d8743a);
-}
-
-
-/* Summary text */
-.accordion summary p {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.2rem;
-    margin: 0;
-    grid-column: 2;
-    align-self: start;
-    font-weight: 500;
-}
-
-.accordion summary h2 {
-    font-family: 'Merriweather', serif;
-    margin: 0;
-    font-size: 1.5rem;
-    line-height: 1.5em;
-    color: var(--main-color);
-    font-weight: 700;
-}
-
-/* Accordion summary thumbnail */
-.accordion summary img {
-    width: 164px;
-    height: auto;
-    object-fit: cover;
-    margin-left: 0.5rem;
-    border: 1px solid black;
-    grid-column: 3;
-    align-self: center;
-}
-
-/* Hide the thumbnail when details are open */
-.accordion details[open] summary img {
-    visibility: hidden;
 }
 
 /* Accordion details content */
@@ -291,6 +313,10 @@ details[open]>*:not(summary) {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "image"
+            "text"
+            "icon";
         text-align: center;
         padding: 0;
         margin: 0;
@@ -301,8 +327,7 @@ details[open]>*:not(summary) {
 
     .summary-icon {
         display: revert;
-        grid-column: 1;
-        grid-row: 3;
+        grid-area: icon;
         justify-self: center;
         color: var(--hover-1);
         margin: 0.5rem 0;
@@ -314,7 +339,7 @@ details[open]>*:not(summary) {
     .accordion summary img {
         width: 100%;
         /* max-width: 164px; */
-        grid-column: 1;
+        grid-area: image;
         /* Move the image to the top */
         grid-row: 1;
         /* margin: 1rem auto 1.5rem auto; */
@@ -329,9 +354,7 @@ details[open]>*:not(summary) {
     }
 
     .accordion .summary-text {
-        grid-column: 1;
-        /* Move text below the image */
-        grid-row: 2;
+        grid-area: text;
         margin: 1em 1em 0em 1em;
         /* Tighten space below the text */
         font-size: 1.4rem;

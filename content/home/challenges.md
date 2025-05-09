@@ -1,12 +1,12 @@
 ---
 summary_title: "Autism is all grown up now..."
 summary_text: "and it isn't always pretty. Autistic adults face a multitude of significant, endemic challenges. Late diagnosed adults have gone their entire lives without supports or knowledge that might have helped them."
-thumbnail_image: "images/thumbnails/gorkon_800_thumbnail.jpg"
+thumbnail_image: "images/gorkon_thumbnail_250x250.png"
 thumbnail_alt_text: "Thumbnail: Dr. Bones McCoy trying to save Klingon General Gorkon in the Star Trek movie _The Undiscovered Country_"
 main_image: "images/gorkon_800.png"
 main_image_alt_text: "Dr. Bones McCoy trying to save Klingon General Gorkon in the Star Trek movie _The Undiscovered Country_."
 ---
-
+## The Challenges
 ## A Partial List
 - **Work/Life:** Landing and keeping a job is often an uphill battle. Many find themselves unemployed or in roles that  don't tap their potential. Hiring processes and workplace environments frequently clash with autistic needs, creating frustrating barriers.
 - **Health care hurdles:** Medical settings can be overwhelming sensory minefields. Many doctors struggle to connect with autistic patients, leading to misunderstandings and subpar care. Getting diagnosed as an adult? It's a long, winding road that can delay access to crucial support.

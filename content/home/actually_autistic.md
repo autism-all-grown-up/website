@@ -1,7 +1,7 @@
 ---
 summary_title: "Actually Autistic People Have Awesome Skillz"
 summary_text: "The autistic community has the talent and ability to create solutions NOW. \"Actually Autistic\" adults are not what you see on TV."
-thumbnail_image: "images/thumbnails/autism_spectrum_thumbnail.jpg"
+thumbnail_image: "images/autism_spectrum.jpeg"
 thumbnail_alt_text: "Autism Spectrum thumbnail"
 main_image: "images/autism_spectrum.jpeg"
 main_image_alt_text: "autism_spectrum.jpeg"
