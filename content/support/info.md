@@ -12,7 +12,7 @@ Funding for disability services, diversity initiatives, and foundational researc
 
 **_Without individual donations, we simply won’t be able to continue this work._**
 
-Your support helps us keep moving forward. Autism All Grown Up is a 501(c)(3) nonprofit, and all donations are tax-deductible.
+Your support helps us keep moving forward. Autism All Grown Up operates under fiscal sponsorship by [Cascade Pacific RC&D](https://cascadepacific.org/), 501(c)(3) nonprofit. All donations are tax-deductible.
 
 <div id="donate-button-container" data-hosted-button-id="T36ZA62J7TQS2">
   <div id="donate-button"></div>
